@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EkseemMaarNet.MainPage"
+             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
+             BackgroundImageSource="wallpaper.jpg">
+    <Grid
+        RowDefinitions=".10*, *"
+        ColumnDefinitions="*"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Grid Grid.Row="0" BackgroundColor="White" ColumnDefinitions=".10*, .22*, .58*, .10*" >
+            
+                <Image Source="leaf_forestgreen.png" Margin="15" Grid.Column="1"/>
+            <Label Text="EKSEEM MAAR NET"
+                   FontSize="27"
+                   FontAttributes="Bold"
+                   TextColor="ForestGreen"
+                   VerticalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center" Grid.Column="2"/>
+        </Grid>
+        <Grid 
+            Padding="0,20,0,0"
+            RowDefinitions=".25*, .25*, .25*, .25*"
+            ColumnDefinitions=".33*, .33*, .33*"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Grid.Row="1"
+            Grid.Column="0">
+
+            <!-- Row 0 -->
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="0">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Main Factors" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding mainFactorsCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png"  HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Wonder Cures" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="2">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Treatment" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Row 1 -->
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="0">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Remedies" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Supplements" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="2">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Causes" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Row 2 -->
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Beverages" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Food" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="2">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Water" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Row 3 -->
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="0">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Clothing" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Health" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame BorderColor="Transparent" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="2">
+                <VerticalStackLayout Margin="-10">
+                    <Image Source="leaf.png" HeightRequest="80" Margin="0" />
+                    <Label Margin="10" Text="Motivation and Affirmations" FontSize="16" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </Grid>
+    </Grid>
+    
+
+</ContentPage>
