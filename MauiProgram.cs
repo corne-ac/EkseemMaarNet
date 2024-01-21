@@ -19,8 +19,11 @@ namespace EkseemMaarNet
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
-            builder.Services.AddSingleton<MainFactorsPage>();
-            builder.Services.AddSingleton<MainFactorsViewModel>();
+            builder.Services.AddTransient<MainFactorsPage>();
+            builder.Services.AddTransient<MainFactorsViewModel>();
+
+            builder.Services.AddTransient<GlossaryPage>();
+            builder.Services.AddTransient<GlossaryViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();

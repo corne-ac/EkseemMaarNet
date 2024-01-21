@@ -17,5 +17,11 @@ namespace EkseemMaarNet.ViewModels
             await Shell.Current.GoToAsync(nameof(MainFactorsPage));
         }
 
+        [RelayCommand]
+        async Task glossary()
+        {
+            await Shell.Current.GoToAsync(nameof(GlossaryPage));
+        }
+
     }
 }

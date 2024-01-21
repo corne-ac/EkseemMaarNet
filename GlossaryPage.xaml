@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EkseemMaarNet.GlossaryPage"
+             Title="GlossaryPage"
+             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
+             x:DataType="viewmodel:GlossaryViewModel"
+             BackgroundImageSource="wallpaper.jpg">
+    <Grid RowDefinitions="auto, auto, auto, auto, auto, *, auto" ColumnDefinitions="auto">
+        <HorizontalStackLayout Margin="10,40,0,0" HorizontalOptions="Center" Grid.Row="0">
+            <Image Source="sprout_white.png" Margin="10" HeightRequest="50"/>
+            <Label Text="Glossary"
+                   FontSize="30"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" Grid.Row="1">
+            <Label Text="HHF - "
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="High Histamine Foods"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" Grid.Row="2">
+            <Label Text="BO - "
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="Best options, highly recommended"
+                   
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" Grid.Row="3">
+            <Label Text="AEH - "
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="Anti Eczema Habits to Highly Avoid"
+                   MaximumWidthRequest="300"
+                   LineBreakMode="WordWrap"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" Grid.Row="4">
+            <Label Text="HBUC - "
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            <Label Text="Highly biological underlying cause"
+                   LineBreakMode="WordWrap"
+                   MaximumWidthRequest="300"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <Frame Background="DarkGreen" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="6">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="leaf.png" Margin="0,0,10,0" HeightRequest="30"/>
+                <Label Text="EKSEEM MAAR NET"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding homeCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>
