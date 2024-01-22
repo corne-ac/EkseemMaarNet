@@ -25,6 +25,9 @@ namespace EkseemMaarNet
             builder.Services.AddTransient<GlossaryPage>();
             builder.Services.AddTransient<GlossaryViewModel>();
 
+            builder.Services.AddTransient<WonderCuresPage>();
+            builder.Services.AddTransient<WonderCuresViewModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

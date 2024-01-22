@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EkseemMaarNet.WonderCuresPage"
+             Title="WonderCuresPage"
+             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
+             x:DataType="viewmodel:WonderCuresViewModel"
+             BackgroundImageSource="wallpaper.jpg">
+    <Grid RowDefinitions=".10*, *, auto">
+        <!-- Title -->
+        <HorizontalStackLayout Margin="10,10,0,0">
+            <Image Source="sprout_white.png" Margin="0"/>
+            <Label Text="Wonder Cures"
+               FontSize="25"
+               VerticalOptions="Center"
+               TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <Frame Margin="20,20,20,10" 
+           BorderColor="Transparent"
+           BackgroundColor="White"
+           Grid.Row="1"
+           CornerRadius="20">
+            <VerticalStackLayout HorizontalOptions="Fill" Spacing="20">
+                <Image Source="sprout_forestgreen.png" Margin="0,0,0,20" HeightRequest="70" WidthRequest="70" HorizontalOptions="Start"/>
+
+                <Grid ColumnDefinitions="*, .20*" RowDefinitions="auto" HorizontalOptions="Fill">
+                    <Label Text="Dupilumab Injections&#10;Find out more"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="25">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Dupilumab " FontAttributes="Bold" TextColor="Gray"/>
+                                <Span Text="Injections&#10;Find out more" TextColor="Gray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ImageButton Source="arrow_right_forestgreen.png" Grid.Column="1" HeightRequest="50" Command="{Binding openUrlCommand}" CommandParameter="https://www.dupixent.com/"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="*, .20*" RowDefinitions="auto" HorizontalOptions="Fill">
+                    <Label Text="Dupilumab Injections&#10;Find out more"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="25">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Dupixent " FontAttributes="Bold" TextColor="Gray"/>
+                                <Span Text="Injections&#10;Find out more" TextColor="Gray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ImageButton Source="arrow_right_forestgreen.png" Grid.Column="1" HeightRequest="50" Command="{Binding openUrlCommand}" CommandParameter="https://www.dupixent.com/"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="*, .20*" RowDefinitions="auto" HorizontalOptions="Fill">
+                    <Label Text="Dupilumab Injections&#10;Find out more"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="25">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Cibinqo " FontAttributes="Bold" TextColor="Gray"/>
+                                <Span Text="Oral Medication&#10;Find out more" TextColor="Gray"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ImageButton Source="arrow_right_forestgreen.png" Grid.Column="1" HeightRequest="50" Command="{Binding openUrlCommand}" CommandParameter="https://www.cibinqo.com/"/>
+                </Grid>
+
+
+
+
+            </VerticalStackLayout>
+        </Frame>
+        <Frame Background="DarkGreen" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="2">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="leaf.png" Margin="0,0,10,0" HeightRequest="30"/>
+                <Label Text="EKSEEM MAAR NET"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            </HorizontalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding homeCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>

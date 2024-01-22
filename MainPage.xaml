@@ -50,7 +50,7 @@
                     <Label Margin="10" Text="Wonder Cures" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 </VerticalStackLayout>
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Command="{Binding wonderCuresCommand}"/>
                 </Frame.GestureRecognizers>
             </Frame>
 
