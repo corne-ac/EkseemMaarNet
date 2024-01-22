@@ -74,7 +74,7 @@
         </Frame>
         <Frame Background="DarkGreen" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="2">
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Image Source="leaf.png" Margin="0,0,10,0" HeightRequest="30"/>
+                <Image Source="logo_white.svg" Margin="0,0,10,0" HeightRequest="30"/>
                 <Label Text="EKSEEM MAAR NET"
                    FontSize="20"
                    VerticalOptions="Center"

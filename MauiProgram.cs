@@ -12,8 +12,8 @@ namespace EkseemMaarNet
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-NanumGothic-Regular.ttf", "NanumGothicRegular");
-                    fonts.AddFont("NanumGothic-Bold.ttf", "NanumGothicBold");
+                    fonts.AddFont("Oswald-Regular.ttf", "OswaldRegular");
+                    fonts.AddFont("Oswald-SemiBold.ttf", "OswaldSemiBold");
                 });
 
             builder.Services.AddSingleton<MainPage>();

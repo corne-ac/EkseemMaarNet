@@ -6,8 +6,9 @@
              xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
              x:DataType="viewmodel:GlossaryViewModel"
              BackgroundImageSource="wallpaper.jpg">
+
     <Grid RowDefinitions="auto, auto, auto, auto, auto, *, auto" ColumnDefinitions="*">
-        <VerticalStackLayout Grid.Row="0" HorizontalOptions="StartAndExpand">
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center">
             <HorizontalStackLayout Margin="10,40,0,0" HorizontalOptions="Center">
                 <Image Source="sprout_white.png" Margin="10" HeightRequest="50"/>
                 <Label Text="Glossary"
@@ -16,32 +17,34 @@
                        TextColor="White"/>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand">
+            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="FillAndExpand">
                 <Label Text="HHF - "
                        FontSize="25"
                        FontAttributes="Bold"
                        VerticalOptions="Center"
-                       TextColor="White"/>
+                       TextColor="White"
+                       Grid.Column="0"/>
                 <Label Text="High Histamine Foods"
                        FontSize="20"
                        VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
+                       TextColor="White"
+                       Grid.Column="1"/>
+            </Grid>
 
-            <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand">
+            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand">
                 <Label Text="BO - "
                        FontSize="25"
                        FontAttributes="Bold"
                        VerticalOptions="Center"
                        TextColor="White"/>
                 <Label Text="Best options, highly recommended"
-           
+                        Grid.Column="1"
                        FontSize="20"
                        VerticalOptions="Center"
                        TextColor="White"/>
-            </HorizontalStackLayout>
+            </Grid>
 
-            <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
+            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
                 <Label Text="AEH - "
                         FontSize="25"
                         FontAttributes="Bold"
@@ -51,10 +54,11 @@
                        LineBreakMode="WordWrap"
                        FontSize="20"
                        VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
+                       TextColor="White"
+                       Grid.Column="1"/>
+            </Grid>
 
-            <HorizontalStackLayout Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
+            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
                 <Label Text="HBUC - "
                        FontSize="25"
                        FontAttributes="Bold"
@@ -63,14 +67,15 @@
                 <Label Text="Highly biological underlying cause"
                        FontSize="20"
                        VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
+                       TextColor="White"
+                       Grid.Column="1"/>
+            </Grid>
 
         </VerticalStackLayout>
-        
-        <Frame Background="DarkGreen" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="6">
+
+        <Frame Background="#155634" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="6">
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Image Source="leaf.png" Margin="0,0,10,0" HeightRequest="30"/>
+                <Image Source="logo_white.svg" Margin="0,0,10,0" HeightRequest="30"/>
                 <Label Text="EKSEEM MAAR NET"
                        FontSize="20"
                        VerticalOptions="Center"
