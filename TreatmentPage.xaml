@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EkseemMaarNet.TreatmentPage"
+             Title="TreatmentPage"
+             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
+             x:DataType="viewmodel:TreatmentViewModel"
+             BackgroundImageSource="wallpaper.png">
+    <Grid RowDefinitions=".10*, *, auto">
+        <!-- Title -->
+        <HorizontalStackLayout Margin="10,10,0,0">
+            <Image Source="sprout_white.png" Margin="0"/>
+            <Label Text="Main Contributing Factors"
+                   FontSize="25"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <Frame Margin="20,20,20,10" 
+           BorderColor="Transparent"
+           BackgroundColor="White"
+           Grid.Row="1"
+           CornerRadius="20">
+            <VerticalStackLayout HorizontalOptions="StartAndExpand">
+                <Grid ColumnDefinitions=".20*,*" >
+                    <Image Source="sprout_forestgreen.png" Margin="0,0,0,20" HorizontalOptions="Start"/>
+                    <Label  TextType="Html"
+                            FontSize="16"
+                            LineBreakMode="WordWrap"
+                            LineHeight="2"
+                            TextColor="Gray"
+                            Grid.Column="1">
+                        <![CDATA[
+                        <b>Behavioral</b>
+                        <br/>
+                         <ul>
+                          <li>Don't scratch & avoid touching</li>
+                          <li>Use spikey roller ball/silk mittens</li>
+                          <li>Wear silky or baggy clothes</li>
+                          <li>Be gentle</li>
+                        </ul>
+                        ]]>
+                    </Label>
+                </Grid>
+                
+                <!-- Text -->
+                <Label
+                    TextType="Html"
+                    FontSize="16"
+                    TextColor="Gray"
+                    Padding="0,0,0,10">
+                    <![CDATA[
+                    <b>External</b>
+                    <p>Ultraviolet Radiation</p>
+                    <p>Dust mite covers for pillows and mattress</p>
+                    <p>Rooibos or Dead Sea Salts on skin / in bath</p>
+                    <p>Tea Tree Oil in bath</p>
+                    ]]>
+                </Label>
+
+                <Label
+                    TextType="Html"
+                    FontSize="16"
+                    TextColor="Gray">
+                    <![CDATA[
+                        <b>Holistic</b>
+                    ]]>
+                </Label>
+                <Grid ColumnDefinitions="*,*,auto">
+                    
+                
+                    
+                    <Label
+                        TextType="Html"
+                        FontSize="16"
+                        TextColor="Gray"
+                        Padding="0,0,0,10"
+                        Grid.Column="0">
+                        <![CDATA[
+                            <p>Diet</p>
+                            <p>Sleep</p>
+                            <p>Supplements</p>
+                        ]]>
+                    </Label>
+                    <Label
+                        TextType="Html"
+                        FontSize="16"
+                        TextColor="Gray"
+                        Padding="0,0,0,10"
+                        Grid.Column="1">
+                        <![CDATA[
+                            <p>Meditation</p>
+                            <p>Relaxation</p>
+                        ]]>
+                    </Label>
+                    <Label
+                        TextType="Html"
+                        FontSize="16"
+                        TextColor="Gray"
+                        Padding="0,0,0,10"
+                        Grid.Column="2">
+                        <![CDATA[
+                            <p>Exercise</p>
+                            <p>Water</p>
+                        ]]>
+                    </Label>
+                    
+                </Grid>
+
+                <Label
+                    TextType="Html"
+                    FontSize="16"
+                    TextColor="Gray"
+                    Padding="0,0,0,10">
+                    <![CDATA[
+                        <b>Symptomatic</b>
+                        <p>Coal Tar for itching</p>
+                        <p>Anti Histamine</p>
+                    ]]>
+                </Label>
+                
+                <Label
+                    TextType="Html"
+                    FontSize="16"
+                    TextColor="Gray"
+                    Padding="0,0,0,10">
+                    <![CDATA[
+                        <b>Create Moisture Barrier</b>
+                        <p>Moisturizers – Emollients</p>
+                        <p>Anti Inflammatory Ointment</p>
+                        <p>Corticosteroids (use very limited, only in severe cases)</p>
+                    ]]>
+                </Label>
+
+
+
+
+
+            </VerticalStackLayout>
+        </Frame>
+        <Frame Background="#155634" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="2">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="logo_white.svg" Margin="0,0,10,0" HeightRequest="30"/>
+                <Label Text="EKSEEM MAAR NET"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+            </HorizontalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding homeCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -10,6 +10,7 @@
             Routing.RegisterRoute(nameof(MainFactorsPage), typeof(MainFactorsPage));
             Routing.RegisterRoute(nameof(GlossaryPage), typeof(GlossaryPage));
             Routing.RegisterRoute(nameof(WonderCuresPage), typeof(WonderCuresPage));
+            Routing.RegisterRoute(nameof(TreatmentPage), typeof(TreatmentPage));
         }
     }
 }

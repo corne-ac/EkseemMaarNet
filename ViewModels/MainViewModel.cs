@@ -29,5 +29,11 @@ namespace EkseemMaarNet.ViewModels
             await Shell.Current.GoToAsync(nameof(WonderCuresPage));
         }
 
+        [RelayCommand]
+        async Task treatment()
+        {
+            await Shell.Current.GoToAsync(nameof(TreatmentPage));
+        }
+
     }
 }
