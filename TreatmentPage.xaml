@@ -10,7 +10,7 @@
         <!-- Title -->
         <HorizontalStackLayout Margin="10,10,0,0">
             <Image Source="sprout_white.png" Margin="0"/>
-            <Label Text="Main Contributing Factors"
+            <Label Text="Treatment"
                    FontSize="25"
                    VerticalOptions="Center"
                    TextColor="White"/>

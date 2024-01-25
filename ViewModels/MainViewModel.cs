@@ -35,5 +35,11 @@ namespace EkseemMaarNet.ViewModels
             await Shell.Current.GoToAsync(nameof(TreatmentPage));
         }
 
+        [RelayCommand]
+        async Task remedies()
+        {
+            await Shell.Current.GoToAsync(nameof(RemediesPage));
+        }
+
     }
 }

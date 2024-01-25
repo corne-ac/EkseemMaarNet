@@ -74,7 +74,7 @@
                     <Label Margin="10" Text="Remedies" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 </VerticalStackLayout>
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Command="{Binding remediesCommand}"/>
                 </Frame.GestureRecognizers>
             </Frame>
 

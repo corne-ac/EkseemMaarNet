@@ -31,6 +31,9 @@ namespace EkseemMaarNet
             builder.Services.AddTransient<TreatmentPage>();
             builder.Services.AddTransient<TreatmentViewModel>();
 
+            builder.Services.AddTransient<RemediesPage>();
+            builder.Services.AddTransient<RemediesViewModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
