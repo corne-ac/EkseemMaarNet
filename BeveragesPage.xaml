@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EkseemMaarNet.BeveragesPage"
+             Title="BeveragesPage"
+             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
+             x:DataType="viewmodel:BeveragesViewModel"
+             BackgroundImageSource="wallpaper.png">
+    <Grid RowDefinitions=".10*, *, auto" HorizontalOptions="Fill">
+        <!-- Title -->
+        <HorizontalStackLayout Margin="10,10,0,0">
+            <Image Source="sprout_white.png" Margin="0"/>
+            <Label Text="{Binding Title}" 
+                   x:Name="title"
+                   FontSize="25"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <!-- Content -->
+        <Frame Margin="20,20,20,10" 
+               BorderColor="Transparent"
+               BackgroundColor="White"
+               Grid.Row="1"
+               CornerRadius="20"
+               HorizontalOptions="FillAndExpand">
+            <Grid RowDefinitions="auto,*,.15*" HorizontalOptions="Center">
+                <Grid ColumnDefinitions=".25*,*" Grid.Row="0">
+                    <Image Source="sprout_forestgreen.png" Margin="0,0,10,20" VerticalOptions="Start" HorizontalOptions="Start"/>
+                    <Label  TextType="Html" Grid.Column="1"
+                            Text="{Binding Paragraph}"
+                            FontSize="18"
+                            LineBreakMode="WordWrap"
+                            LineHeight="2"
+                            TextColor="Gray"
+                            x:Name="paragraph"/>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="*, auto" Grid.Row="1">
+
+                    <Label  TextType="Html"
+                        FontSize="18"
+                        LineBreakMode="WordWrap"
+                        LineHeight="2"
+                        TextColor="Gray"
+                        Grid.Column="0"
+                        x:Name="leftColumn"
+                        Text="{Binding LeftColumn}"/>
+
+
+                    <Label  TextType="Html"
+                        FontSize="18"
+                        LineBreakMode="WordWrap"
+                        LineHeight="2"
+                        TextColor="Gray"
+                        Grid.Column="1"
+                        x:Name="RightColumn"
+                        Text="{Binding RightColumn}"/>
+
+                </Grid>
+
+                <!-- Two Buttons for navigation -->
+                <Grid ColumnDefinitions="auto,*,auto" Grid.Row="2" HorizontalOptions="FillAndExpand">
+                    <ImageButton Source="arrow_left_forestgreen.png" HeightRequest="50" Grid.Column="0" x:Name="leftButton" IsVisible="{Binding LeftVisible}" Command="{Binding previousCommand}"/>
+                    <ImageButton Source="arrow_right_forestgreen.png" Grid.Column="2" HeightRequest="50" x:Name="rightButton" IsVisible="{Binding RightVisible}" Command="{Binding nextCommand}"/>
+                </Grid>
+                
+
+            </Grid>
+        </Frame>
+        <Frame Background="#155634" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="2">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="logo_white.svg" Margin="0,0,10,0" HeightRequest="30"/>
+                <Label Text="EKSEEM MAAR NET"
+       FontSize="20"
+       VerticalOptions="Center"
+       TextColor="White"/>
+            </HorizontalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding homeCommand}"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </Grid>
+</ContentPage>

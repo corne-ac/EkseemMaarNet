@@ -41,5 +41,24 @@ namespace EkseemMaarNet.ViewModels
             await Shell.Current.GoToAsync(nameof(RemediesPage));
         }
 
+        [RelayCommand]
+        async Task supplements()
+        {
+            await Shell.Current.GoToAsync(nameof(SupplementsPage));
+        }
+
+        [RelayCommand]
+        async Task causes()
+        {
+            await Shell.Current.GoToAsync(nameof(CausesPage));
+        }
+
+        [RelayCommand]
+        async Task beverages()
+        {
+            await Shell.Current.GoToAsync(nameof(BeveragesPage));
+        }
+
+
     }
 }

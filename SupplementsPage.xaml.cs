@@ -2,9 +2,9 @@ using EkseemMaarNet.ViewModels;
 
 namespace EkseemMaarNet;
 
-public partial class RemediesPage : ContentPage
+public partial class SupplementsPage : ContentPage
 {
-	public RemediesPage(RemediesViewModel vm)
+	public SupplementsPage(SupplementsViewModel vm)
 	{
 		InitializeComponent();
 		BindingContext = vm;
