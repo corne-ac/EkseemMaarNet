@@ -64,30 +64,34 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="BeveragesPage.xaml">
+	  <MauiXaml Update="Views\BeveragesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="CausesPage.xaml">
+	  <MauiXaml Update="Views\CausesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="GlossaryPage.xaml">
+	  <MauiXaml Update="Views\GlossaryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MainFactorsPage.xaml">
+	  <MauiXaml Update="Views\MainFactorsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RemediesPage.xaml">
+	  <MauiXaml Update="Views\RemediesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SupplementsPage.xaml">
+	  <MauiXaml Update="Views\SupplementsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="TreatmentPage.xaml">
+	  <MauiXaml Update="Views\TreatmentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="WonderCuresPage.xaml">
+	  <MauiXaml Update="Views\WonderCuresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
 	</ItemGroup>
 
 </Project>
