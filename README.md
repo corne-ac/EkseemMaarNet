@@ -11,3 +11,9 @@ The Pages included in this app are:
 - Supplements
 - Treatments
 - Wonder Cures
+
+### Sources
+The information found inside this application has been sourced through personal research with family members.
+
+## Origin
+My brother has een suffering from eczema for his entire life. This application is to make it more easy for the rest of the family to support his condition by supplying an easy-to-understand source for what is and is not beneficial for his condition when it comes to most items we ingest. They could easily be doing shopping, open the app to quickly check if the product they are looking to purchase is okay for eczema or not.
