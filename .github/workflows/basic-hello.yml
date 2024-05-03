@@ -14,5 +14,5 @@ jobs:
         run: |
           echo "hello"
           echo "world"
-          echo "::debug::running on: ${{ matrix.os }}"
+          echo "running on: ${{ matrix.os }}"
     
