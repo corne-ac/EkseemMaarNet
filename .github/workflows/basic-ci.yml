@@ -17,7 +17,7 @@ on:
 # Customize with your own values here
 env:
   BUILD_CONFIGURATION: Release
-  DOTNET_VERSION: 8.0.x
+  DOTNET_VERSION: 9.0.x
   CSPROJ_TO_BUILD: EkseemMaarNet.csproj
 
 jobs:
