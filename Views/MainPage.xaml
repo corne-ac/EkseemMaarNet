@@ -24,11 +24,12 @@
         </BoxView>
 
         <Grid RowDefinitions="Auto,Auto,*"
-              SafeAreaEdges="Container"
-              MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+              SafeAreaEdges="Container">
+
+            <BoxView Style="{StaticResource HeaderShade}" Grid.RowSpan="2" />
 
             <!-- Brand bar (the original white bar, now a floating card) -->
-            <Border Grid.Row="0"
+            <Border Grid.Row="0" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                     Margin="16,10,16,0"
                     Padding="18,8"
                     StrokeThickness="0"
@@ -50,7 +51,7 @@
             </Border>
 
             <!-- Search: "is this OK for eczema?" -->
-            <VerticalStackLayout Grid.Row="1" Padding="16,14,16,6" Spacing="8">
+            <VerticalStackLayout Grid.Row="1" Padding="16,14,16,6" Spacing="8" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
                 <Label Text="Your family's quick guide to living with eczema"
                        Style="{StaticResource OnWallpaperText}"
                        HorizontalTextAlignment="Center" />
@@ -88,7 +89,7 @@
             </VerticalStackLayout>
 
             <!-- Category tiles -->
-            <CollectionView Grid.Row="2"
+            <CollectionView Grid.Row="2" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                             x:Name="Tiles"
                             Margin="16,0"
                             ItemsSource="{Binding Categories}"
@@ -98,7 +99,7 @@
                     <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.Header>
-                    <VerticalStackLayout Padding="0,8,0,10">
+                    <VerticalStackLayout Padding="0,30,0,10">
                         <!-- Today's affirmation (rotates daily from the Motivation page) -->
                         <Border Style="{StaticResource GlassPanel}" Padding="16,12"
                                 IsVisible="{Binding HasAffirmation}"
@@ -189,7 +190,7 @@
             </CollectionView>
 
             <!-- Search results -->
-            <CollectionView Grid.Row="2"
+            <CollectionView Grid.Row="2" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                             ItemsSource="{Binding Results}"
                             IsVisible="{Binding IsSearching}"
                             SelectionMode="None">
@@ -197,7 +198,7 @@
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.Header>
-                    <BoxView HeightRequest="6" Color="Transparent" />
+                    <BoxView HeightRequest="28" Color="Transparent" />
                 </CollectionView.Header>
                 <CollectionView.EmptyView>
                     <VerticalStackLayout Padding="24,40" Spacing="8" IsVisible="{Binding ShowNoResults}">
@@ -256,6 +257,7 @@
                     <BoxView HeightRequest="24" Color="Transparent" />
                 </CollectionView.Footer>
             </CollectionView>
+            <BoxView Grid.Row="2" Style="{StaticResource ScrollFade}" />
         </Grid>
 
         <!-- First-launch welcome: what this app is (and isn't) -->

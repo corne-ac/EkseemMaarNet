@@ -13,15 +13,15 @@
         <BoxView Color="{StaticResource Scrim}" />
 
         <Grid RowDefinitions="Auto,Auto,*"
-              SafeAreaEdges="Container"
-              MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+              SafeAreaEdges="Container">
 
-            <controls:PageHeader Title="Glossary"
+            <BoxView Style="{StaticResource HeaderShade}" Grid.RowSpan="2" />
+            <controls:PageHeader Title="Glossary" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                  Subtitle="Abbreviations and medical words used in the app"
                                  Glyph="{x:Static models:Icons.Book}"
                                  BackCommand="{Binding BackCommand}" />
 
-            <Border Grid.Row="1" Margin="16,0,16,12" Padding="14,2"
+            <Border Grid.Row="1" Margin="16,0,16,12" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Padding="14,2"
                     StrokeThickness="0" StrokeShape="RoundRectangle 16"
                     BackgroundColor="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
@@ -31,10 +31,13 @@
                 </Grid>
             </Border>
 
-            <CollectionView Grid.Row="2" x:Name="EntriesList" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
+            <CollectionView Grid.Row="2" x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
                 </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <BoxView HeightRequest="32" Color="Transparent" />
+                </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:GlossaryEntry">
                         <Border Style="{StaticResource Card}">
@@ -50,6 +53,7 @@
                     <BoxView HeightRequest="24" Color="Transparent" />
                 </CollectionView.Footer>
             </CollectionView>
+            <BoxView Grid.Row="2" Style="{StaticResource ScrollFade}" />
         </Grid>
     </Grid>
 </ContentPage>

@@ -13,13 +13,14 @@
         <BoxView Color="{StaticResource Scrim}" />
 
         <Grid RowDefinitions="Auto,*" SafeAreaEdges="Container">
+            <BoxView Style="{StaticResource HeaderShade}" />
             <controls:PageHeader Title="About"
                                  Subtitle="Why this app exists and how to read it"
                                  Glyph="{x:Static models:Icons.Info}"
                                  BackCommand="{Binding BackCommand}" />
 
             <ScrollView Grid.Row="1">
-                <VerticalStackLayout Padding="16,0,16,32" Spacing="14" MaximumWidthRequest="760">
+                <VerticalStackLayout Padding="16,24,16,32" Spacing="14" MaximumWidthRequest="760">
 
                     <Border Style="{StaticResource Card}">
                         <VerticalStackLayout Spacing="8">
@@ -72,6 +73,7 @@
                     </Border>
                 </VerticalStackLayout>
             </ScrollView>
+            <BoxView Grid.Row="1" Style="{StaticResource ScrollFade}" />
         </Grid>
     </Grid>
 </ContentPage>

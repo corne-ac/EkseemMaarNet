@@ -21,15 +21,15 @@
         </BoxView>
 
         <Grid RowDefinitions="Auto,*"
-              SafeAreaEdges="Container"
-              MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+              SafeAreaEdges="Container">
 
-            <controls:PageHeader Title="{Binding Title}"
+            <BoxView Style="{StaticResource HeaderShade}" />
+            <controls:PageHeader Title="{Binding Title}" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                  Subtitle="{Binding Subtitle}"
                                  Glyph="{Binding Glyph}"
                                  BackCommand="{Binding BackCommand}" />
 
-            <CollectionView Grid.Row="1"
+            <CollectionView Grid.Row="1" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                             x:Name="SectionsList"
                             Margin="16,0"
                             ItemsSource="{Binding Sections}"
@@ -40,7 +40,7 @@
 
                 <!-- Intro + filter chips -->
                 <CollectionView.Header>
-                    <VerticalStackLayout Padding="0,0,0,12" Spacing="12">
+                    <VerticalStackLayout Padding="0,24,0,12" Spacing="12">
                         <Label Text="{Binding Intro}"
                                Style="{StaticResource OnWallpaperText}"
                                FontSize="15"
@@ -210,6 +210,7 @@
                     </VerticalStackLayout>
                 </CollectionView.Footer>
             </CollectionView>
+            <BoxView Grid.Row="1" Style="{StaticResource ScrollFade}" />
         </Grid>
     </Grid>
 </ContentPage>
