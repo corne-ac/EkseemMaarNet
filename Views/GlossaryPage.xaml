@@ -15,7 +15,6 @@
         <Grid RowDefinitions="Auto,Auto,*"
               SafeAreaEdges="Container">
 
-            <BoxView Style="{StaticResource HeaderShade}" Grid.RowSpan="2" />
             <controls:PageHeader Title="Glossary" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                  Subtitle="Abbreviations and medical words used in the app"
                                  Glyph="{x:Static models:Icons.Book}"
@@ -31,29 +30,30 @@
                 </Grid>
             </Border>
 
-            <CollectionView Grid.Row="2" x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.Header>
-                    <BoxView HeightRequest="32" Color="Transparent" />
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:GlossaryEntry">
-                        <Border Style="{StaticResource Card}">
-                            <VerticalStackLayout Spacing="4">
-                                <Label Text="{Binding Term}" Style="{StaticResource SectionTitle}" FontSize="22" />
-                                <Label Text="{Binding Meaning}" Style="{StaticResource ItemName}" />
-                                <Label Text="{Binding Detail}" Style="{StaticResource Subtle}" IsVisible="{Binding HasDetail}" />
-                            </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                <CollectionView.Footer>
-                    <BoxView HeightRequest="24" Color="Transparent" />
-                </CollectionView.Footer>
-            </CollectionView>
-            <BoxView Grid.Row="2" Style="{StaticResource ScrollFade}" />
+            <controls:FadeHost Grid.Row="2">
+            <CollectionView x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView HeightRequest="4" Color="Transparent" />
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:GlossaryEntry">
+                            <Border Style="{StaticResource Card}">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Term}" Style="{StaticResource SectionTitle}" FontSize="22" />
+                                    <Label Text="{Binding Meaning}" Style="{StaticResource ItemName}" />
+                                    <Label Text="{Binding Detail}" Style="{StaticResource Subtle}" IsVisible="{Binding HasDetail}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="24" Color="Transparent" />
+                    </CollectionView.Footer>
+                </CollectionView>
+            </controls:FadeHost>
         </Grid>
     </Grid>
 </ContentPage>

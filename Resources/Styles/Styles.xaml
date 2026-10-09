@@ -89,37 +89,6 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
-    <!-- ===== Scroll edge under fixed headers =====
-         HeaderShade sits behind the header and deepens towards its bottom edge;
-         ScrollFade sits over the top of the scrolling list and fades back to clear.
-         Content scrolling up dims into the same tone the header ends on, so there is no hard cut line. -->
-
-    <Style x:Key="HeaderShade" TargetType="BoxView">
-        <Setter Property="InputTransparent" Value="True" />
-        <Setter Property="Background">
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#00062A16" Offset="0" />
-                <GradientStop Color="#40062A16" Offset="0.45" />
-                <GradientStop Color="#B3062A16" Offset="0.8" />
-                <GradientStop Color="#FF062A16" Offset="1" />
-            </LinearGradientBrush>
-        </Setter>
-    </Style>
-
-    <Style x:Key="ScrollFade" TargetType="BoxView">
-        <Setter Property="InputTransparent" Value="True" />
-        <Setter Property="VerticalOptions" Value="Start" />
-        <Setter Property="HeightRequest" Value="56" />
-        <Setter Property="Background">
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#FF062A16" Offset="0" />
-                <GradientStop Color="#C7062A16" Offset="0.2" />
-                <GradientStop Color="#59062A16" Offset="0.6" />
-                <GradientStop Color="#00062A16" Offset="1" />
-            </LinearGradientBrush>
-        </Setter>
-    </Style>
-
     <!-- ===== Surfaces ===== -->
 
     <Style x:Key="Card" TargetType="Border">
