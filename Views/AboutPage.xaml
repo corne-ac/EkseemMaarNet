@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EkseemMaarNet.ViewModels"
+             xmlns:models="clr-namespace:EkseemMaarNet.Models"
+             xmlns:controls="clr-namespace:EkseemMaarNet.Controls"
+             x:Class="EkseemMaarNet.Views.AboutPage"
+             x:DataType="vm:AboutViewModel"
+             SafeAreaEdges="None">
+
+    <Grid SafeAreaEdges="None">
+        <Image Source="wallpaper.jpg" Aspect="AspectFill" />
+        <BoxView Color="{StaticResource Scrim}" />
+
+        <Grid RowDefinitions="Auto,*" SafeAreaEdges="Container">
+            <controls:PageHeader Title="About"
+                                 Subtitle="Why this app exists and how to read it"
+                                 Glyph="{x:Static models:Icons.Info}"
+                                 BackCommand="{Binding BackCommand}" />
+
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Padding="16,0,16,32" Spacing="14" MaximumWidthRequest="760">
+
+                    <Border Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Our story" Style="{StaticResource SectionTitle}" />
+                            <Label Style="{StaticResource Body}"
+                                   Text="Ekseem Maar Net started as a family project. Our brother has lived with eczema his whole life, and we wanted one easy place to check what helps and what to avoid — in the shop, in the kitchen, or at the pharmacy." />
+                            <Label Style="{StaticResource Body}"
+                                   Text="Every page now shows a clear rating for each item, a short reason, and the sources it is based on." />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="How to read the ratings" Style="{StaticResource SectionTitle}" />
+                            <controls:RatingLegend />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Important" Style="{StaticResource SectionTitle}" />
+                            <Label Text="{Binding Disclaimer}" Style="{StaticResource Body}" />
+                            <Label Style="{StaticResource Subtle}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Information last reviewed: " />
+                                        <Span Text="{Binding LastReviewed}" FontFamily="OpenSansSemibold" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Need help now?" Style="{StaticResource SectionTitle}" />
+                            <Label Style="{StaticResource Body}"
+                                   Text="See a doctor urgently if eczema suddenly becomes very painful, weepy or crusted with punched-out sores, or comes with fever — this can be a skin infection such as eczema herpeticum." />
+                            <Label Style="{StaticResource Body}"
+                                   Text="Feeling low or overwhelmed? SADAG (South African Depression and Anxiety Group) offers free support — see the Motivation &amp; Affirmations page for contact details." />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource GlassPanel}" Padding="16,14">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Version}" FontSize="13" TextColor="White" />
+                            <Label Text="Icons: Fluent UI System Icons by Microsoft (MIT licence)." FontSize="12" TextColor="#CCFFFFFF" />
+                            <Label Text="Built with .NET MAUI." FontSize="12" TextColor="#CCFFFFFF" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

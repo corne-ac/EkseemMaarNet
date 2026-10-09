@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EkseemMaarNet.ViewModels"
+             xmlns:models="clr-namespace:EkseemMaarNet.Models"
+             xmlns:controls="clr-namespace:EkseemMaarNet.Controls"
+             x:Class="EkseemMaarNet.Views.CategoryPage"
+             x:DataType="vm:CategoryViewModel"
+             SafeAreaEdges="None">
+
+    <Grid SafeAreaEdges="None">
+        <Image Source="wallpaper.jpg" Aspect="AspectFill" />
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#B3062A16" Offset="0" />
+                    <GradientStop Color="#4D062A16" Offset="0.35" />
+                    <GradientStop Color="#B3062A16" Offset="1" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <Grid RowDefinitions="Auto,*"
+              SafeAreaEdges="Container"
+              MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+
+            <controls:PageHeader Title="{Binding Title}"
+                                 Subtitle="{Binding Subtitle}"
+                                 Glyph="{Binding Glyph}"
+                                 BackCommand="{Binding BackCommand}" />
+
+            <CollectionView Grid.Row="1"
+                            x:Name="SectionsList"
+                            Margin="16,0"
+                            ItemsSource="{Binding Sections}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+
+                <!-- Intro + filter chips -->
+                <CollectionView.Header>
+                    <VerticalStackLayout Padding="0,0,0,12" Spacing="12">
+                        <Label Text="{Binding Intro}"
+                               Style="{StaticResource OnWallpaperText}"
+                               FontSize="15"
+                               IsVisible="{Binding Intro, Converter={StaticResource IsNotEmpty}}" />
+
+                        <ScrollView Orientation="Horizontal"
+                                    HorizontalScrollBarVisibility="Never"
+                                    IsVisible="{Binding ShowFilters}">
+                            <HorizontalStackLayout Spacing="8" BindableLayout.ItemsSource="{Binding Filters}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:FilterChip">
+                                        <Border StrokeShape="RoundRectangle 999"
+                                                Stroke="{StaticResource GlassStroke}"
+                                                StrokeThickness="1"
+                                                BackgroundColor="{StaticResource GlassFill}"
+                                                Padding="16,8"
+                                                MinimumHeightRequest="40"
+                                                SemanticProperties.Description="{Binding Label, StringFormat='Filter: {0}'}">
+                                            <Border.Triggers>
+                                                <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                                    <Setter Property="BackgroundColor" Value="White" />
+                                                    <Setter Property="Stroke" Value="White" />
+                                                </DataTrigger>
+                                            </Border.Triggers>
+                                            <Label Text="{Binding Label}" FontFamily="OpenSansSemibold" FontSize="14" TextColor="White" VerticalOptions="Center">
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
+                                                        <Setter Property="TextColor" Value="{StaticResource ForestGreen}" />
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding SelectFilterCommand, Source={RelativeSource AncestorType={x:Type vm:CategoryViewModel}}}"
+                                                    CommandParameter="{Binding .}" />
+                                            </Border.GestureRecognizers>
+                                        </Border>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </HorizontalStackLayout>
+                        </ScrollView>
+                    </VerticalStackLayout>
+                </CollectionView.Header>
+
+                <!-- One white card per section -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:SectionView">
+                        <Border Style="{StaticResource Card}">
+                            <VerticalStackLayout Spacing="12">
+                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                    <Image Source="sprout_forestgreen.png" HeightRequest="26" WidthRequest="26" VerticalOptions="Center" />
+                                    <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource SectionTitle}"
+                                           VerticalOptions="Center" SemanticProperties.HeadingLevel="Level2" />
+                                </Grid>
+                                <Label Text="{Binding Intro}" Style="{StaticResource Body}" IsVisible="{Binding HasIntro}" />
+
+                                <VerticalStackLayout Spacing="14" BindableLayout.ItemsSource="{Binding Items}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate x:DataType="models:ContentItem">
+                                            <Grid ColumnDefinitions="26,*" ColumnSpacing="10">
+                                                <Label Text="{Binding RatingGlyph}"
+                                                       Style="{StaticResource Icon}"
+                                                       FontSize="22"
+                                                       VerticalOptions="Start"
+                                                       Margin="0,1,0,0"
+                                                       TextColor="{Binding RatingColor}"
+                                                       IsVisible="{Binding HasRating}" />
+                                                <Image Source="leaf_forestgreen.png" HeightRequest="16" WidthRequest="16"
+                                                       VerticalOptions="Start" Margin="0,4,0,0"
+                                                       IsVisible="{Binding HasRating, Converter={StaticResource InvertBool}}" />
+                                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                                    <Label Text="{Binding RatingLabel}"
+                                                           FontFamily="OpenSansSemibold"
+                                                           FontSize="11"
+                                                           CharacterSpacing="1"
+                                                           TextTransform="Uppercase"
+                                                           TextColor="{Binding RatingColor}"
+                                                           IsVisible="{Binding HasRating}" />
+                                                    <Label Text="{Binding Name}" Style="{StaticResource ItemName}" />
+                                                    <Label Text="{Binding Note}" Style="{StaticResource Subtle}" IsVisible="{Binding HasNote}" />
+                                                    <Label Text="{Binding TagText}"
+                                                           FontFamily="OpenSansSemibold"
+                                                           FontSize="12"
+                                                           Margin="0,2,0,0"
+                                                           TextColor="{AppThemeBinding Light={StaticResource EkseemGreen}, Dark={StaticResource AccentDark}}"
+                                                           IsVisible="{Binding HasTags}" />
+                                                    <Border StrokeShape="RoundRectangle 999"
+                                                            StrokeThickness="0"
+                                                            BackgroundColor="{StaticResource ForestGreen}"
+                                                            Padding="14,8"
+                                                            Margin="0,6,0,0"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding HasUrl}"
+                                                            SemanticProperties.Description="{Binding Name, StringFormat='Learn more about {0}'}">
+                                                        <HorizontalStackLayout Spacing="6">
+                                                            <Label Text="Learn more" FontFamily="OpenSansSemibold" FontSize="14" TextColor="White" VerticalOptions="Center" />
+                                                            <Label Text="{x:Static models:Icons.Open}" Style="{StaticResource Icon}" FontSize="16" TextColor="White" />
+                                                        </HorizontalStackLayout>
+                                                        <Border.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                Command="{Binding OpenLinkCommand, Source={RelativeSource AncestorType={x:Type vm:CategoryViewModel}}}"
+                                                                CommandParameter="{Binding Url}" />
+                                                        </Border.GestureRecognizers>
+                                                    </Border>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <!-- Sources + home button -->
+                <CollectionView.Footer>
+                    <VerticalStackLayout Padding="0,16,0,28" Spacing="16">
+                        <Border Style="{StaticResource GlassPanel}" Padding="16,14"
+                                IsVisible="{Binding HasSources}">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Where this comes from" FontFamily="OswaldRegular" FontSize="17" TextColor="White" />
+                                <VerticalStackLayout Spacing="6" BindableLayout.ItemsSource="{Binding Sources}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate x:DataType="models:SourceLink">
+                                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8" MinimumHeightRequest="32">
+                                                <Label Text="{x:Static models:Icons.Link}" Style="{StaticResource Icon}" FontSize="16" TextColor="#CCFFFFFF" VerticalOptions="Start" Margin="0,2,0,0" />
+                                                <Label Grid.Column="1" Text="{Binding Title}" FontSize="13" TextColor="White" TextDecorations="Underline" />
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Command="{Binding OpenLinkCommand, Source={RelativeSource AncestorType={x:Type vm:CategoryViewModel}}}"
+                                                        CommandParameter="{Binding Url}" />
+                                                </Grid.GestureRecognizers>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </VerticalStackLayout>
+                                <Label Text="General information only — always check with your doctor or pharmacist before changing treatment."
+                                       FontSize="12" TextColor="#B3FFFFFF" Margin="0,4,0,0" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- The original "EKSEEM MAAR NET" home button -->
+                        <Border Style="{StaticResource BrandButton}" SemanticProperties.Description="Home">
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="logo_white.png" HeightRequest="28" WidthRequest="28" />
+                                <Label Text="EKSEEM MAAR NET" Style="{StaticResource BrandTitle}" FontSize="18" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding HomeCommand}" />
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </VerticalStackLayout>
+                </CollectionView.Footer>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

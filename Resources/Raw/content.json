@@ -1,0 +1,30 @@
+{
+  "lastReviewed": "9 October 2026",
+  "disclaimer": "Ekseem Maar Net is general information put together by a family, not medical advice. Eczema differs from person to person — talk to your doctor, dermatologist or pharmacist before starting, stopping or changing any treatment.",
+  "categories": [
+    { "id": "main-factors", "title": "Main Contributing Factors", "tileTitle": "Main Factors", "subtitle": "What drives flares most", "icon": "ec91", "intro": "Placeholder intro text for layout testing. This will be replaced by the researched content.",
+      "sections": [ { "title": "Diet", "intro": "", "items": [
+        { "name": "Coffee", "note": "Placeholder note that is a bit longer to test wrapping across lines on a narrow phone.", "rating": "moderation", "tags": ["AEH"] },
+        { "name": "Water", "note": "Short note", "rating": "best", "tags": ["BO"] },
+        { "name": "Energy drinks", "note": "Sugar and caffeine", "rating": "avoid" },
+        { "name": "Dupilumab (Dupixent)", "note": "Biologic injection", "rating": "good", "url": "https://www.dupixent.com/" },
+        { "name": "Plain info", "note": "Info item" } ] },
+        { "title": "Other", "intro": "Text-only section intro.", "items": [] } ],
+      "sources": [ { "title": "NHS — Atopic eczema", "url": "https://www.nhs.uk/conditions/atopic-eczema/" } ] },
+    { "id": "wonder-cures", "title": "Wonder Cures", "subtitle": "Advanced treatments", "icon": "eb34", "intro": "", "sections": [], "sources": [] },
+    { "id": "treatment", "title": "Treatment", "subtitle": "", "icon": "f725", "intro": "", "sections": [], "sources": [] },
+    { "id": "remedies", "title": "Remedies", "subtitle": "", "icon": "f4d2", "intro": "", "sections": [], "sources": [] },
+    { "id": "supplements", "title": "Supplements", "subtitle": "", "icon": "f6f2", "intro": "", "sections": [], "sources": [] },
+    { "id": "causes", "title": "Causes & Triggers", "tileTitle": "Causes", "subtitle": "", "icon": "f86a", "intro": "", "sections": [], "sources": [] },
+    { "id": "beverages", "title": "Drinks & Beverages", "tileTitle": "Beverages", "subtitle": "", "icon": "e589", "intro": "", "sections": [], "sources": [] },
+    { "id": "food", "title": "Food", "subtitle": "", "icon": "eee9", "intro": "", "sections": [], "sources": [] },
+    { "id": "water", "title": "Water", "subtitle": "", "icon": "e591", "intro": "", "sections": [], "sources": [] },
+    { "id": "clothing", "title": "Clothing", "subtitle": "", "icon": "f06ea", "intro": "", "sections": [], "sources": [] },
+    { "id": "health", "title": "Health", "subtitle": "", "icon": "e702", "intro": "", "sections": [], "sources": [] },
+    { "id": "motivation", "title": "Motivation & Affirmations", "tileTitle": "Motivation", "subtitle": "", "icon": "e5d8", "intro": "", "sections": [], "sources": [] }
+  ],
+  "glossary": [
+    { "term": "HHF", "meaning": "High-histamine food", "detail": "" },
+    { "term": "BO", "meaning": "Best option", "detail": "" }
+  ]
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:EkseemMaarNet.Controls"
+             x:Class="EkseemMaarNet.Controls.PageHeader"
+             x:DataType="controls:PageHeader"
+             x:Name="Root">
+
+    <!-- Back · title/subtitle · category icon -->
+    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14" Padding="16,8,16,12">
+
+        <Border Style="{StaticResource IconButton}"
+                VerticalOptions="Start"
+                SemanticProperties.Description="Back"
+                SemanticProperties.Hint="Returns to the previous page">
+            <Label Text="{x:Static controls:PageHeader.BackGlyph}"
+                   Style="{StaticResource Icon}"
+                   TextColor="White"
+                   FontSize="22" />
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand, Source={x:Reference Root}}" />
+            </Border.GestureRecognizers>
+        </Border>
+
+        <VerticalStackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center">
+            <Label Text="{Binding Title, Source={x:Reference Root}}"
+                   Style="{StaticResource PageTitle}"
+                   SemanticProperties.HeadingLevel="Level1" />
+            <Label Text="{Binding Subtitle, Source={x:Reference Root}}"
+                   Style="{StaticResource OnWallpaperText}"
+                   IsVisible="{Binding Subtitle, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}" />
+        </VerticalStackLayout>
+
+        <Border Grid.Column="2"
+                Style="{StaticResource IconButton}"
+                WidthRequest="52" HeightRequest="52"
+                VerticalOptions="Start"
+                IsVisible="{Binding Glyph, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}">
+            <Label Text="{Binding Glyph, Source={x:Reference Root}}"
+                   Style="{StaticResource Icon}"
+                   TextColor="White"
+                   FontSize="28" />
+        </Border>
+    </Grid>
+</ContentView>
