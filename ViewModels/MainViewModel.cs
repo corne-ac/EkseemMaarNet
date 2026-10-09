@@ -28,6 +28,18 @@ public partial class MainViewModel(ContentService content) : ObservableObject
     [ObservableProperty]
     public partial string Disclaimer { get; set; } = "";
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasAffirmation))]
+    public partial string Affirmation { get; set; } = "";
+
+    public bool HasAffirmation => !string.IsNullOrWhiteSpace(Affirmation);
+
+    private const string WelcomeSeenKey = "welcome_v2_seen";
+
+    /// <summary>One-time welcome card explaining this is a family project, not a medical app.</summary>
+    [ObservableProperty]
+    public partial bool ShowWelcome { get; set; }
+
     public bool IsSearching => !string.IsNullOrWhiteSpace(SearchText);
     public bool ShowNoResults => IsSearching && !HasResults;
 
@@ -42,6 +54,32 @@ public partial class MainViewModel(ContentService content) : ObservableObject
 
         LastReviewed = library.LastReviewed;
         Disclaimer = library.Disclaimer;
+        Affirmation = PickDailyAffirmation(library);
+
+        ShowWelcome = !Preferences.Default.Get(WelcomeSeenKey, false);
+    }
+
+    // Same affirmation all day, a new one tomorrow.
+    private static string PickDailyAffirmation(ContentLibrary library)
+    {
+        var affirmations = library.Categories
+            .FirstOrDefault(c => c.Id == "motivation")?
+            .Sections.FirstOrDefault(s => s.Title.Contains("affirmation", StringComparison.OrdinalIgnoreCase))?
+            .Items;
+        return affirmations is { Count: > 0 }
+            ? affirmations[DateTime.Today.DayOfYear % affirmations.Count].Name
+            : "";
+    }
+
+    [RelayCommand]
+    private Task OpenMotivation() =>
+        Shell.Current.GoToAsync($"{nameof(CategoryPage)}?id=motivation");
+
+    [RelayCommand]
+    private void DismissWelcome()
+    {
+        Preferences.Default.Set(WelcomeSeenKey, true);
+        ShowWelcome = false;
     }
 
     partial void OnSearchTextChanged(string value) => _ = SearchAsync(value);

@@ -6,14 +6,13 @@ public static class Responsive
     /// <summary>Widest the reading column grows before it centres (keeps line length comfortable on iPads).</summary>
     public const double MaxContentWidth = 1100;
 
-    /// <summary>Home tiles: 2 columns on very narrow phones, 3 on phones, up to 5 on large tablets.</summary>
+    /// <summary>Home tiles: 2 columns on very narrow phones, 3 on phones, 4 on tablets (12 tiles = an even grid).</summary>
     public static int TileSpan(double width) => width switch
     {
         <= 0 => 3,
         < 340 => 2,
         < 600 => 3,
-        < 900 => 4,
-        _ => 5
+        _ => 4
     };
 
     /// <summary>Content cards: one column on phones, two side by side on tablets / landscape.</summary>

@@ -89,15 +89,30 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="vm:SectionView">
                         <Border Style="{StaticResource Card}">
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding IsAlert}" Value="True">
+                                    <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" />
+                                    <Setter Property="StrokeThickness" Value="2" />
+                                </DataTrigger>
+                            </Border.Triggers>
                             <VerticalStackLayout Spacing="12">
                                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                                    <Image Source="sprout_forestgreen.png" HeightRequest="26" WidthRequest="26" VerticalOptions="Center" />
+                                    <Image Source="{AppThemeBinding Light=sprout_forestgreen.png, Dark=sprout_white.png}" HeightRequest="26" WidthRequest="26" VerticalOptions="Center"
+                                           IsVisible="{Binding IsNormal}" />
+                                    <Label Text="{x:Static models:Icons.Warning}" Style="{StaticResource Icon}" FontSize="24"
+                                           TextColor="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" IsVisible="{Binding IsAlert}" />
                                     <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource SectionTitle}"
-                                           VerticalOptions="Center" SemanticProperties.HeadingLevel="Level2" />
+                                           VerticalOptions="Center" SemanticProperties.HeadingLevel="Level2">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding IsAlert}" Value="True">
+                                                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
                                 </Grid>
                                 <Label Text="{Binding Intro}" Style="{StaticResource Body}" IsVisible="{Binding HasIntro}" />
 
-                                <VerticalStackLayout Spacing="14" BindableLayout.ItemsSource="{Binding Items}">
+                                <VerticalStackLayout Spacing="14" BindableLayout.ItemsSource="{Binding Items}" IsVisible="{Binding HasItems}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate x:DataType="models:ContentItem">
                                             <Grid ColumnDefinitions="26,*" ColumnSpacing="10">
@@ -108,7 +123,7 @@
                                                        Margin="0,1,0,0"
                                                        TextColor="{Binding RatingColor}"
                                                        IsVisible="{Binding HasRating}" />
-                                                <Image Source="leaf_forestgreen.png" HeightRequest="16" WidthRequest="16"
+                                                <Image Source="{AppThemeBinding Light=leaf_forestgreen.png, Dark=leaf_white.png}" HeightRequest="16" WidthRequest="16"
                                                        VerticalOptions="Start" Margin="0,4,0,0"
                                                        IsVisible="{Binding HasRating, Converter={StaticResource InvertBool}}" />
                                                 <VerticalStackLayout Grid.Column="1" Spacing="2">
@@ -134,10 +149,10 @@
                                                             Margin="0,6,0,0"
                                                             HorizontalOptions="Start"
                                                             IsVisible="{Binding HasUrl}"
-                                                            SemanticProperties.Description="{Binding Name, StringFormat='Learn more about {0}'}">
+                                                            SemanticProperties.Description="{Binding LinkLabel}">
                                                         <HorizontalStackLayout Spacing="6">
-                                                            <Label Text="Learn more" FontFamily="OpenSansSemibold" FontSize="14" TextColor="White" VerticalOptions="Center" />
-                                                            <Label Text="{x:Static models:Icons.Open}" Style="{StaticResource Icon}" FontSize="16" TextColor="White" />
+                                                            <Label Text="{Binding LinkLabel}" FontFamily="OpenSansSemibold" FontSize="14" TextColor="White" VerticalOptions="Center" />
+                                                            <Label Text="{Binding LinkGlyph}" Style="{StaticResource Icon}" FontSize="16" TextColor="White" />
                                                         </HorizontalStackLayout>
                                                         <Border.GestureRecognizers>
                                                             <TapGestureRecognizer
@@ -177,7 +192,7 @@
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </VerticalStackLayout>
-                                <Label Text="General information only — always check with your doctor or pharmacist before changing treatment."
+                                <Label Text="Surface-level information from a family passion project, not medical advice. Always check with your doctor or pharmacist before changing treatment."
                                        FontSize="12" TextColor="#B3FFFFFF" Margin="0,4,0,0" />
                             </VerticalStackLayout>
                         </Border>

@@ -47,6 +47,8 @@ public sealed class ContentSection
 {
     public string Title { get; set; } = "";
     public string Intro { get; set; } = "";
+    /// <summary>"alert" renders the section as an urgent card (red outline, warning icon).</summary>
+    public string Style { get; set; } = "";
     public List<ContentItem> Items { get; set; } = [];
 
     [JsonIgnore]
@@ -69,6 +71,13 @@ public sealed class ContentItem
     [JsonIgnore] public Color RatingColor => RatingStyle.Colour(Rating);
     [JsonIgnore] public string RatingGlyph => RatingStyle.Glyph(Rating);
     [JsonIgnore] public string TagText => string.Join("  ·  ", Tags);
+    [JsonIgnore] public bool IsPhone => Url?.StartsWith("tel:", StringComparison.OrdinalIgnoreCase) == true;
+    [JsonIgnore] public string LinkLabel => IsPhone ? "Call " + FormatPhone(Url![4..]) : "Learn more";
+
+    // South African toll-free style: 0800 567 567. Short codes (10177) stay as they are.
+    private static string FormatPhone(string digits) =>
+        digits.Length == 10 ? $"{digits[..4]} {digits[4..7]} {digits[7..]}" : digits;
+    [JsonIgnore] public string LinkGlyph => IsPhone ? Icons.Call : Icons.Open;
 }
 
 public sealed class SourceLink
@@ -108,7 +117,12 @@ public static class RatingStyle
         _ => ""
     };
 
-    public static Color Colour(Rating r) => r switch
+    // Darker tones on white cards; lighter tones on the dark-mode cards so labels keep their contrast.
+    public static Color Colour(Rating r) => IsDark ? DarkColour(r) : LightColour(r);
+
+    private static bool IsDark => Application.Current?.RequestedTheme == AppTheme.Dark;
+
+    private static Color LightColour(Rating r) => r switch
     {
         Rating.Best => Color.FromArgb("#155634"),
         Rating.Good => Color.FromArgb("#3E7D33"),
@@ -119,11 +133,22 @@ public static class RatingStyle
         _ => Colors.Transparent
     };
 
+    private static Color DarkColour(Rating r) => r switch
+    {
+        Rating.Best => Color.FromArgb("#86D98F"),
+        Rating.Good => Color.FromArgb("#9BD08F"),
+        Rating.Ok => Color.FromArgb("#B5C7BA"),
+        Rating.Moderation => Color.FromArgb("#F2B84B"),
+        Rating.Caution => Color.FromArgb("#FFA163"),
+        Rating.Avoid => Color.FromArgb("#FF8A80"),
+        _ => Colors.Transparent
+    };
+
     public static string Glyph(Rating r) => r switch
     {
         Rating.Best => Icons.Star,
         Rating.Good => Icons.CheckmarkCircle,
-        Rating.Ok => Icons.CheckmarkCircle,
+        Rating.Ok => Icons.ThumbLike,
         Rating.Moderation => Icons.SubtractCircle,
         Rating.Caution => Icons.Warning,
         Rating.Avoid => Icons.DismissCircle,
@@ -150,13 +175,17 @@ public static class Icons
     public static readonly string Open = FromHex("f583");
     public static readonly string ChevronRight = FromHex("f2b1");
     public static readonly string Info = FromHex("f4a4");
-    public static readonly string Book = FromHex("e179");
+    public static readonly string Book = FromHex("e174");
     public static readonly string Star = FromHex("f710");
-    public static readonly string CheckmarkCircle = FromHex("f299");
+    // The 24px check-circle glyph is malformed in this font build; the 20px variant renders correctly.
+    public static readonly string CheckmarkCircle = FromHex("f298");
+    public static readonly string ThumbLike = FromHex("f820");
     public static readonly string SubtractCircle = FromHex("f7b1");
     public static readonly string Warning = FromHex("f86a");
     public static readonly string DismissCircle = FromHex("f36e");
     public static readonly string Link = FromHex("f4e5");
+    public static readonly string Call = FromHex("e271");
+    public static readonly string Sparkle = FromHex("eb34");
 
     public static string FromHex(string hex) =>
         int.TryParse(hex, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var cp)

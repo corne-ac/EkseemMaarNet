@@ -41,6 +41,8 @@
     <Color x:Key="GlassFillStrong">#55FFFFFF</Color>
     <Color x:Key="GlassStroke">#55FFFFFF</Color>
     <Color x:Key="Scrim">#99082014</Color>
+    <Color x:Key="AlertRed">#B3261E</Color>
+    <Color x:Key="AlertRedDark">#FF8A80</Color>
 
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>

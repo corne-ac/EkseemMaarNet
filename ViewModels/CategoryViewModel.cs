@@ -17,9 +17,11 @@ public partial class FilterChip(RatingGroup group, string label) : ObservableObj
 }
 
 /// <summary>A section as shown after filtering (only the matching items).</summary>
-public sealed record SectionView(string Title, string Intro, IReadOnlyList<ContentItem> Items)
+public sealed record SectionView(string Title, string Intro, IReadOnlyList<ContentItem> Items, bool IsAlert)
 {
     public bool HasIntro => !string.IsNullOrWhiteSpace(Intro);
+    public bool IsNormal => !IsAlert;
+    public bool HasItems => Items.Count > 0;
 }
 
 public partial class CategoryViewModel(ContentService content) : ObservableObject, IQueryAttributable
@@ -119,13 +121,14 @@ public partial class CategoryViewModel(ContentService content) : ObservableObjec
             if (items.Count == 0 && (group != RatingGroup.All || !section.HasIntro))
                 continue;
 
-            Sections.Add(new SectionView(section.Title, section.Intro, items));
+            var isAlert = string.Equals(section.Style, "alert", StringComparison.OrdinalIgnoreCase);
+            Sections.Add(new SectionView(section.Title, section.Intro, items, isAlert));
         }
         IsEmpty = Sections.Count == 0;
     }
 
     [RelayCommand]
-    private static Task OpenLink(string url) => Browser.Default.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+    private static Task OpenLink(string url) => Links.OpenAsync(url);
 
     [RelayCommand]
     private static Task Back() => Shell.Current.GoToAsync("..");

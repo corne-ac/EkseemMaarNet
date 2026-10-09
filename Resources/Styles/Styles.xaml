@@ -8,7 +8,7 @@
 
     <Style TargetType="Label">
         <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=15, Tablet=17, Default=15}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextLight}, Dark={StaticResource TextDark}}" />
     </Style>
 
@@ -49,37 +49,37 @@
 
     <Style x:Key="PageTitle" TargetType="Label">
         <Setter Property="FontFamily" Value="OswaldSemiBold" />
-        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=25, Tablet=34, Default=25}" />
         <Setter Property="TextColor" Value="White" />
         <Setter Property="LineBreakMode" Value="WordWrap" />
     </Style>
 
     <Style x:Key="OnWallpaperText" TargetType="Label">
-        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=15, Tablet=18, Default=15}" />
         <Setter Property="TextColor" Value="#E6FFFFFF" />
         <Setter Property="LineHeight" Value="1.25" />
     </Style>
 
     <Style x:Key="SectionTitle" TargetType="Label">
         <Setter Property="FontFamily" Value="OswaldSemiBold" />
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=20, Tablet=24, Default=20}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
     </Style>
 
     <Style x:Key="Body" TargetType="Label">
-        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=15, Tablet=17, Default=15}" />
         <Setter Property="LineHeight" Value="1.3" />
     </Style>
 
     <Style x:Key="Subtle" TargetType="Label">
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=14, Tablet=16, Default=14}" />
         <Setter Property="LineHeight" Value="1.25" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource SubtleTextLight}, Dark={StaticResource SubtleTextDark}}" />
     </Style>
 
     <Style x:Key="ItemName" TargetType="Label">
         <Setter Property="FontFamily" Value="OpenSansSemibold" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="{OnIdiom Phone=16, Tablet=19, Default=16}" />
     </Style>
 
     <Style x:Key="Icon" TargetType="Label">

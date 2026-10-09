@@ -22,7 +22,7 @@ public partial class AboutViewModel(ContentService content) : ObservableObject
     }
 
     [RelayCommand]
-    private static Task OpenLink(string url) => Browser.Default.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+    private static Task OpenLink(string url) => Links.OpenAsync(url);
 
     [RelayCommand]
     private static Task Back() => Shell.Current.GoToAsync("..");

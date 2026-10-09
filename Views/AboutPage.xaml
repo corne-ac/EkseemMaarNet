@@ -25,9 +25,9 @@
                         <VerticalStackLayout Spacing="8">
                             <Label Text="Our story" Style="{StaticResource SectionTitle}" />
                             <Label Style="{StaticResource Body}"
-                                   Text="Ekseem Maar Net started as a family project. Our brother has lived with eczema his whole life, and we wanted one easy place to check what helps and what to avoid — in the shop, in the kitchen, or at the pharmacy." />
+                                   Text="Ekseem Maar Net is a passion project, made by a family out of love for our brother. He has lived with eczema his whole life, and we wanted one easy place to check what helps and what to avoid: in the shop, in the kitchen, or at the pharmacy." />
                             <Label Style="{StaticResource Body}"
-                                   Text="Every page now shows a clear rating for each item, a short reason, and the sources it is based on." />
+                                   Text="Every page shows a simple rating for each item, a short reason, and the public sources it is based on." />
                         </VerticalStackLayout>
                     </Border>
 
@@ -40,7 +40,7 @@
 
                     <Border Style="{StaticResource Card}">
                         <VerticalStackLayout Spacing="8">
-                            <Label Text="Important" Style="{StaticResource SectionTitle}" />
+                            <Label Text="Not a medical app" Style="{StaticResource SectionTitle}" />
                             <Label Text="{Binding Disclaimer}" Style="{StaticResource Body}" />
                             <Label Style="{StaticResource Subtle}">
                                 <Label.FormattedText>

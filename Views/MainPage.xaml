@@ -42,7 +42,7 @@
                     <Image Source="logo_green.png" HeightRequest="40" WidthRequest="40" />
                     <Label Text="EKSEEM MAAR NET"
                            Style="{StaticResource BrandTitle}"
-                           FontSize="26"
+                           FontSize="{OnIdiom Phone=26, Tablet=32, Default=26}"
                            TextColor="{StaticResource EkseemGreen}"
                            VerticalOptions="Center"
                            SemanticProperties.HeadingLevel="Level1" />
@@ -98,24 +98,40 @@
                     <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.Header>
-                    <BoxView HeightRequest="8" Color="Transparent" />
+                    <VerticalStackLayout Padding="0,8,0,10">
+                        <!-- Today's affirmation (rotates daily from the Motivation page) -->
+                        <Border Style="{StaticResource GlassPanel}" Padding="16,12"
+                                IsVisible="{Binding HasAffirmation}"
+                                SemanticProperties.Description="{Binding Affirmation, StringFormat='Today\'s affirmation: {0}'}">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                                <Label Text="{x:Static models:Icons.Sparkle}" Style="{StaticResource Icon}" FontSize="22" TextColor="White" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="TODAY'S AFFIRMATION" FontFamily="OpenSansSemibold" FontSize="11" CharacterSpacing="1" TextColor="#CCFFFFFF" />
+                                    <Label Text="{Binding Affirmation}" FontFamily="OpenSansSemibold" FontSize="{OnIdiom Phone=16, Tablet=19, Default=16}" TextColor="White" FontAttributes="Italic" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMotivationCommand}" />
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </VerticalStackLayout>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Category">
                         <Border Style="{StaticResource GlassPanel}"
                                 Margin="0"
                                 Padding="8,14"
-                                MinimumHeightRequest="118"
+                                MinimumHeightRequest="{OnIdiom Phone=118, Tablet=170, Default=118}"
                                 SemanticProperties.Description="{Binding Title}"
                                 SemanticProperties.Hint="{Binding Subtitle}">
                             <VerticalStackLayout Spacing="8" VerticalOptions="Center">
                                 <Label Text="{Binding Glyph}"
                                        Style="{StaticResource Icon}"
-                                       FontSize="36"
+                                       FontSize="{OnIdiom Phone=36, Tablet=52, Default=36}"
                                        TextColor="White" />
                                 <Label Text="{Binding DisplayTileTitle}"
                                        FontFamily="OpenSansSemibold"
-                                       FontSize="15"
+                                       FontSize="{OnIdiom Phone=15, Tablet=19, Default=15}"
                                        TextColor="White"
                                        HorizontalTextAlignment="Center"
                                        LineBreakMode="WordWrap"
@@ -240,6 +256,37 @@
                     <BoxView HeightRequest="24" Color="Transparent" />
                 </CollectionView.Footer>
             </CollectionView>
+        </Grid>
+
+        <!-- First-launch welcome: what this app is (and isn't) -->
+        <Grid IsVisible="{Binding ShowWelcome}" BackgroundColor="#B3061A0F" SafeAreaEdges="None">
+            <Border Style="{StaticResource Card}"
+                    Margin="24"
+                    Padding="24,22"
+                    MaximumWidthRequest="480"
+                    VerticalOptions="Center">
+                <VerticalStackLayout Spacing="14">
+                    <Image Source="logo_green.png" HeightRequest="56" WidthRequest="56" HorizontalOptions="Center" />
+                    <Label Text="Welcome to Ekseem Maar Net"
+                           Style="{StaticResource SectionTitle}"
+                           FontSize="{OnIdiom Phone=22, Tablet=26, Default=22}"
+                           HorizontalTextAlignment="Center"
+                           SemanticProperties.HeadingLevel="Level1" />
+                    <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
+                           Text="This app is a passion project, made by a family out of love for our brother, who has lived with eczema his whole life." />
+                    <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
+                           Text="It is not a medical app. Everything here is general, surface-level information from public guidelines and research, not medical advice." />
+                    <Label Style="{StaticResource Subtle}" HorizontalTextAlignment="Center"
+                           Text="Always speak to a doctor, dermatologist or pharmacist about treatment." />
+                    <Border Style="{StaticResource BrandButton}" Margin="0,6,0,0" Padding="28,12"
+                            SemanticProperties.Description="I understand, continue">
+                        <Label Text="I understand" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DismissWelcomeCommand}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
         </Grid>
     </Grid>
 </ContentPage>
