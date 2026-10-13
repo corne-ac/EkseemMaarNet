@@ -192,7 +192,7 @@
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
                                     </VerticalStackLayout>
-                                    <Label Text="Surface-level information from a family passion project, not medical advice. Always check with your doctor or pharmacist before changing treatment."
+                                    <Label Text="General info from a family passion project, not medical advice. Check with your doctor or pharmacist before changing any treatment."
                                            FontSize="12" TextColor="#B3FFFFFF" Margin="0,4,0,0" />
                                 </VerticalStackLayout>
                             </Border>

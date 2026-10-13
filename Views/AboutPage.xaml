@@ -14,7 +14,7 @@
 
         <Grid RowDefinitions="Auto,*" SafeAreaEdges="Container">
             <controls:PageHeader Title="About"
-                                 Subtitle="Why this app exists and how to read it"
+                                 Subtitle="Why we made this app, and how to read it"
                                  Glyph="{x:Static models:Icons.Info}"
                                  BackCommand="{Binding BackCommand}" />
 
@@ -26,9 +26,9 @@
                             <VerticalStackLayout Spacing="8">
                                 <Label Text="Our story" Style="{StaticResource SectionTitle}" />
                                 <Label Style="{StaticResource Body}"
-                                       Text="Ekseem Maar Net is a passion project, made by a family out of love for our brother. He has lived with eczema his whole life, and we wanted one easy place to check what helps and what to avoid: in the shop, in the kitchen, or at the pharmacy." />
+                                       Text="Our brother has had eczema his whole life. We wanted one easy place where the family can check what helps and what to stay away from, whether we're in the shop, the kitchen or the pharmacy. So we made Ekseem Maar Net." />
                                 <Label Style="{StaticResource Body}"
-                                       Text="Every page shows a simple rating for each item, a short reason, and the public sources it is based on." />
+                                       Text="Every item gets a simple rating and a short reason. The bottom of each page lists where the information comes from." />
                             </VerticalStackLayout>
                         </Border>
 
@@ -58,9 +58,9 @@
                             <VerticalStackLayout Spacing="8">
                                 <Label Text="Need help now?" Style="{StaticResource SectionTitle}" />
                                 <Label Style="{StaticResource Body}"
-                                       Text="See a doctor urgently if eczema suddenly becomes very painful, weepy or crusted with punched-out sores, or comes with fever — this can be a skin infection such as eczema herpeticum." />
+                                       Text="See a doctor straight away if eczema suddenly gets very painful, weepy or crusty with punched-out sores, or comes with a fever. It could be an infection like eczema herpeticum." />
                                 <Label Style="{StaticResource Body}"
-                                       Text="Feeling low or overwhelmed? SADAG (South African Depression and Anxiety Group) offers free support — see the Motivation &amp; Affirmations page for contact details." />
+                                       Text="Feeling low or overwhelmed? SADAG (South African Depression and Anxiety Group) offers free support. Their numbers are on the Motivation &amp; Affirmations page." />
                             </VerticalStackLayout>
                         </Border>
 

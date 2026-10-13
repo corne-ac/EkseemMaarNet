@@ -7,12 +7,12 @@ public sealed class RatingLegend : VerticalStackLayout
 {
     private static readonly (Rating Rating, string Meaning)[] Rows =
     [
-        (Rating.Best, "Strongest evidence or most useful — start here."),
-        (Rating.Good, "Likely to help many people."),
-        (Rating.Ok, "Generally fine; no reason to avoid unless it bothers you."),
-        (Rating.Moderation, "Fine in small amounts or occasionally."),
-        (Rating.Caution, "Weak evidence, possible side-effects, or check with a doctor first."),
-        (Rating.Avoid, "Commonly makes eczema worse or can cause harm.")
+        (Rating.Best, "The strongest evidence, or the most useful. Start here."),
+        (Rating.Good, "Likely to help a lot of people."),
+        (Rating.Ok, "Generally fine. No need to avoid it unless it bothers you."),
+        (Rating.Moderation, "Fine in small amounts, or now and then."),
+        (Rating.Caution, "Not much evidence, possible side effects, or check with a doctor first."),
+        (Rating.Avoid, "Often makes eczema worse, or can do harm.")
     ];
 
     public RatingLegend()
@@ -40,7 +40,7 @@ public sealed class RatingLegend : VerticalStackLayout
                     Spans =
                     {
                         new Span { Text = RatingStyle.Label(rating), FontFamily = "OpenSansSemibold", TextColor = RatingStyle.Colour(rating) },
-                        new Span { Text = " — " + meaning }
+                        new Span { Text = ": " + meaning }
                     }
                 }
             };

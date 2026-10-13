@@ -7,9 +7,22 @@ using EkseemMaarNet.Views;
 
 namespace EkseemMaarNet.ViewModels;
 
-public partial class MainViewModel(ContentService content) : ObservableObject
+public partial class MainViewModel : ObservableObject
 {
+    private readonly ContentService content;
     private CancellationTokenSource? _searchCts;
+
+    public MainViewModel(ContentService content)
+    {
+        this.content = content;
+        // Newer content downloaded in the background: refresh tiles, footer and any open search.
+        content.LibraryUpdated += (_, _) => MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await ApplyLibraryAsync();
+            if (IsSearching)
+                await SearchAsync(SearchText);
+        });
+    }
 
     public ObservableCollection<Category> Categories { get; } = [];
     public ObservableCollection<SearchResult> Results { get; } = [];
@@ -48,15 +61,21 @@ public partial class MainViewModel(ContentService content) : ObservableObject
         if (Categories.Count > 0)
             return;
 
+        await ApplyLibraryAsync();
+        ShowWelcome = !Preferences.Default.Get(WelcomeSeenKey, false);
+    }
+
+    private async Task ApplyLibraryAsync()
+    {
         var library = await content.GetLibraryAsync();
+
+        Categories.Clear();
         foreach (var category in library.Categories)
             Categories.Add(category);
 
         LastReviewed = library.LastReviewed;
         Disclaimer = library.Disclaimer;
         Affirmation = PickDailyAffirmation(library);
-
-        ShowWelcome = !Preferences.Default.Get(WelcomeSeenKey, false);
     }
 
     // Same affirmation all day, a new one tomorrow.

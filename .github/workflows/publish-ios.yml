@@ -1,0 +1,106 @@
+# Publish to the App Store / TestFlight (MANUAL, NOT FINISHED YET).
+#
+# This is a starting point for later. It builds a signed .ipa and can upload it to TestFlight,
+# but it will only work once the prerequisites below are in place. Run it from the Actions tab.
+#
+# Prerequisites / TODO before first use:
+#   [ ] Apple Developer Program membership
+#   [ ] Register the App ID com.corne.ekseemmaarnet and create the app in App Store Connect
+#   [ ] Create an "Apple Distribution" certificate, export it as .p12 with a password
+#   [ ] Create an App Store Connect API key (Users and Access > Integrations), role App Manager
+#   [ ] Add repository secrets:
+#         IOS_DIST_CERT_P12_BASE64   base64 of the .p12   (base64 -i cert.p12 | pbcopy)
+#         IOS_DIST_CERT_PASSWORD     .p12 password
+#         IOS_CODESIGN_KEY           certificate name, e.g. "Apple Distribution: Your Name (TEAMID)"
+#         IOS_PROVISIONING_PROFILE   App Store provisioning profile name for com.corne.ekseemmaarnet
+#         APPSTORE_ISSUER_ID         API key issuer ID
+#         APPSTORE_KEY_ID            API key ID
+#         APPSTORE_PRIVATE_KEY       contents of the .p8 API key file
+#   [ ] Check Platforms/iOS/Info.plist: export compliance (ITSAppUsesNonExemptEncryption = false) and privacy manifest
+#   [ ] Pin the Xcode version that matches the MAUI iOS workload (see setup-xcode below)
+#   [ ] Version numbers: CFBundleVersion uses the workflow run number below (always increases)
+name: Publish · iOS (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: Upload to TestFlight (leave off to only build the signed .ipa)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_VERSION: 10.0.x
+  PROJECT: EkseemMaarNet.csproj
+  BUNDLE_ID: com.corne.ekseemmaarnet
+
+jobs:
+  publish:
+    runs-on: macos-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Validate content.json
+        run: python3 scripts/validate_content.py Resources/Raw/content.json
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable   # TODO: pin, e.g. "26.0"
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI iOS workload
+        run: dotnet workload install maui-ios
+
+      - name: Import signing certificate
+        uses: apple-actions/import-codesign-certs@v7
+        with:
+          keychain: signing_temp
+          create-keychain: true
+          keychain-password: ${{ github.run_id }}
+          p12-file-base64: ${{ secrets.IOS_DIST_CERT_P12_BASE64 }}
+          p12-password: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
+
+      - name: Download provisioning profile
+        uses: apple-actions/download-provisioning-profiles@v7
+        with:
+          bundle-id: ${{ env.BUNDLE_ID }}
+          profile-type: IOS_APP_STORE
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+
+      - name: Build signed .ipa
+        run: >
+          dotnet publish ${{ env.PROJECT }} -f net10.0-ios -c Release
+          -p:RuntimeIdentifier=ios-arm64
+          -p:ArchiveOnBuild=true
+          -p:ApplicationVersion=${{ github.run_number }}
+          -p:CodesignKey="${{ secrets.IOS_CODESIGN_KEY }}"
+          -p:CodesignProvision="${{ secrets.IOS_PROVISIONING_PROFILE }}"
+          -o artifacts/ios
+
+      - name: Find .ipa
+        id: ipa
+        run: echo "path=$(find artifacts/ios -name '*.ipa' | head -n 1)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ios-ipa-${{ github.run_number }}
+          path: ${{ steps.ipa.outputs.path }}
+
+      - name: Upload to TestFlight
+        if: ${{ inputs.upload }}
+        uses: apple-actions/upload-testflight-build@v5
+        with:
+          app-path: ${{ steps.ipa.outputs.path }}
+          app-type: ios
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}

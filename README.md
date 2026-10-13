@@ -1,78 +1,120 @@
 # Ekseem Maar Net
-A mobile app for people who live with the skin condition called "ekseem" in Afrikaans, also known as eczema (atopic dermatitis).
+This is a mobile app for people that suffer from a skin condition called "ekseem" in Afrikaans, also known as "eczema".
 
-The app gives the family one easy place to check what helps and what to avoid — food, drinks, clothing, skin care, treatments and more. Someone doing the shopping can open the app, search for a product type (for example "coffee", "wool" or "vitamin D") and immediately see whether it is generally a good choice for eczema and why.
+The purpose of the app is to have an easy way to quickly check what helps eczema and what to stay away from: food, drinks, clothing, skin care, treatments and more. Someone doing the shopping can open the app, search for something like "coffee", "wool" or "vitamin D", and see straight away if it's generally okay for eczema and why.
+
+> **Not a medical app.** Ekseem Maar Net is a family passion project, made for my brother. It shares general, surface-level information from public guidelines and research. It is not medical advice and doesn't give any medical-aid or funding advice. Always talk to a doctor, dermatologist or pharmacist before starting, stopping or changing treatment.
 
 ## Categories
-| Tile | What it covers |
+| Tile | What's in it |
 | --- | --- |
-| Main Factors | The biggest drivers of flares |
-| Wonder Cures | Biologics, JAK inhibitors and new non-steroid creams |
-| Treatment | Guideline-based stepped care |
-| Remedies | Home and natural remedies, with evidence verdicts |
-| Supplements | What the evidence says about popular supplements |
-| Causes | Triggers, allergens, environment, myths |
+| Main Factors | The things that matter most |
+| Wonder Cures | Newer treatments like biologics, JAK tablets and steroid-free creams |
+| Treatment | What doctors recommend, step by step |
+| Remedies | Home and natural remedies, and which ones are worth trying |
+| Supplements | What the research says about vitamins and pills |
+| Causes | Triggers, allergens, the environment, and some myths |
 | Beverages | Drinks and alcohol |
-| Food | Eating well, allergies and elimination diets |
-| Water | Bathing, showering, hard water, swimming, wet wraps |
-| Clothing | Fabrics, laundry and night-time scratching |
+| Food | Eating well, allergies and why not to cut foods out |
+| Water | Baths, showers, swimming, bleach baths and wet wraps |
+| Clothing | Fabrics, washing and night-time scratching |
 | Health | Sleep, exercise, infections and when to see a doctor |
-| Motivation | The emotional side, family support and affirmations |
+| Motivation | The emotional side, how family can help, and daily affirmations |
 
-Plus a **Glossary** (abbreviations such as HHF, BO, AEH, HBUC and medical terms) and an **About** page with the disclaimer and rating legend.
+There's also a **Glossary** (our own tags like HHF, BO, AEH and HBUC, plus the medical words) and an **About** page.
 
-Every item carries a rating — *Best option, Helpful, Usually fine, In moderation, Caution, Avoid* — with a short reason. Each category lists the sources it is based on.
+Every item has a rating (*Best option, Helpful, Usually fine, In moderation, Caution, Avoid*) and a short reason. The bottom of each page lists where the information comes from.
 
 ## Sources
-The original content came from personal research within the family. In October 2026 it was reviewed against current guidelines and evidence (AAD, NICE, EuroGuiDerm, Cochrane reviews and patient organisations such as the National Eczema Association and NHS). The sources for each page are listed at the bottom of that page in the app.
+The information in the first version came from personal research with family members. In October 2026 everything was checked against current guidelines and research (AAD, NICE, the European and South African guidelines, Cochrane reviews, and groups like the National Eczema Association and the NHS), and anything outdated was fixed.
 
-> **Not a medical app.** Ekseem Maar Net is a family passion project, made out of love for my brother. It shares general, surface-level information from public guidelines and research. It is not medical advice and does not give medical-aid or funding advice. Always talk to a doctor, dermatologist or pharmacist before starting, stopping or changing treatment.
+## Updating the content (no app release needed)
+All the content lives in [`Resources/Raw/content.json`](Resources/Raw/content.json). The app ships with a copy of it, and also checks this file on the `main` branch for a newer version.
 
-## Tech
-- .NET 10 / .NET MAUI 10 (Android and iOS), MVVM with CommunityToolkit.Mvvm
-- Compiled bindings and XAML source generation
-- All content lives in [`Resources/Raw/content.json`](Resources/Raw/content.json): edit that file to update information without touching any UI code
-- One responsive `CategoryPage` template renders every category: one column on phones, two on tablets/landscape
-- Icons: [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) (MIT)
+How it works:
+1. The app opens straight away with the newest copy it has, either the bundled one or one it downloaded before.
+2. On launch, and when it comes back to the foreground (at most once an hour), it fetches `content.json` from `main` on GitHub.
+3. If that file has a higher `contentVersion` and is valid, the app saves it and the home screen refreshes. Pages opened after that show the new content.
+4. If anything goes wrong (no internet, a bad file), the app quietly keeps what it has.
 
-### Project layout
-```
-Models/ContentModels.cs     content schema (Category, Section, Item, Rating) + JSON source-gen context
-Services/ContentService.cs  loads content.json once; search across all categories
-ViewModels/                 Main (tiles + search), Category (filters), Glossary, About
-Views/                      MainPage, CategoryPage, GlossaryPage, AboutPage
-Controls/                   PageHeader, RatingLegend, converters, responsive breakpoints
-```
+To publish a content change:
+1. Edit `Resources/Raw/content.json` on a branch.
+2. Bump `contentVersion`. We use the date plus a counter, e.g. `2026101301`, then `2026101302` for a second change on the same day.
+3. Run `python3 scripts/validate_content.py` (CI runs it on every PR too, and fails if you forgot to bump the version).
+4. Merge to `main`. Everyone gets it the next time they open the app.
+
+Some safety rules are built in:
+- `schemaVersion` protects older apps. Only raise it if the *shape* of the JSON changes in a way old app versions can't read. Then also raise `ContentLibrary.SupportedSchemaVersion` in the app and in `scripts/validate_content.py`, and ship an app update first.
+- Downloaded content can only link to `https://` pages or `tel:` phone numbers. Anything else is stripped.
+- New fields, categories or sections that need new UI still need an app release.
 
 ### Content format
 ```json
 {
-  "id": "food", "title": "Food", "subtitle": "…", "icon": "eee9", "intro": "…",
-  "sections": [
-    { "title": "Helpful", "intro": "", "items": [
-      { "name": "Oily fish", "note": "…", "rating": "good", "tags": ["BO"] }
-    ] }
+  "schemaVersion": 1,
+  "contentVersion": 2026101301,
+  "lastReviewed": "9 October 2026",
+  "disclaimer": "…",
+  "categories": [
+    {
+      "id": "food", "title": "Food", "tileTitle": "Food", "subtitle": "…", "icon": "eee9", "intro": "…",
+      "sections": [
+        { "title": "Good choices", "intro": "", "style": "", "items": [
+          { "name": "Oily fish", "note": "…", "rating": "best", "tags": ["BO"], "url": null }
+        ] }
+      ],
+      "sources": [ { "title": "…", "url": "https://…" } ]
+    }
   ],
-  "sources": [ { "title": "…", "url": "https://…" } ]
+  "glossary": [ { "term": "BO", "meaning": "Best option", "detail": "…" } ]
 }
 ```
-`rating` is one of `best`, `good`, `ok`, `moderation`, `caution`, `avoid`, `info`. `icon` is a Fluent System Icons code point (hex). Items may include a `url` that shows a "Learn more" button.
+- `rating`: `best`, `good`, `ok`, `moderation`, `caution`, `avoid` or `info`
+- `icon`: a [Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) code point in hex
+- `style`: leave empty, or `alert` for urgent sections (red outline)
+- `url`: optional. Shows a "Learn more" button, or a "Call" button for `tel:` links
+
+## GitHub Actions
+| Workflow | When | What it does |
+| --- | --- | --- |
+| `pr-android.yml` | Every PR to `main` | Validates `content.json`, builds the Android app |
+| `pr-ios.yml` | Every PR to `main` | Builds the iOS app for the simulator |
+| `publish-android.yml` | Manual | Builds a signed `.aab` and can upload it to Google Play. **Not set up yet**, see the checklist at the top of the file |
+| `publish-ios.yml` | Manual | Builds a signed `.ipa` and can upload it to TestFlight. **Not set up yet**, see the checklist at the top of the file |
+
+## Tech
+- .NET 10 / .NET MAUI 10 for Android and iOS, MVVM with CommunityToolkit.Mvvm
+- Compiled bindings and XAML source generation
+- One `CategoryPage` template shows every category: one column on phones, two on tablets
+- Icons: [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) by Microsoft (MIT)
+
+### Project layout
+```
+Models/ContentModels.cs     content format (Category, Section, Item, Rating) and JSON source generation
+Services/ContentService.cs  loads content (bundled, cached or downloaded), checks for updates, search
+Services/Links.cs           opens web links and phone numbers
+ViewModels/                 Main (tiles, search, affirmation), Category (filters), Glossary, About
+Views/                      MainPage, CategoryPage, GlossaryPage, AboutPage
+Controls/                   PageHeader, FadeHost (scroll fade), RatingLegend, converters, breakpoints
+Platforms/*/FadeHost.*.cs   native code for the transparent scroll fade
+scripts/validate_content.py checks content.json before it reaches anyone
+```
 
 ### Build and run
 ```bash
 dotnet build -t:Run -f net10.0-ios        # iOS simulator
-dotnet build -t:Run -f net10.0-android    # Android emulator/device
+dotnet build -t:Run -f net10.0-android    # Android emulator or device
 ```
 The repo has its own `nuget.config` (nuget.org only), so it restores without any private feeds.
 
-Debug-only helpers for UI checks (compiled out of Release builds):
+Debug-only helpers for checking the UI (they're not in Release builds):
 - `EMN_START_ROUTE` opens a page on launch, e.g. `CategoryPage?id=food`
-- `EMN_START_SEARCH` pre-fills the home search
-- `EMN_SCROLL` scrolls a category page to a section index
-- `EMN_SKIP_WELCOME=1` hides the first-launch welcome card
+- `EMN_START_SEARCH` fills in the home search
+- `EMN_SCROLL` scrolls a category page to a section, e.g. `3`, or `3c` to centre it
+- `EMN_SKIP_WELCOME=1` hides the welcome card
 
 iOS: `SIMCTL_CHILD_EMN_START_ROUTE="CategoryPage?id=food" xcrun simctl launch booted com.corne.ekseemmaarnet`
-Android: `adb shell setprop debug.mono.env "'EMN_START_ROUTE=CategoryPage?id=food'"` then launch the app.
+Android: `adb shell setprop debug.mono.env "'EMN_START_ROUTE=CategoryPage?id=food'"`, then open the app.
 
 ## Origin
-My brother has been suffering from eczema his entire life. This application makes it easier for the rest of the family to support him by giving an easy-to-understand source for what is and is not beneficial for his condition — especially for the things we eat, drink and use every day.
+My brother has been suffering from eczema for his entire life. This application is to make it easier for the rest of the family to support his condition by having an easy-to-understand place for what is and is not good for his eczema, especially when it comes to the things we eat, drink and use every day. We could be doing the shopping, open the app, and quickly check if something is okay for eczema or not.

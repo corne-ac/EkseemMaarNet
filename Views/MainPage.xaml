@@ -204,8 +204,8 @@
                         <CollectionView.EmptyView>
                             <VerticalStackLayout Padding="24,40" Spacing="8" IsVisible="{Binding ShowNoResults}">
                                 <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource Icon}" FontSize="40" TextColor="White" />
-                                <Label Text="Nothing found yet" FontFamily="OswaldRegular" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" />
-                                <Label Text="Try a simpler word (e.g. 'milk' instead of 'full cream milk'), or browse the categories."
+                                <Label Text="Nothing found" FontFamily="OswaldRegular" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" />
+                                <Label Text="Try a shorter word, like 'milk' instead of 'full cream milk', or have a look through the categories."
                                        Style="{StaticResource OnWallpaperText}" HorizontalTextAlignment="Center" />
                             </VerticalStackLayout>
                         </CollectionView.EmptyView>
@@ -277,14 +277,14 @@
                            HorizontalTextAlignment="Center"
                            SemanticProperties.HeadingLevel="Level1" />
                     <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
-                           Text="This app is a passion project, made by a family out of love for our brother, who has lived with eczema his whole life." />
+                           Text="We made this app for our brother, who has had eczema his whole life. It's a family passion project, so the whole family can quickly check what helps and what doesn't." />
                     <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
-                           Text="It is not a medical app. Everything here is general, surface-level information from public guidelines and research, not medical advice." />
+                           Text="It's not a medical app. Everything in here is general info we gathered from public guidelines and research. It isn't medical advice." />
                     <Label Style="{StaticResource Subtle}" HorizontalTextAlignment="Center"
-                           Text="Always speak to a doctor, dermatologist or pharmacist about treatment." />
+                           Text="For anything about treatment, always check with a doctor, dermatologist or pharmacist." />
                     <Border Style="{StaticResource BrandButton}" Margin="0,6,0,0" Padding="28,12"
-                            SemanticProperties.Description="I understand, continue">
-                        <Label Text="I understand" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" />
+                            SemanticProperties.Description="Got it, continue">
+                        <Label Text="Got it" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding DismissWelcomeCommand}" />
                         </Border.GestureRecognizers>

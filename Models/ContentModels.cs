@@ -18,6 +18,15 @@ public enum Rating
 
 public sealed class ContentLibrary
 {
+    /// <summary>Highest content format this build understands. Bump only when the JSON shape changes.</summary>
+    public const int SupportedSchemaVersion = 1;
+
+    /// <summary>Format of this file. Apps ignore downloaded content with a newer schema than they support.</summary>
+    public int SchemaVersion { get; set; } = 1;
+
+    /// <summary>Increases with every content edit (e.g. 2026101301). The highest version available wins.</summary>
+    public long ContentVersion { get; set; }
+
     public string LastReviewed { get; set; } = "";
     public string Disclaimer { get; set; } = "";
     public List<Category> Categories { get; set; } = [];

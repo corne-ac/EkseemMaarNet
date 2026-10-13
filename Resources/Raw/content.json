@@ -1,14 +1,15 @@
 {
+ "contentVersion": 2026101301,
  "lastReviewed": "9 October 2026",
- "disclaimer": "Ekseem Maar Net is a family passion project, made out of love for our brother. It is not a medical app. Everything here is general, surface-level information gathered from public guidelines and research, not medical advice. Eczema differs from person to person, so always speak to a doctor, dermatologist or pharmacist before starting, stopping or changing any treatment.",
+ "disclaimer": "Ekseem Maar Net is a family passion project, made with love for our brother. It is not a medical app. Everything here is general, surface-level information from public guidelines and research. It is not medical advice. Eczema is different for everyone, so always speak to a doctor, dermatologist or pharmacist before you start, stop or change any treatment.",
  "categories": [
   {
    "id": "main-factors",
    "title": "Main Contributing Factors",
    "tileTitle": "Main Factors",
-   "subtitle": "The things that matter most, in order",
+   "subtitle": "What matters most, in order",
    "icon": "ec91",
-   "intro": "Eczema comes from a leaky skin barrier and an over-reactive immune system, and it often runs in families. Food is rarely the root cause. The biggest wins come from daily skin care, treating flares early and avoiding everyday irritants.",
+   "intro": "Eczema comes from a leaky skin barrier and an immune system that overreacts. It often runs in families, and food is rarely the cause. What helps most is moisturising every day, treating flares early and avoiding everyday irritants.",
    "sections": [
     {
      "title": "The big drivers",
@@ -16,7 +17,7 @@
      "items": [
       {
        "name": "Weak skin barrier",
-       "note": "Eczema skin loses water and lets irritants and germs in. Daily moisturiser is the single most important habit.",
+       "note": "Eczema skin loses water and lets irritants and germs in. Moisturising every day is the most important habit.",
        "rating": "best",
        "tags": [
         "BO"
@@ -24,27 +25,27 @@
       },
       {
        "name": "Under-treated flares",
-       "note": "Fear of steroid creams often means flares are treated too little, too late. Treating early with the right cream calms the skin faster.",
+       "note": "Lots of people are scared of steroid creams and wait too long. Treating a flare early with the right cream settles it faster.",
        "rating": "best"
       },
       {
        "name": "Genes and family history",
-       "note": "About 70% of people with eczema have a relative with eczema, asthma or hay fever. It is nobody's fault.",
+       "note": "About 70% of people with eczema have a family member with eczema, asthma or hay fever. It's nobody's fault.",
        "rating": "info"
       },
       {
        "name": "Over-reactive immune system",
-       "note": "Allergy-type messengers (IL-4, IL-13, IL-31) cause redness and itch. The newest medicines block exactly these.",
+       "note": "Allergy-type messengers in the body (IL-4, IL-13, IL-31) cause the redness and itch. The newest medicines block exactly these.",
        "rating": "info"
       },
       {
        "name": "Staph bacteria",
-       "note": "This common skin germ thrives on eczema patches and worsens flares. Treating the eczema reduces it.",
+       "note": "A common skin germ that grows well on eczema patches and makes flares worse. Treating the eczema keeps it down.",
        "rating": "info"
       },
       {
-       "name": "The itch–scratch cycle",
-       "note": "Scratching damages skin, which makes it itch more. Breaking the cycle is key: see habit reversal under Treatment.",
+       "name": "The itch-scratch cycle",
+       "note": "Scratching damages the skin, which makes it itch more. Habit reversal (see Treatment) helps you break the cycle.",
        "rating": "info"
       }
      ]
@@ -55,7 +56,7 @@
      "items": [
       {
        "name": "Soaps, bubble bath and detergents",
-       "note": "Anything that foams strips the skin barrier. Use a soap-free wash.",
+       "note": "Anything that foams strips the skin barrier. Use a soap-free wash instead.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -63,7 +64,7 @@
       },
       {
        "name": "Fragrance and perfume",
-       "note": "A common irritant and allergen in creams, washes and washing powder.",
+       "note": "Found in lots of creams, washes and washing powder. It's a common irritant and allergen.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -71,53 +72,53 @@
       },
       {
        "name": "Stress",
-       "note": "Stress makes itch worse, and eczema causes stress. Coping skills and support help (see Motivation).",
+       "note": "Stress makes the itch worse, and eczema itself is stressful. Ways to cope and support from others help (see Motivation).",
        "rating": "caution"
       },
       {
        "name": "Heat and sweat",
-       "note": "Keep cool, rinse sweat off and moisturise. Don't stop sport or play.",
+       "note": "Stay cool, rinse sweat off and moisturise. No need to stop sport or play.",
        "rating": "caution"
       },
       {
        "name": "Tobacco smoke",
-       "note": "Second-hand smoke worsens eczema. Keep homes and cars smoke-free.",
+       "note": "Second-hand smoke makes eczema worse. Keep your home and car smoke-free.",
        "rating": "avoid"
       }
      ]
     },
     {
-     "title": "Food: the facts",
-     "intro": "Every major guideline advises against cutting out foods \"just in case\". In one clinic, 19% of children on elimination diets developed new, sometimes severe allergies. Only remove a food if a doctor confirms an allergy.",
+     "title": "What about food",
+     "intro": "Every major guideline says don't cut out foods \"just in case\". In one clinic, 19% of children on elimination diets developed new allergies, some of them severe. Only remove a food if a doctor confirms an allergy.",
      "items": [
       {
        "name": "Oats, wheat and gluten",
-       "note": "No benefit from avoiding them unless coeliac disease or a wheat allergy is diagnosed.",
+       "note": "No benefit in avoiding them, unless you've been diagnosed with coeliac disease or a wheat allergy.",
        "rating": "ok"
       },
       {
        "name": "Milk, cheese and butter",
-       "note": "Fine unless a cow's milk allergy is diagnosed. Don't cut dairy without a dietitian, because children need calcium.",
+       "note": "Fine unless a cow's milk allergy is diagnosed. Don't cut out dairy without a dietitian, because kids need the calcium.",
        "rating": "ok"
       },
       {
        "name": "Yoghurt, amasi and maas",
-       "note": "Fermented milk was linked to less eczema in South African toddlers.",
+       "note": "In South African toddlers, fermented milk was linked to less eczema.",
        "rating": "good"
       },
       {
        "name": "Eggs",
-       "note": "Eggs are not dairy. Egg is a common allergy in South African children with eczema, but only avoid it if an allergy is proven.",
+       "note": "Eggs aren't dairy. Egg allergy is common in South African kids with eczema, but only avoid eggs if an allergy is proven.",
        "rating": "ok"
       },
       {
        "name": "Nuts and peanuts",
-       "note": "Not a cause in people who aren't allergic. Giving smooth peanut early (from 4–6 months) prevents peanut allergy. Whole nuts are a choking risk under 5.",
+       "note": "They don't cause eczema if you're not allergic. Giving smooth peanut early (from 4–6 months) prevents peanut allergy. Whole nuts are a choking risk under 5.",
        "rating": "ok"
       },
       {
        "name": "Refined sugar",
-       "note": "Sugar contains no histamine, and a challenge study showed it doesn't cause flares. Limit it for teeth and general health.",
+       "note": "Sugar has no histamine, and a study found it doesn't cause flares. Still limit it for your teeth and general health.",
        "rating": "moderation"
       }
      ]
@@ -125,31 +126,31 @@
    ],
    "sources": [
     {
-     "title": "Langan et al. — Atopic dermatitis (The Lancet, 2020)",
+     "title": "Langan et al.: Atopic dermatitis (The Lancet, 2020)",
      "url": "https://doi.org/10.1016/S0140-6736(20)31286-1"
     },
     {
-     "title": "AAD — Atopic dermatitis: causes",
+     "title": "AAD: Atopic dermatitis: causes",
      "url": "https://www.aad.org/public/diseases/eczema/types/atopic-dermatitis/causes"
     },
     {
-     "title": "EuroGuiDerm — Dietary interventions in atopic eczema (2022)",
+     "title": "EuroGuiDerm: Dietary interventions in atopic eczema (2022)",
      "url": "https://www.guidelines.edf.one/uploads/attachments/cl4865qad00mgsjjnfln1l0pp-29-dietary-interventions-jun-2022.pdf"
     },
     {
-     "title": "Chang et al. — New food reactions after elimination diets (2016)",
+     "title": "Chang et al.: New food reactions after elimination diets (2016)",
      "url": "https://doi.org/10.1016/j.jaip.2015.08.006"
     },
     {
-     "title": "Ehlers et al. — Sugar is not an aggravating factor in AD (2001)",
+     "title": "Ehlers et al.: Sugar is not an aggravating factor in AD (2001)",
      "url": "https://doi.org/10.1080/00015550152572930"
     },
     {
-     "title": "Levin et al. — Environmental factors in the SA Food Allergy cohort (2020)",
+     "title": "Levin et al.: Environmental factors in the SA Food Allergy cohort (2020)",
      "url": "https://doi.org/10.1016/j.jaci.2019.07.048"
     },
     {
-     "title": "Du Toit et al. — LEAP peanut trial (NEJM 2015)",
+     "title": "Du Toit et al.: LEAP peanut trial (NEJM 2015)",
      "url": "https://doi.org/10.1056/NEJMoa1414850"
     }
    ]
@@ -157,9 +158,9 @@
   {
    "id": "wonder-cures",
    "title": "Wonder Cures",
-   "subtitle": "Advanced treatments that are changing lives",
+   "subtitle": "Newer treatments for moderate to severe eczema",
    "icon": "eb34",
-   "intro": "None of these cures eczema, but for moderate–severe eczema they can bring long-lasting clear skin. They are prescription medicines chosen by a dermatologist, and still used alongside daily moisturiser. This page is just to know what exists, so ask your dermatologist whether any of them suits you.",
+   "intro": "None of these cure eczema, but for moderate–severe eczema they can give long-lasting clear skin. They're prescription medicines a dermatologist chooses, and you still moisturise every day alongside them. This page is just so you know what's out there. Ask your dermatologist if any of them suits you.",
    "sections": [
     {
      "title": "Available in South Africa",
@@ -167,49 +168,49 @@
      "items": [
       {
        "name": "Dupixent (dupilumab), injection",
-       "note": "A biologic that blocks the IL-4/IL-13 allergy pathway, injected every 2–4 weeks. Registered in South Africa from 6 years (from 6 months in the US and EU). Main side effect: eye irritation. No routine blood tests.",
+       "note": "A biologic injection every 2–4 weeks that blocks the IL-4/IL-13 allergy pathway. Registered in South Africa from 6 years (from 6 months in the US and EU). The main side effect is eye irritation. No routine blood tests needed.",
        "rating": "good",
        "url": "https://www.dupixent.com/"
       },
       {
        "name": "Rinvoq (upadacitinib), daily tablet",
-       "note": "A JAK inhibitor that works fast, with strong results in trials. Registered in South Africa from 12 years. It carries a boxed warning (infections, clots, heart events, cancer) and needs blood tests. No grapefruit.",
+       "note": "A JAK inhibitor tablet that works fast and did very well in trials. Registered in South Africa from 12 years. It has a boxed warning (infections, clots, heart events, cancer) and you need blood tests. No grapefruit.",
        "rating": "good",
        "url": "https://pi-pil-repository.sahpra.org.za/wp-content/uploads/2025/04/ZA-PIL-Rinvoq-EN-2025-02-11-1.pdf"
       },
       {
        "name": "Cibinqo (abrocitinib), daily tablet",
-       "note": "A JAK inhibitor, registered in South Africa in April 2025 (from 12 years in the EU). It has the same JAK safety warnings and monitoring as Rinvoq.",
+       "note": "A JAK inhibitor, registered in South Africa in April 2025 (from 12 years in the EU). It has the same JAK safety warnings and blood test checks as Rinvoq.",
        "rating": "good",
        "url": "https://www.cibinqo.com/"
       }
      ]
     },
     {
-     "title": "Approved overseas: ask your dermatologist",
-     "intro": "Approved in the US or EU, but South African registration was not confirmed when we checked.",
+     "title": "Approved overseas, ask your dermatologist",
+     "intro": "Approved in the US or EU, but we couldn't confirm South African registration when we checked.",
      "items": [
       {
        "name": "Ebglyss (lebrikizumab), injection",
-       "note": "An IL-13 biologic with monthly maintenance doses. From 12 years. Mostly causes conjunctivitis.",
+       "note": "An IL-13 biologic, given monthly once you're on the maintenance dose. From 12 years. The most common side effect is conjunctivitis (pink eye).",
        "rating": "info",
        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/ebglyss"
       },
       {
        "name": "Adtralza / Adbry (tralokinumab), injection",
-       "note": "An IL-13 biologic. From 12 years in the US.",
+       "note": "Another IL-13 biologic. Approved from 12 years in the US.",
        "rating": "info",
        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/adtralza"
       },
       {
        "name": "Nemluvio (nemolizumab), injection",
-       "note": "Targets the itch signal (IL-31) and gives fast itch relief. From 12 years.",
+       "note": "Blocks the itch signal (IL-31), so the itch eases quickly. From 12 years.",
        "rating": "info",
        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/nemluvio"
       },
       {
        "name": "Olumiant (baricitinib), tablet",
-       "note": "A JAK inhibitor approved for eczema in the EU from 2 years. Same JAK warnings.",
+       "note": "A JAK inhibitor approved for eczema in the EU from 2 years. The same JAK warnings apply.",
        "rating": "info",
        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/olumiant"
       }
@@ -221,43 +222,43 @@
      "items": [
       {
        "name": "Opzelura (ruxolitinib cream)",
-       "note": "The first JAK cream, approved in the US from 2 years (Sept 2025). Use it short-term on limited areas.",
+       "note": "The first JAK cream, approved in the US from 2 years (Sept 2025). Only for short-term use on small areas.",
        "rating": "info",
        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/opzelura"
       },
       {
        "name": "Zoryve (roflumilast cream)",
-       "note": "A once-daily non-steroid cream. US approval from 2 years (Oct 2025).",
+       "note": "A non-steroid cream you use once a day. Approved in the US from 2 years (Oct 2025).",
        "rating": "info",
        "url": "https://www.arcutis.com/"
       },
       {
        "name": "Vtama (tapinarof cream)",
-       "note": "A once-daily non-steroid cream. US approval from 2 years. May cause folliculitis (about 9%).",
+       "note": "A non-steroid cream you use once a day. Approved in the US from 2 years. About 9% of people get folliculitis (inflamed hair follicles).",
        "rating": "info",
        "url": "https://www.vtama.com/"
       },
       {
        "name": "Anzupgo (delgocitinib cream)",
-       "note": "For adults with chronic hand eczema (US, July 2025).",
+       "note": "For adults with chronic hand eczema (US approval, July 2025).",
        "rating": "info",
        "url": "https://www.anzupgo.com/"
       }
      ]
     },
     {
-     "title": "On the horizon",
+     "title": "Still in development",
      "intro": "",
      "items": [
       {
        "name": "Amlitelimab",
-       "note": "A new kind of injection (OX40 ligand) that may need dosing only every 12 weeks. Phase 3 results are mixed, with filings expected in late 2026.",
+       "note": "A new kind of injection (OX40 ligand) that might only be needed every 12 weeks. Phase 3 results are mixed, and applications for approval are expected in late 2026.",
        "rating": "info",
        "url": "https://www.sanofi.com/en/media-room/press-releases/2026/2026-01-23-06-00-00-3224400"
       },
       {
        "name": "Rocatinlimab",
-       "note": "Trials were stopped in March 2026 after safety concerns.",
+       "note": "Trials were stopped in March 2026 after safety concerns came up.",
        "rating": "info"
       }
      ]
@@ -273,19 +274,19 @@
      "url": "https://pi-pil-repository.sahpra.org.za/wp-content/uploads/2025/04/ZA-PIL-Rinvoq-EN-2025-02-11-1.pdf"
     },
     {
-     "title": "Government Gazette 54520 — Cibinqo registration (2026)",
+     "title": "Government Gazette 54520: Cibinqo registration (2026)",
      "url": "https://www.gov.za/sites/default/files/gcis_document/202604/54520gon7378.pdf"
     },
     {
-     "title": "AAD — Atopic dermatitis guidelines",
+     "title": "AAD: Atopic dermatitis guidelines",
      "url": "https://www.aad.org/member/clinical-quality/guidelines/atopic-dermatitis"
     },
     {
-     "title": "Kannenberg et al. — SA consensus on severe AD and biologics (2021)",
+     "title": "Kannenberg et al.: SA consensus on severe AD and biologics (2021)",
      "url": "https://www.aboutallergy.co.za/media/2024/08/Atopic-dermatitis-consensus_2021.pdf"
     },
     {
-     "title": "Kyowa Kirin — Rocatinlimab trials discontinued (2026)",
+     "title": "Kyowa Kirin: Rocatinlimab trials discontinued (2026)",
      "url": "https://www.kyowakirin.com/media_center/news_releases/2026/e20260303_01.html"
     }
    ]
@@ -295,20 +296,20 @@
    "title": "Treatment",
    "subtitle": "What doctors recommend, step by step",
    "icon": "f725",
-   "intro": "Every major guideline (AAD, NICE, European and South African) uses the same steps. Moisturise every day. Treat flares early with the right-strength anti-inflammatory cream. Then prevent flares with twice-weekly use. Used correctly, steroid creams are safe and effective.",
+   "intro": "All the big guidelines (AAD, NICE, European and South African) use the same steps. Moisturise every day, treat flares early with the right-strength anti-inflammatory cream, then use it twice a week to keep flares away. Used correctly, steroid creams are safe and they work.",
    "sections": [
     {
      "title": "The steps",
-     "intro": "1. Every day, even when skin is clear: fragrance-free moisturiser on the whole body.\n2. At the first sign of a flare: a steroid cream of the right strength (mild on the face) on the red patches.\n3. Face, eyelids and folds: a steroid-free cream such as tacrolimus may suit better.\n4. Once calm: use the cream twice a week on the usual spots to stop flares coming back.\n5. Still not controlled? Ask about light therapy, tablets or injections (see Wonder Cures).",
+     "intro": "1. Every day, even when the skin is clear, put fragrance-free moisturiser on the whole body.\n2. At the first sign of a flare, put a steroid cream of the right strength on the red patches (a mild one on the face).\n3. On the face, eyelids and skin folds, a steroid-free cream like tacrolimus may suit better.\n4. Once the skin calms down, keep using the cream twice a week on the usual spots so flares don't come back.\n5. If it's still not under control, ask about light therapy, tablets or injections (see Wonder Cures).",
      "items": []
     },
     {
-     "title": "Moisture barrier",
+     "title": "Moisturising",
      "intro": "",
      "items": [
       {
        "name": "Moisturisers (emollients)",
-       "note": "The foundation of all care. Use them daily on the whole body. Children need about 250–500 g a week. The best one is the one you'll actually use.",
+       "note": "The base of all eczema care. Use them on the whole body every day. Kids need about 250–500 g a week. The best one is the one you'll actually use.",
        "rating": "best",
        "tags": [
         "BO"
@@ -316,17 +317,17 @@
       },
       {
        "name": "Fragrance-free products",
-       "note": "Fragrance is one of the most common skin allergens. Choose unperfumed, dye-free products.",
+       "note": "Fragrance is one of the most common skin allergens. Pick products without perfume or dyes.",
        "rating": "best"
       },
       {
        "name": "Petroleum jelly (Vaseline)",
-       "note": "Cheap, effective and fragrance-free. Recommended in South African guidance when cost is an issue.",
+       "note": "Cheap, works well and has no fragrance. South African guidance recommends it when money is tight.",
        "rating": "good"
       },
       {
        "name": "Aqueous cream as a moisturiser",
-       "note": "It damages the skin barrier when left on. Only use it as a soap substitute, then rinse off.",
+       "note": "Left on the skin, it damages the barrier. Only use it as a soap substitute and rinse it off.",
        "rating": "avoid"
       }
      ]
@@ -337,7 +338,7 @@
      "items": [
       {
        "name": "Topical corticosteroids (steroid creams)",
-       "note": "First choice for flares of any severity, at the right strength for the body area. A 2024 review of 291 trials found no extra skin thinning with short-term use.",
+       "note": "First choice for any flare, mild or severe, at the right strength for that part of the body. A big 2024 review found no extra skin thinning with short-term use.",
        "rating": "best",
        "tags": [
         "BO"
@@ -345,58 +346,58 @@
       },
       {
        "name": "Fingertip unit (FTU)",
-       "note": "A line of cream from the tip of an adult's finger to the first crease, about 0.5 g. It covers two adult palms. Apply once or twice a day to red patches only.",
+       "note": "A line of cream from the tip of an adult's finger to the first crease, about 0.5 g. That covers two adult palms. Put it on red patches only, once or twice a day.",
        "rating": "info"
       },
       {
        "name": "Twice-weekly maintenance",
-       "note": "After a flare settles, apply the cream twice a week to the usual spots. This prevents new flares.",
+       "note": "Once a flare settles, put the cream on the usual spots twice a week. This prevents new flares.",
        "rating": "good"
       },
       {
        "name": "Tacrolimus / pimecrolimus",
-       "note": "Steroid-free creams that are good for the face, eyelids and folds. Burning settles after a few days. Large studies show no meaningful cancer risk.",
+       "note": "Steroid-free creams that work well on the face, eyelids and skin folds. Any burning settles after a few days. Big studies show no real cancer risk.",
        "rating": "good"
       },
       {
        "name": "Newer non-steroid creams",
-       "note": "Ruxolitinib, roflumilast and tapinarof creams are approved overseas, but are not yet confirmed in South Africa. See Wonder Cures.",
+       "note": "Ruxolitinib, roflumilast and tapinarof creams are approved overseas but not yet confirmed in South Africa. See Wonder Cures.",
        "rating": "info"
       },
       {
        "name": "Topical steroid withdrawal (TSW)",
-       "note": "Recognised but poorly understood. It is mostly linked to long-term misuse of strong steroids on the face or genitals. Follow your doctor's plan rather than stopping suddenly.",
+       "note": "Doctors recognise it, but it isn't well understood yet. It's mostly linked to long-term misuse of strong steroids on the face or genitals. Follow your doctor's plan instead of stopping suddenly.",
        "rating": "caution"
       }
      ]
     },
     {
-     "title": "Behaviour & habits",
+     "title": "Behaviour and habits",
      "intro": "",
      "items": [
       {
        "name": "Habit reversal",
-       "note": "When the urge to scratch hits, clench your fists or press on the spot for 30 seconds instead. Small trials show it helps.",
+       "note": "When you feel the urge to scratch, clench your fists or press on the spot for 30 seconds instead. Small trials show it helps.",
        "rating": "good"
       },
       {
        "name": "Keep nails short",
-       "note": "This reduces skin damage from scratching, especially at night. Cotton mittens help babies.",
+       "note": "Short nails do less damage when you scratch, especially at night. Cotton mittens help for babies.",
        "rating": "good"
       },
       {
        "name": "Be gentle",
-       "note": "Use lukewarm short baths, pat dry and avoid scrubbing.",
+       "note": "Short lukewarm baths, pat dry and don't scrub.",
        "rating": "good"
       },
       {
        "name": "Soft, loose cotton clothing",
-       "note": "Silk is not better than cotton (CLOTHES trial). Loose, breathable and soft is what matters.",
+       "note": "A big trial found silk is no better than cotton. Loose, soft clothes that breathe are what matter.",
        "rating": "good"
       },
       {
        "name": "\"Just stop scratching\"",
-       "note": "This rarely works on its own. Control the itch with treatment and use habit reversal instead.",
+       "note": "That rarely works on its own. Get the itch under control with treatment and try habit reversal instead.",
        "rating": "caution",
        "tags": [
         "AEH"
@@ -404,7 +405,7 @@
       },
       {
        "name": "Written eczema action plan",
-       "note": "Ask your doctor for one. The Allergy Foundation of South Africa has a template.",
+       "note": "Ask your doctor for one. The Allergy Foundation of South Africa has a template you can use.",
        "rating": "good"
       }
      ]
@@ -415,102 +416,102 @@
      "items": [
       {
        "name": "Phototherapy (narrowband UVB)",
-       "note": "Medical light treatment at a dermatologist for widespread eczema. This is not the same as sunbathing or sunbeds.",
+       "note": "Medical light treatment at a dermatologist, for eczema over large areas. Not the same as sunbathing or sunbeds.",
        "rating": "good"
       },
       {
        "name": "Ciclosporin",
-       "note": "Fast-acting tablet for severe eczema. Short-term only, with kidney and blood pressure checks. Avoid grapefruit.",
+       "note": "A fast-acting tablet for severe eczema. Short-term only, with kidney and blood pressure checks. Avoid grapefruit.",
        "rating": "caution"
       },
       {
        "name": "Methotrexate",
-       "note": "An effective option needing regular blood tests. Keep alcohol to a minimum. It is not registered for eczema in South Africa (used off-label).",
+       "note": "Works well but needs regular blood tests. Keep alcohol to a minimum. It isn't registered for eczema in South Africa, so doctors use it off-label.",
        "rating": "caution"
       },
       {
        "name": "Oral steroids (prednisone, cortisone)",
-       "note": "Guidelines advise against them, strongly so for children. They cause rebound flares and side effects. Specialist short rescue only.",
+       "note": "Guidelines say don't use them, and are even firmer about this for kids. They cause rebound flares and side effects. Only as a short rescue by a specialist.",
        "rating": "avoid"
       }
      ]
     },
     {
-     "title": "Itch & sleep",
+     "title": "Itch and sleep",
      "intro": "",
      "items": [
       {
        "name": "Non-drowsy antihistamines",
-       "note": "They don't reliably help eczema itch (Cochrane review). They are useful for hay fever or hives.",
+       "note": "A big review found they don't reliably help eczema itch. They're useful for hay fever or hives.",
        "rating": "caution"
       },
       {
        "name": "Drowsy antihistamine at night",
-       "note": "Only a short 7–14 day trial during a flare that ruins sleep, on a doctor's advice. Promethazine (Phenergan) must not be used under 2 years.",
+       "note": "Only a short 7–14 day trial during a flare that's ruining sleep, and only on a doctor's advice. Never use promethazine (Phenergan) under 2 years.",
        "rating": "caution"
       },
       {
        "name": "Coal tar",
-       "note": "An old treatment with weak evidence. It stains, smells and makes skin sun-sensitive. Use it only on specialist advice.",
+       "note": "An old treatment with weak evidence. It stains, smells and makes skin sensitive to the sun. Only use it if a specialist advises it.",
        "rating": "caution"
       }
      ]
     },
     {
-     "title": "Things that don't add much",
+     "title": "Things that don't help much",
      "intro": "",
      "items": [
       {
        "name": "Dust-mite covers",
-       "note": "No reliable benefit for most people (Cochrane). They might help only people with a proven dust-mite allergy.",
+       "note": "For most people they don't reliably help. They might only help if you have a proven dust-mite allergy.",
        "rating": "caution"
       },
       {
        "name": "Food elimination diets",
-       "note": "Only remove a food if an allergy is confirmed by a doctor. Avoid internet and high-street allergy tests.",
+       "note": "Only cut out a food if a doctor confirms an allergy. Avoid internet and high-street allergy tests.",
        "rating": "avoid"
       },
       {
        "name": "Tea tree oil in the bath",
-       "note": "A common skin allergen that can make eczema worse.",
+       "note": "It's a common skin allergen and can make eczema worse.",
        "rating": "avoid"
       }
      ]
     },
     {
      "title": "See a doctor the same day if…",
-     "intro": "• Eczema suddenly gets worse, weeps, crusts or has yellow spots (possible infection).\n• There are painful, punched-out blisters or sores, especially with fever. This could be eczema herpeticum, a medical emergency.\n• A baby's eczema is severe or not settling.",
+     "intro": "• Eczema suddenly gets worse, weeps, crusts over or has yellow spots (it could be infected).\n• There are painful, punched-out blisters or sores, especially with a fever. This could be eczema herpeticum, which is a medical emergency.\n• A baby's eczema is severe or isn't settling.",
      "items": [],
      "style": "alert"
     }
    ],
    "sources": [
     {
-     "title": "AAD — Atopic dermatitis guidelines (2023, 2025 update, 2026 paediatric)",
+     "title": "AAD: Atopic dermatitis guidelines (2023, 2025 update, 2026 paediatric)",
      "url": "https://www.aad.org/member/clinical-quality/guidelines/atopic-dermatitis"
     },
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s (updated 2025)",
+     "title": "NICE CG57: Atopic eczema in under 12s (updated 2025)",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/Recommendations"
     },
     {
-     "title": "Kannenberg et al. — Paediatric atopic eczema in South Africa algorithm (2020)",
+     "title": "Kannenberg et al.: Paediatric atopic eczema in South Africa algorithm (2020)",
      "url": "https://safpj.co.za/index.php/safpj/article/view/5190/6476"
     },
     {
-     "title": "Lax et al. — Cochrane network meta-analysis of topical treatments (2024)",
+     "title": "Lax et al.: Cochrane network meta-analysis of topical treatments (2024)",
      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11629051/"
     },
     {
-     "title": "EuroGuiDerm — European guideline on atopic eczema (2022)",
+     "title": "EuroGuiDerm: European guideline on atopic eczema (2022)",
      "url": "https://epub.ub.uni-muenchen.de/106526/1/Acad%20Dermatol%20Venereol%20-%202022%20-%20Wollenberg.pdf"
     },
     {
-     "title": "Cochrane — Oral antihistamines as add-on therapy for eczema (2019)",
+     "title": "Cochrane: Oral antihistamines as add-on therapy for eczema (2019)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/30666626/"
     },
     {
-     "title": "National Eczema Society / BAD — Statement on topical steroid withdrawal (2024)",
+     "title": "National Eczema Society / BAD: Statement on topical steroid withdrawal (2024)",
      "url": "https://www.eczema.org.uk/news/joint-statement-on-topical-steroid-withdrawal"
     },
     {
@@ -522,9 +523,9 @@
   {
    "id": "remedies",
    "title": "Remedies",
-   "subtitle": "Home and natural remedies: what's worth trying",
+   "subtitle": "Home and natural remedies, and which ones are worth trying",
    "icon": "f4d2",
-   "intro": "Natural doesn't always mean gentle. Some popular remedies are common skin allergens. Use these alongside your prescribed treatment, never instead of it. Patch-test anything new on a small area for a few days.",
+   "intro": "Natural doesn't always mean gentle, and some popular remedies are common skin allergens. Use these with your prescribed treatment, never instead of it. Try anything new on a small patch of skin for a few days first.",
    "sections": [
     {
      "title": "Worth using",
@@ -532,7 +533,7 @@
      "items": [
       {
        "name": "Vaseline (petroleum jelly)",
-       "note": "Cheap, effective and fragrance-free. Recommended by South African guidance.",
+       "note": "Cheap, fragrance-free and it works. South African guidelines recommend it.",
        "rating": "best",
        "tags": [
         "BO"
@@ -540,83 +541,83 @@
       },
       {
        "name": "Virgin coconut oil",
-       "note": "Beat mineral oil in a trial of 117 children with mild–moderate eczema, and may reduce staph bacteria. Don't use it on infected skin.",
+       "note": "Did better than mineral oil in a trial with kids who had mild to moderate eczema, and may cut down staph bacteria. Don't use it on infected skin.",
        "rating": "good"
       },
       {
        "name": "Sunflower seed oil",
-       "note": "Helped preserve the skin barrier in a study. A good natural oil option.",
+       "note": "Helped protect the skin barrier in a study. A good natural oil to use.",
        "rating": "good"
       },
       {
        "name": "Colloidal oatmeal",
-       "note": "Gives temporary itch relief. Choose fragrance-free products, and stop if it stings.",
+       "note": "Eases the itch for a while. Pick fragrance-free products, and stop if it stings.",
        "rating": "good"
       },
       {
        "name": "Wet wraps after a bath",
-       "note": "Very helpful for bad flares, short-term, with a doctor or nurse's guidance. Never use them on infected skin.",
+       "note": "Really helps with bad flares for a short time, with a doctor or nurse guiding you. Never use them on infected skin.",
        "rating": "good"
       },
       {
        "name": "Shop-bought ointments and creams",
-       "note": "Plain fragrance-free emollients are fine. Avoid unlabelled or imported \"eczema creams\": some secretly contain steroids.",
+       "note": "Plain fragrance-free moisturisers are fine. Stay away from unlabelled or imported \"eczema creams\", because some have hidden steroids in them.",
        "rating": "ok"
       }
      ]
     },
     {
-     "title": "Unproven: try with care",
-     "intro": "No good eczema trials. Harmless for many people, but stop if your skin reacts.",
+     "title": "Unproven, so try with care",
+     "intro": "There are no good eczema trials for these. Lots of people use them without trouble, but stop if your skin reacts.",
      "items": [
       {
        "name": "Aloe vera gel",
-       "note": "No trials of aloe alone. Many gels contain alcohol or fragrance. Allergy has been reported.",
+       "note": "No trials of aloe on its own. Many gels have alcohol or fragrance in them, and some people have had allergies to it.",
        "rating": "caution"
       },
       {
        "name": "Shea butter",
-       "note": "A reasonable plain moisturiser if you tolerate it. No eczema trials.",
+       "note": "A decent plain moisturiser if your skin is fine with it. No eczema trials.",
        "rating": "ok"
       },
       {
        "name": "Cassia alata",
-       "note": "Antibacterial in the lab only. No human eczema studies.",
+       "note": "Only shown to fight bacteria in the lab. No studies on people with eczema.",
        "rating": "caution"
       },
       {
        "name": "Castor oil",
-       "note": "No eczema trials, and contact allergy has been reported.",
+       "note": "No eczema trials, and some people have had skin allergies to it.",
        "rating": "caution"
       },
       {
        "name": "Black seed oil (Nigella sativa)",
-       "note": "One small trial, but severe allergic skin reactions have been reported. Never apply it undiluted. Oral use is unproven.",
+       "note": "Only one small trial, and some people have had severe allergic skin reactions. Never put it on undiluted. Taking it by mouth is unproven.",
        "rating": "caution"
       },
       {
        "name": "Speensalf (udder cream)",
-       "note": "A veterinary teat ointment for dairy cows. Its ingredients vary and it isn't made for eczema. Use a fragrance-free emollient instead.",
+       "note": "A teat ointment made for dairy cows, not for eczema, and what's in it varies. Use a fragrance-free moisturiser instead.",
        "rating": "caution"
       },
       {
        "name": "Calendula and chamomile",
-       "note": "Daisy-family plants. Allergy to them is more common in people with eczema.",
+       "note": "These are in the daisy family, and people with eczema are more often allergic to them.",
        "rating": "caution"
       },
       {
        "name": "Honey / manuka",
-       "note": "Only a tiny uncontrolled study. Never give honey to babies under 1.",
+       "note": "Only one tiny study with no comparison group. Never give honey to babies under 1.",
        "rating": "caution"
       },
       {
        "name": "Hemp / CBD creams",
-       "note": "One small trial. Products vary and are unregulated.",
+       "note": "Only one small trial. Products vary a lot and aren't regulated.",
        "rating": "caution"
       },
       {
        "name": "Rooibos on the skin",
-       "note": "Promising in mouse studies only.",
+       "note": "Looks promising, but only in mouse studies so far.",
        "rating": "ok"
       }
      ]
@@ -627,27 +628,27 @@
      "items": [
       {
        "name": "Tea tree oil",
-       "note": "A well-known skin allergen, and worse in old bottles. It can make eczema flare.",
+       "note": "A well-known skin allergen, and worse from old bottles. It can make your eczema flare.",
        "rating": "avoid"
       },
       {
        "name": "Turmeric on the skin",
-       "note": "A proven contact allergen that also stains. Eating it in food is fine.",
+       "note": "A proven skin allergen, and it stains too. Eating it in food is fine.",
        "rating": "avoid"
       },
       {
        "name": "Apple cider vinegar",
-       "note": "In a 2019 study it didn't help the skin barrier and irritated most people's skin.",
+       "note": "A study found it didn't help the skin barrier and irritated most people's skin.",
        "rating": "avoid"
       },
       {
        "name": "Olive oil",
-       "note": "Damaged the skin barrier in a study. Avoid it for baby massage too.",
+       "note": "Damaged the skin barrier in a study. Don't use it for baby massage either.",
        "rating": "avoid"
       },
       {
        "name": "Milk of magnesia",
-       "note": "No evidence. It is alkaline, and eczema skin prefers slightly acidic products.",
+       "note": "No evidence. It's alkaline, and eczema skin does better with slightly acidic products.",
        "rating": "avoid"
       },
       {
@@ -657,7 +658,7 @@
       },
       {
        "name": "Witch hazel",
-       "note": "No eczema evidence, and many products contain drying alcohol.",
+       "note": "No eczema evidence, and lots of products have drying alcohol in them.",
        "rating": "avoid"
       }
      ]
@@ -665,19 +666,19 @@
    ],
    "sources": [
     {
-     "title": "Evangelista et al. — Virgin coconut oil in children with AD (2014)",
+     "title": "Evangelista et al.: Virgin coconut oil in children with AD (2014)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/24320105/"
     },
     {
-     "title": "Danby et al. — Olive vs sunflower seed oil on the skin barrier (2013)",
+     "title": "Danby et al.: Olive vs sunflower seed oil on the skin barrier (2013)",
      "url": "https://research.lstmed.ac.uk/en/publications/effect-of-olive-and-sunflower-seed-oil-on-the-adult-skin-barrier--2/"
     },
     {
-     "title": "Luu et al. — Apple cider vinegar soaks (2019)",
+     "title": "Luu et al.: Apple cider vinegar soaks (2019)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/31328306/"
     },
     {
-     "title": "Rutherford et al. — Allergy to tea tree oil (2007)",
+     "title": "Rutherford et al.: Allergy to tea tree oil (2007)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/17535193/"
     },
     {
@@ -689,7 +690,7 @@
      "url": "https://pubmed.ncbi.nlm.nih.gov/15503788/"
     },
     {
-     "title": "Kannenberg et al. — South African paediatric eczema algorithm (2020)",
+     "title": "Kannenberg et al.: South African paediatric eczema algorithm (2020)",
      "url": "https://safpj.co.za/index.php/safpj/article/view/5190/6476"
     }
    ]
@@ -697,9 +698,9 @@
   {
    "id": "supplements",
    "title": "Supplements",
-   "subtitle": "Vitamins, pills and products: what the evidence says",
+   "subtitle": "What the research says about vitamins, pills and products",
    "icon": "f6f2",
-   "intro": "Most supplements have not been shown to help eczema. Vitamin D (if low or in winter) and short-term melatonin for sleep are the only ones with modest support. Tell your doctor or pharmacist about everything you take.",
+   "intro": "Most supplements haven't been shown to help eczema. Only vitamin D (if your levels are low or in winter) and short-term melatonin for sleep have a bit of support. Tell your doctor or pharmacist about everything you take.",
    "sections": [
     {
      "title": "May help",
@@ -707,48 +708,48 @@
      "items": [
       {
        "name": "Vitamin D",
-       "note": "Gave a modest improvement in trials, mainly in people with low levels or in winter. Ask for a blood test, and don't megadose.",
+       "note": "Helped a little in trials, mostly in people with low levels or in winter. Ask for a blood test, and don't take huge doses.",
        "rating": "good"
       },
       {
        "name": "Melatonin",
-       "note": "Helped children with eczema fall asleep about 21 minutes faster. Short-term only, with a doctor's dose.",
+       "note": "Helped kids with eczema fall asleep about 21 minutes faster. Short-term only, at a dose your doctor gives.",
        "rating": "good"
       },
       {
        "name": "Vitamin B12 cream (on the skin)",
-       "note": "Small placebo-controlled trials showed improvement. Oral B12 liquid has no evidence unless you are deficient.",
+       "note": "Small trials against a dummy cream showed it helped. B12 liquid by mouth has no evidence unless you're low in B12.",
        "rating": "ok"
       }
      ]
     },
     {
      "title": "No proven benefit",
-     "intro": "Probably harmless at normal doses, but probably not worth the money for eczema.",
+     "intro": "Probably fine at normal doses, but probably not worth the money for eczema.",
      "items": [
       {
        "name": "Probiotics",
-       "note": "Probably make little or no difference to eczema (Cochrane review of 39 trials).",
+       "note": "Probably make little or no difference to eczema, going by a big review of 39 trials.",
        "rating": "caution"
       },
       {
        "name": "Omega-3 / fish oil",
-       "note": "No clinically meaningful benefit in reviews. Eating oily fish as food is still healthy.",
+       "note": "Reviews found no real benefit. Eating oily fish is still good for you.",
        "rating": "caution"
       },
       {
        "name": "Vitamin C",
-       "note": "No proven benefit, but no evidence it harms eczema either. High-strength skin serums may sting.",
+       "note": "No proven benefit, but no sign it harms eczema either. Strong skin serums may sting.",
        "rating": "ok"
       },
       {
        "name": "Vitamin E",
-       "note": "No benefit found in reviews.",
+       "note": "Reviews found no benefit.",
        "rating": "caution"
       },
       {
        "name": "Zinc & copper",
-       "note": "May help only if you are truly deficient. There are no copper studies.",
+       "note": "Might help only if you're really low in them. There are no studies on copper.",
        "rating": "caution"
       },
       {
@@ -758,7 +759,7 @@
       },
       {
        "name": "Milk thistle",
-       "note": "No evidence it relieves itch.",
+       "note": "No evidence that it eases itch.",
        "rating": "caution"
       },
       {
@@ -774,37 +775,37 @@
      "items": [
       {
        "name": "Evening primrose & borage oil",
-       "note": "No better than placebo across 27 trials (Cochrane).",
+       "note": "Worked no better than a dummy pill across 27 trials.",
        "rating": "avoid"
       },
       {
        "name": "\"Liver detox\" supplements",
-       "note": "No link between liver detox and eczema. Some herbal mixtures have caused liver damage.",
+       "note": "Detoxing your liver has no link to eczema. Some herbal mixes have caused liver damage.",
        "rating": "avoid"
       },
       {
        "name": "Non-drowsy antihistamines for eczema itch",
-       "note": "No consistent benefit for eczema. Only useful for hay fever or hives.",
+       "note": "Don't reliably help eczema. Only useful for hay fever or hives.",
        "rating": "avoid"
       },
       {
        "name": "Phenergan (promethazine) every night",
-       "note": "Not for routine use. Never give it under 2 years (it can stop breathing), and tablets are not for under 5. Short flare use only, on prescription.",
+       "note": "Not for routine use. Never give it to children under 2 years, as it can stop their breathing, and tablets are not for under 5s. Only for short use in a flare, on prescription.",
        "rating": "avoid"
       },
       {
        "name": "Prednisone / cortisone tablets",
-       "note": "Not a supplement. These are prescription steroids that guidelines advise against for eczema because they cause rebound flares.",
+       "note": "Not a supplement. These are prescription steroids, and guidelines advise against them for eczema because the eczema flares up again when you stop (rebound flares).",
        "rating": "avoid"
       },
       {
        "name": "Retinol skin products",
-       "note": "Dries and irritates eczema skin. Not for use in pregnancy.",
+       "note": "Dries out and irritates eczema skin. Don't use it in pregnancy.",
        "rating": "avoid"
       },
       {
        "name": "Fragrance & perfumes",
-       "note": "Among the most common skin allergens. Choose unperfumed products.",
+       "note": "One of the most common skin allergens. Pick unperfumed products.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -815,27 +816,27 @@
    ],
    "sources": [
     {
-     "title": "Vitamin D for treating AD — meta-analysis (2024)",
+     "title": "Vitamin D for treating AD: meta-analysis (2024)",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11644640/"
     },
     {
-     "title": "Melatonin in children with AD — systematic review",
+     "title": "Melatonin in children with AD: systematic review",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12867768/"
     },
     {
-     "title": "Cochrane — Probiotics for treating eczema (2018)",
+     "title": "Cochrane: Probiotics for treating eczema (2018)",
      "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD006135.pub3/information"
     },
     {
-     "title": "Cochrane — Dietary supplements for established eczema (2012)",
+     "title": "Cochrane: Dietary supplements for established eczema (2012)",
      "url": "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD005205.pub3/information"
     },
     {
-     "title": "Cochrane — Evening primrose and borage oil (2013)",
+     "title": "Cochrane: Evening primrose and borage oil (2013)",
      "url": "https://www.cochrane.org/evidence/CD004416_oral-evening-primrose-oil-and-borage-oil-eczema"
     },
     {
-     "title": "Nutritional supplements in AD — systematic review (2023)",
+     "title": "Nutritional supplements in AD: systematic review (2023)",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10719823/"
     },
     {
@@ -850,7 +851,7 @@
    "tileTitle": "Causes",
    "subtitle": "Why eczema happens and what sets off flares",
    "icon": "f86a",
-   "intro": "Eczema's root causes are genes, a weak skin barrier and an over-reactive immune system. Triggers then set off flares, and they differ from person to person. Keeping a simple diary of flares helps you spot your own pattern.",
+   "intro": "Eczema comes from your genes, a weak skin barrier and an immune system that over-reacts. Triggers then set off flares, and they're different for everyone. A simple flare diary helps you spot your own pattern.",
    "sections": [
     {
      "title": "Root causes",
@@ -858,7 +859,7 @@
      "items": [
       {
        "name": "Genes and family history",
-       "note": "Eczema runs in families with eczema, asthma or hay fever.",
+       "note": "Eczema runs in families where there's eczema, asthma or hay fever.",
        "rating": "info",
        "tags": [
         "HBUC"
@@ -866,7 +867,7 @@
       },
       {
        "name": "Skin barrier (filaggrin)",
-       "note": "Some people's skin lacks strong building blocks, so water escapes and irritants get in.",
+       "note": "Some people's skin is missing strong building blocks like filaggrin, so water gets out and irritants get in.",
        "rating": "info",
        "tags": [
         "HBUC"
@@ -874,7 +875,7 @@
       },
       {
        "name": "Immune system",
-       "note": "An over-reactive allergy-type response causes redness and itch.",
+       "note": "The immune system over-reacts, a bit like an allergy, and that causes redness and itch.",
        "rating": "info",
        "tags": [
         "HBUC"
@@ -884,11 +885,11 @@
     },
     {
      "title": "Irritants",
-     "intro": "These damage everyone's skin, and eczema skin most of all.",
+     "intro": "These are hard on anyone's skin, and on eczema skin most of all.",
      "items": [
       {
        "name": "Soaps, detergents, bubble baths",
-       "note": "Use a soap-free wash and avoid anything that foams.",
+       "note": "Use a soap-free wash and skip anything that foams.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -896,7 +897,7 @@
       },
       {
        "name": "Perfumes and fragrance",
-       "note": "Both an irritant and a common allergen. Choose fragrance-free creams, washes and washing powder.",
+       "note": "Irritates the skin and is also a common allergen. Pick fragrance-free creams, washes and washing powder.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -904,22 +905,22 @@
       },
       {
        "name": "Scratchy or rough fabrics",
-       "note": "Coarse wool and tight, hot clothing itch. Soft, loose cotton is best.",
+       "note": "Coarse wool and tight, hot clothes make you itch. Soft, loose cotton is best.",
        "rating": "avoid"
       },
       {
        "name": "Tobacco smoke",
-       "note": "Second-hand smoke is a known trigger. Keep homes and cars smoke-free.",
+       "note": "Second-hand smoke is a known trigger. Keep your home and car smoke-free.",
        "rating": "avoid"
       },
       {
        "name": "Paraffin, coal and wood smoke, traffic fumes",
-       "note": "Linked to more eczema in South African studies. Ventilate well when using indoor fuels.",
+       "note": "South African studies link these to more eczema. Let plenty of fresh air in when you burn fuel indoors.",
        "rating": "caution"
       },
       {
        "name": "Reactions to creams",
-       "note": "If controlled eczema suddenly worsens after a new product, ask about patch testing for contact allergy.",
+       "note": "If your eczema was under control and suddenly gets worse after a new product, ask about patch testing for a contact allergy.",
        "rating": "caution"
       }
      ]
@@ -930,37 +931,37 @@
      "items": [
       {
        "name": "Heat and sweat",
-       "note": "Keep cool and don't overdress babies. Rinse sweat off and moisturise, but don't avoid exercise.",
+       "note": "Keep cool and don't overdress babies. Rinse off sweat and moisturise, but don't stop exercising.",
        "rating": "caution"
       },
       {
        "name": "Dry air and cold",
-       "note": "Highveld winters dry the skin, so moisturise more often in dry or cold weather.",
+       "note": "Highveld winters dry the skin out, so moisturise more often when it's dry or cold.",
        "rating": "caution"
       },
       {
        "name": "House dust mites",
-       "note": "Only matters if you're allergic. Mite-proofing helps little for most people, so don't buy costly products just in case.",
+       "note": "Only matters if you're allergic. Mite-proofing doesn't help most people much, so don't buy pricey products just in case.",
        "rating": "caution"
       },
       {
        "name": "Pollen",
-       "note": "Relevant if you're allergic, often with seasonal or eye-area flares. Ask about testing.",
+       "note": "Matters if you're allergic, often with seasonal flares or flares around the eyes. Ask about testing.",
        "rating": "caution"
       },
       {
        "name": "Pet fur and dander",
-       "note": "Avoid pets only if an allergy is proven. Early-life contact with dogs is linked to less eczema.",
+       "note": "Only avoid pets if an allergy is proven. Contact with dogs early in life is linked to less eczema.",
        "rating": "ok"
       },
       {
        "name": "Damp and mould",
-       "note": "May worsen allergies. Fix damp for general health, although evidence for eczema itself is limited.",
+       "note": "May make allergies worse. Fix damp for your general health, though the evidence for eczema itself is limited.",
        "rating": "caution"
       },
       {
        "name": "Hard water",
-       "note": "Water softeners didn't help eczema in a large trial. South African metro water is mostly soft.",
+       "note": "Water softeners didn't help eczema in a big trial. Metro water in South Africa is mostly soft anyway.",
        "rating": "ok"
       }
      ]
@@ -971,32 +972,32 @@
      "items": [
       {
        "name": "Stress, including family or relationship stress",
-       "note": "Stress worsens itch, and eczema adds stress. It is a two-way link, so support and coping skills help.",
+       "note": "Stress makes the itch worse, and eczema adds stress. It works both ways, so support and ways of coping help.",
        "rating": "caution"
       },
       {
        "name": "Hormones",
-       "note": "Some women flare in the week before a period or during pregnancy. Plan extra skin care then.",
+       "note": "Some women flare in the week before their period or during pregnancy. Plan extra skin care for those times.",
        "rating": "caution"
       },
       {
        "name": "Staph infection",
-       "note": "Weeping, crusting or yellow spots mean possible infection. See a doctor.",
+       "note": "Weeping, crusting or yellow spots can mean infection. See a doctor.",
        "rating": "avoid"
       },
       {
        "name": "Eczema herpeticum (emergency)",
-       "note": "Painful clustered blisters or punched-out sores, often with fever. Get medical help the same day.",
+       "note": "Painful clusters of blisters or punched-out sores, often with a fever. Get medical help the same day.",
        "rating": "avoid"
       },
       {
        "name": "Yeast (Malassezia)",
-       "note": "Head and neck eczema in some teens and adults may respond to antifungal treatment.",
+       "note": "In some teens and adults, eczema on the head and neck may get better with antifungal treatment.",
        "rating": "info"
       },
       {
        "name": "Baby with gut symptoms",
-       "note": "Eczema plus vomiting, colic, diarrhoea or poor growth? Ask your doctor about food allergy.",
+       "note": "If a baby has eczema plus vomiting, colic, diarrhoea or poor growth, ask your doctor about food allergy.",
        "rating": "info"
       }
      ]
@@ -1007,22 +1008,22 @@
      "items": [
       {
        "name": "\"Gut health\" / leaky gut",
-       "note": "Gut bacteria may differ in eczema, but probiotics don't reliably help and \"leaky gut\" isn't a recognised diagnosis.",
+       "note": "Gut bacteria may be different with eczema, but probiotics don't reliably help and \"leaky gut\" isn't a recognised diagnosis.",
        "rating": "caution"
       },
       {
        "name": "Candida",
-       "note": "No good evidence that gut thrush causes eczema or that anti-candida diets help.",
+       "note": "No good evidence that thrush in the gut causes eczema, or that anti-candida diets help.",
        "rating": "caution"
       },
       {
        "name": "Liver, spleen, \"detox\"",
-       "note": "Eczema is not caused by liver or spleen problems. Some herbal cleanses can harm the liver or contain hidden steroids.",
+       "note": "Liver or spleen problems don't cause eczema. Some herbal cleanses can harm the liver or have hidden steroids in them.",
        "rating": "avoid"
       },
       {
        "name": "Gluten",
-       "note": "Not a common eczema trigger. Guidelines advise against going gluten-free unless coeliac disease or a wheat allergy is diagnosed.",
+       "note": "Not a common eczema trigger. Guidelines say don't go gluten-free unless you've been diagnosed with coeliac disease or a wheat allergy.",
        "rating": "ok"
       }
      ]
@@ -1032,33 +1033,33 @@
      "intro": "",
      "items": [
       {
-       "name": "Myth: a healthy diet can cure eczema",
-       "note": "Fact: healthy eating is great for general health, but no diet cures eczema, and cutting foods can cause new allergies.",
+       "name": "A healthy diet can cure eczema",
+       "note": "Not true. Eating well is great for your general health, but no diet cures eczema, and cutting out foods can cause new allergies.",
        "rating": "info"
       },
       {
-       "name": "Myth: eczema heals naturally",
-       "note": "Fact: many children improve with age, but not all, and flares often return. Untreated eczema harms sleep and skin. Herbal \"natural cures\" are unproven.",
+       "name": "Eczema heals naturally",
+       "note": "Not always. Many kids get better as they grow, but not all, and flares often come back. Untreated eczema is bad for sleep and skin. Herbal \"natural cures\" are unproven.",
        "rating": "info"
       },
       {
-       "name": "Myth: eczema is contagious",
-       "note": "Fact: you cannot catch eczema. Infected eczema can spread germs, so keep skin treated and hands clean.",
+       "name": "Eczema is contagious",
+       "note": "Not true. You can't catch eczema. Infected patches can spread germs though, so keep them treated and wash hands.",
        "rating": "info"
       },
       {
-       "name": "Myth: only children get eczema",
-       "note": "Fact: there is a second peak in older adults, and it can start at any age.",
+       "name": "Only children get eczema",
+       "note": "Not true. It can start at any age, and there's a second peak in older adults.",
        "rating": "info"
       },
       {
-       "name": "Myth: steroid creams always thin the skin",
-       "note": "Fact: thinning is rare when they are used as directed, even with twice-weekly preventive use.",
+       "name": "Steroid creams always thin the skin",
+       "note": "Not true. Thinning is rare when you use them as directed, even with twice-weekly use to prevent flares.",
        "rating": "info"
       },
       {
-       "name": "Myth: children with eczema shouldn't be vaccinated",
-       "note": "Fact: vaccinate on schedule. Only some strong eczema tablets affect live vaccines, so ask your doctor.",
+       "name": "Children with eczema shouldn't be vaccinated",
+       "note": "Not true. Vaccinate on schedule. Only some strong eczema tablets affect live vaccines, so ask your doctor.",
        "rating": "info"
       }
      ]
@@ -1066,39 +1067,39 @@
    ],
    "sources": [
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s (updated 2025)",
+     "title": "NICE CG57: Atopic eczema in under 12s (updated 2025)",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/Recommendations"
     },
     {
-     "title": "EuroGuiDerm — Avoidance techniques in atopic eczema (2022)",
+     "title": "EuroGuiDerm: Avoidance techniques in atopic eczema (2022)",
      "url": "https://www.guidelines.edf.one/uploads/attachments/cl5qetsd802bvjxjnjcykzyx7-28-avoidance-techniques-jun-2022.pdf"
     },
     {
-     "title": "EuroGuiDerm — Antimicrobial treatment chapter (2022)",
+     "title": "EuroGuiDerm: Antimicrobial treatment chapter (2022)",
      "url": "https://www.guidelines.edf.one/uploads/attachments/cl485ylrz00acsjjn3tikwu2m-8-antimicrobial-treatment-jun-2022.pdf"
     },
     {
-     "title": "NHS — Atopic eczema: causes",
+     "title": "NHS: Atopic eczema: causes",
      "url": "https://www.nhs.uk/conditions/atopic-eczema/causes/"
     },
     {
-     "title": "Allergy Foundation South Africa — Can eczema be cured?",
+     "title": "Allergy Foundation South Africa: Can eczema be cured?",
      "url": "https://www.allergyfoundation.co.za/atopic-eczema/can-eczema-be-cured/"
     },
     {
-     "title": "Mananga et al. — Air pollution and eczema in Soshanguve teenagers (2026)",
+     "title": "Mananga et al.: Air pollution and eczema in Soshanguve teenagers (2026)",
      "url": "https://doi.org/10.1002/puh2.70325"
     },
     {
-     "title": "McSwiney et al. — Menstrual cycle and AD flares (2025)",
+     "title": "McSwiney et al.: Menstrual cycle and AD flares (2025)",
      "url": "https://doi.org/10.1093/ced/llaf153"
     },
     {
-     "title": "Pelucchi et al. — Pet exposure and AD (2013)",
+     "title": "Pelucchi et al.: Pet exposure and AD (2013)",
      "url": "https://doi.org/10.1016/j.jaci.2013.04.009"
     },
     {
-     "title": "Axon et al. — Safety of topical corticosteroids, umbrella review (2021)",
+     "title": "Axon et al.: Safety of topical corticosteroids, umbrella review (2021)",
      "url": "https://doi.org/10.1136/bmjopen-2020-046476"
     }
    ]
@@ -1107,9 +1108,9 @@
    "id": "beverages",
    "title": "Drinks & Beverages",
    "tileTitle": "Beverages",
-   "subtitle": "What to drink, and what to keep for treats",
+   "subtitle": "What's fine to drink, and what to keep for treats",
    "icon": "e589",
-   "intro": "No drink has been proven to cure or calm eczema, and very few drinks need to be avoided. Hydrate your skin from the outside with moisturiser. Choose drinks for good sleep and general health.",
+   "intro": "No drink has been proven to cure or calm eczema, and very few need to be avoided. Keep your skin hydrated from the outside with moisturiser. Pick drinks that are good for your sleep and general health.",
    "sections": [
     {
      "title": "Everyday drinks",
@@ -1117,7 +1118,7 @@
      "items": [
       {
        "name": "Water",
-       "note": "The best everyday drink. It won't moisturise eczema skin on its own; moisturiser does that.",
+       "note": "The best everyday drink. It won't moisturise your skin on its own. Moisturiser does that.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1125,47 +1126,47 @@
       },
       {
        "name": "Rooibos",
-       "note": "Caffeine-free and family-friendly. Lab studies look interesting, but there is no human proof that it calms eczema.",
+       "note": "Caffeine-free and fine for the whole family. Lab studies look interesting, but there's no proof yet that it calms eczema in people.",
        "rating": "good"
       },
       {
        "name": "Green tea",
-       "note": "Fine to drink. The skin benefits seen in studies came mostly from creams, not from cups of tea. Contains caffeine.",
+       "note": "Fine to drink. The skin benefits in studies came mostly from creams, not cups of tea. Has caffeine.",
        "rating": "ok"
       },
       {
        "name": "Oolong tea",
-       "note": "One small, uncontrolled 2001 study suggested a benefit. It is not proven, but fine to drink if you enjoy it.",
+       "note": "One small 2001 study, without a control group, hinted at a benefit. Not proven, but fine if you enjoy it.",
        "rating": "ok"
       },
       {
        "name": "Black tea",
-       "note": "No evidence it worsens eczema. Contains caffeine, so it is not for babies and young children.",
+       "note": "No evidence it makes eczema worse. Has caffeine, so not for babies and young children.",
        "rating": "ok"
       },
       {
        "name": "Cow's milk",
-       "note": "Only cut it out if a doctor confirms a milk allergy. Removing it unnecessarily can harm nutrition and may even raise allergy risk.",
+       "note": "Only cut it out if a doctor confirms a milk allergy. Cutting it for no reason can hurt nutrition and may even raise allergy risk.",
        "rating": "ok"
       },
       {
        "name": "Plant milks (soya, oat, almond)",
-       "note": "Choose unsweetened, calcium-fortified versions from age 1. No rice drinks for under-5s.",
+       "note": "From age 1, pick unsweetened, calcium-fortified ones. No rice drinks for under-5s.",
        "rating": "ok"
       },
       {
        "name": "Coconut milk drink",
-       "note": "No eczema evidence either way. It is not a complete milk replacement for children, so ask a dietitian.",
+       "note": "No link to eczema either way. Not a full milk replacement for kids, so check with a dietitian.",
        "rating": "ok"
       },
       {
        "name": "Kefir and probiotic drinks",
-       "note": "Fine as food, but probiotics have not been shown to treat eczema (Cochrane review).",
+       "note": "Fine as food, but a big review found no proof that probiotics treat eczema.",
        "rating": "ok"
       },
       {
        "name": "Bone broth",
-       "note": "No evidence it helps eczema. Fine as food.",
+       "note": "Fine as food, but there's no evidence it helps eczema.",
        "rating": "ok"
       }
      ]
@@ -1176,37 +1177,37 @@
      "items": [
       {
        "name": "Coffee",
-       "note": "No proven link to eczema. Avoid it later in the day, because poor sleep makes itch worse. Not for children.",
+       "note": "No proven link to eczema. Skip it later in the day, because bad sleep makes itch worse. Not for children.",
        "rating": "moderation"
       },
       {
        "name": "Matcha",
-       "note": "Fine for adults, but high in caffeine. Avoid it late in the day and don't give it to children.",
+       "note": "Fine for adults, but high in caffeine. Skip it late in the day and don't give it to kids.",
        "rating": "moderation"
       },
       {
        "name": "Fruit juice (apple, grape, citrus)",
-       "note": "No eczema effect, but sugary. Dilute 1 part juice to 10 parts water for young children and give with meals. Citrus can redden skin around a toddler's mouth.",
+       "note": "No effect on eczema, but sugary. For young kids, mix 1 part juice with 10 parts water and give it with meals. Citrus can redden the skin around a toddler's mouth.",
        "rating": "moderation"
       },
       {
        "name": "Vegetable juice (beet, celery)",
-       "note": "No proven benefit. Celery is an allergen for some people. Handling a lot of celery in the sun can cause a skin reaction.",
+       "note": "No proven benefit. Some people are allergic to celery, and handling lots of it in the sun can cause a skin reaction.",
        "rating": "ok"
       },
       {
        "name": "Smoothies",
-       "note": "Fine. For children, dilute and serve with meals. Leave out any food with a confirmed allergy.",
+       "note": "Fine. For kids, dilute it and give it with meals. Leave out any food that's a confirmed allergy.",
        "rating": "ok"
       },
       {
        "name": "Kombucha",
-       "note": "No human evidence of benefit. It is acidic, often sugary and can contain a little alcohol. Adults only.",
+       "note": "No proof it helps in people. It's acidic, often sugary and can have a little alcohol in it. Adults only.",
        "rating": "moderation"
       },
       {
        "name": "Soda and fizzy drinks",
-       "note": "There is no direct eczema link, but they are bad for teeth and general health. Not for young children.",
+       "note": "No direct link to eczema, but bad for teeth and general health. Not for young children.",
        "rating": "moderation"
       }
      ]
@@ -1217,28 +1218,28 @@
      "items": [
       {
        "name": "Energy drinks (under 18)",
-       "note": "Linked to short, poor-quality sleep and other harms in young people. Adults should keep them occasional.",
+       "note": "Linked to short, poor sleep and other harms in young people. Adults should keep them occasional.",
        "rating": "avoid"
       },
       {
        "name": "Grapefruit juice on certain medicines",
-       "note": "Avoid it if you take ciclosporin or upadacitinib (Rinvoq), because it raises medicine levels in the blood. Check every medicine leaflet.",
+       "note": "Don't drink it if you take ciclosporin or upadacitinib (Rinvoq), because it raises the medicine levels in your blood. Check every medicine leaflet.",
        "rating": "avoid"
       }
      ]
     },
     {
      "title": "Alcohol",
-     "intro": "There's no strong proof that alcohol causes eczema flares. It can make skin flush and itch, and it disturbs sleep, which makes itch worse. Red wine, beer and darker spirits contain more histamine, sulphites or congeners, and people notice them most. If you drink, keep it light and drink water in between.",
+     "intro": "There's no strong proof that alcohol causes flares. It can make your skin flush and itch, and it messes with sleep, which makes itch worse. People notice red wine, beer and darker spirits most, because they have more histamine, sulphites or congeners. If you drink, keep it light and have water in between.",
      "items": [
       {
        "name": "Gin, vodka, silver (blanco) tequila",
-       "note": "Clear spirits are lowest in congeners. Use plain mixers such as soda water, and stop a few hours before bed.",
+       "note": "Clear spirits have the fewest congeners. Use plain mixers like soda water, and stop a few hours before bed.",
        "rating": "moderation"
       },
       {
        "name": "Red wine",
-       "note": "The alcohol most often reported to trigger itch and flushing, because of its histamine and sulphites.",
+       "note": "The alcohol most often blamed for itch and flushing, because of its histamine and sulphites.",
        "rating": "avoid",
        "tags": [
         "HHF"
@@ -1246,7 +1247,7 @@
       },
       {
        "name": "White and sparkling wine",
-       "note": "Lower in histamine than red, but still contains sulphites.",
+       "note": "Less histamine than red, but it still has sulphites.",
        "rating": "caution",
        "tags": [
         "HHF"
@@ -1254,7 +1255,7 @@
       },
       {
        "name": "Beer and cider",
-       "note": "Fermented and containing biogenic amines. Some people notice flushing or itch.",
+       "note": "Fermented, so they contain biogenic amines (histamine-type compounds). Some people notice flushing or itch.",
        "rating": "caution",
        "tags": [
         "HHF"
@@ -1262,12 +1263,12 @@
       },
       {
        "name": "Brandy, whisky, dark rum",
-       "note": "Darker spirits contain more congeners and are linked to worse hangovers. Keep them occasional.",
+       "note": "Darker spirits have more congeners and are linked to worse hangovers. Keep them for now and then.",
        "rating": "caution"
       },
       {
        "name": "Sake and rice wines",
-       "note": "Fermented like wine and beer, not a clear spirit. Treat sake like wine.",
+       "note": "Fermented like wine and beer, so not a clear spirit. Treat sake like wine.",
        "rating": "caution",
        "tags": [
         "HHF"
@@ -1275,12 +1276,12 @@
       },
       {
        "name": "Cocktails, alcopops, liqueurs",
-       "note": "Lots of sugar and mixed ingredients, which makes triggers hard to track. No grapefruit cocktails on ciclosporin or Rinvoq.",
+       "note": "Lots of sugar and mixed ingredients, so it's hard to tell what sets you off. No grapefruit cocktails if you're on ciclosporin or Rinvoq.",
        "rating": "caution"
       },
       {
        "name": "Under 18, pregnant or breastfeeding",
-       "note": "Avoid alcohol completely. Drinking in pregnancy is linked to eczema in the child.",
+       "note": "Don't drink alcohol at all. Drinking while pregnant is linked to eczema in the child.",
        "rating": "avoid"
       },
       {
@@ -1293,35 +1294,35 @@
    ],
    "sources": [
     {
-     "title": "Akdeniz et al. — Fluid intake and skin hydration, systematic review (2018)",
+     "title": "Akdeniz et al.: Fluid intake and skin hydration, systematic review (2018)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/29392767/"
     },
     {
-     "title": "Uehara et al. — Oolong tea in atopic dermatitis (2001)",
+     "title": "Uehara et al.: Oolong tea in atopic dermatitis (2001)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/11176659/"
     },
     {
-     "title": "Cochrane — Probiotics for treating eczema (2018)",
+     "title": "Cochrane: Probiotics for treating eczema (2018)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/30480774/"
     },
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s (updated 2025)",
+     "title": "NICE CG57: Atopic eczema in under 12s (updated 2025)",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/Recommendations"
     },
     {
-     "title": "NHS — Drinks and cups for babies and young children",
+     "title": "NHS: Drinks and cups for babies and young children",
      "url": "https://www.nhs.uk/baby/weaning-and-feeding/drinks-and-cups-for-babies-and-young-children/"
     },
     {
-     "title": "Halling-Overgaard et al. — Alcohol and atopic dermatitis meta-analysis (2018)",
+     "title": "Halling-Overgaard et al.: Alcohol and atopic dermatitis meta-analysis (2018)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/29377395/"
     },
     {
-     "title": "Vally & Thompson — Allergic reactions to alcoholic drinks (2003)",
+     "title": "Vally & Thompson: Allergic reactions to alcoholic drinks (2003)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/12745410/"
     },
     {
-     "title": "Ajibo et al. — Energy drinks in children and young people (2024)",
+     "title": "Ajibo et al.: Energy drinks in children and young people (2024)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/38228408/"
     },
     {
@@ -1333,9 +1334,9 @@
   {
    "id": "food",
    "title": "Food",
-   "subtitle": "Eating well with eczema: no special diet needed",
+   "subtitle": "No special diet needed, just eat well",
    "icon": "eee9",
-   "intro": "There is no special eczema diet. Eat a varied, balanced diet, and only remove a food if a doctor or allergist confirms an allergy. If you must cut out a major food such as milk, use a dietitian. Treat the skin first.",
+   "intro": "There's no special eczema diet. Eat a varied, balanced diet and only cut out a food if a doctor or allergist confirms an allergy. If you have to cut out a main food like milk, get a dietitian to help. Treat the skin first.",
    "sections": [
     {
      "title": "Good choices",
@@ -1343,7 +1344,7 @@
      "items": [
       {
        "name": "Oily fish (pilchards, snoek, sardines, mackerel)",
-       "note": "Healthy fats. Fish in a baby's first year is linked to less eczema. (Fish-oil capsules don't treat eczema.)",
+       "note": "Healthy fats. Eating fish in a baby's first year is linked to less eczema. Fish-oil capsules don't treat eczema though.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1351,7 +1352,7 @@
       },
       {
        "name": "Amasi, maas and plain yoghurt",
-       "note": "Fermented milk was linked to less eczema in South African toddlers. Fine unless you are allergic to milk.",
+       "note": "A South African study linked fermented milk to less eczema in toddlers. Fine unless you're allergic to milk.",
        "rating": "good",
        "tags": [
         "BO"
@@ -1359,7 +1360,7 @@
       },
       {
        "name": "Vegetables and fruit",
-       "note": "Butternut, sweet potato, pumpkin, spinach and morogo are all great. No evidence they worsen eczema.",
+       "note": "Butternut, sweet potato, pumpkin, spinach and morogo are all great. No evidence they make eczema worse.",
        "rating": "good",
        "tags": [
         "BO"
@@ -1367,33 +1368,33 @@
       },
       {
        "name": "Mediterranean-style eating",
-       "note": "Legumes, whole grains, olive or canola oil and nuts. Linked to milder eczema in one study. Good for overall health.",
+       "note": "Legumes, whole grains, olive or canola oil and nuts. One study linked it to milder eczema, and it's good for your overall health.",
        "rating": "good"
       },
       {
        "name": "Lean meat, chicken, beans and lentils",
-       "note": "Good sources of protein and iron.",
+       "note": "Good for protein and iron.",
        "rating": "ok"
       }
      ]
     },
     {
-     "title": "Babies: introduce allergens early",
-     "intro": "Giving babies smooth peanut and well-cooked egg early, from about 4–6 months, lowers the chance of allergy. In the LEAP trial, peanut allergy fell from 13.7% to 1.9%. If your baby has severe eczema, speak to your doctor first.",
+     "title": "Babies: start allergens early",
+     "intro": "Giving babies smooth peanut and well-cooked egg early, from about 4–6 months, lowers the chance of allergy. In the LEAP trial, peanut allergy dropped from 13.7% to 1.9%. If your baby has severe eczema, talk to your doctor first.",
      "items": [
       {
        "name": "Well-cooked egg (from about 4–6 months)",
-       "note": "Early, regular feeding lowers egg allergy risk.",
+       "note": "Giving it early and regularly lowers the risk of egg allergy.",
        "rating": "good"
       },
       {
        "name": "Smooth peanut butter (from about 4–6 months)",
-       "note": "Thin it with water or breast milk. Never give whole nuts under 5, because they are a choking risk.",
+       "note": "Thin it with water or breast milk. Never give whole nuts to under-5s, because they can choke on them.",
        "rating": "good"
       },
       {
        "name": "Mother avoiding foods while pregnant or breastfeeding",
-       "note": "Not recommended unless the baby has a proven allergy and a doctor advises it.",
+       "note": "Not recommended, unless the baby has a proven allergy and a doctor advises it.",
        "rating": "caution"
       }
      ]
@@ -1404,37 +1405,37 @@
      "items": [
       {
        "name": "Mielie pap, samp, rice",
-       "note": "No evidence maize worsens eczema. Add vegetables and protein.",
+       "note": "No evidence that maize makes eczema worse. Add vegetables and protein.",
        "rating": "ok"
       },
       {
        "name": "Bread, wheat and gluten",
-       "note": "No benefit from going gluten-free unless coeliac disease or a wheat allergy is diagnosed.",
+       "note": "Going gluten-free doesn't help unless you've been diagnosed with coeliac disease or a wheat allergy.",
        "rating": "ok"
       },
       {
        "name": "Oats (eating)",
-       "note": "Eating oats is fine. Oat creams may sensitise some babies with broken skin.",
+       "note": "Eating oats is fine. Oat creams on broken skin may make some babies sensitive to oats.",
        "rating": "ok"
       },
       {
        "name": "Milk, cheese and butter",
-       "note": "Fine unless a cow's milk allergy is diagnosed. Children need the calcium.",
+       "note": "Fine unless a cow's milk allergy is diagnosed. Kids need the calcium.",
        "rating": "ok"
       },
       {
        "name": "Eggs",
-       "note": "Eat them normally unless an egg allergy is proven. Eggs are not dairy.",
+       "note": "Eat them as normal unless an egg allergy is proven. Eggs aren't dairy.",
        "rating": "ok"
       },
       {
        "name": "Nuts and peanuts",
-       "note": "Not an eczema cause in people who aren't allergic.",
+       "note": "They don't cause eczema if you're not allergic.",
        "rating": "ok"
       },
       {
        "name": "Soya",
-       "note": "Fine unless you are allergic. Soya formula only on medical advice, and not before 6 months.",
+       "note": "Fine unless you're allergic. Soya formula only on medical advice, and not before 6 months.",
        "rating": "ok"
       }
      ]
@@ -1445,53 +1446,53 @@
      "items": [
       {
        "name": "Sugar and sweets",
-       "note": "Not an eczema cause (sugar has no histamine), but limit for teeth and weight.",
+       "note": "Doesn't cause eczema (sugar has no histamine), but limit it for teeth and weight.",
        "rating": "moderation"
       },
       {
        "name": "Fast food and takeaways",
-       "note": "Frequent fast food (3+ times a week) is linked to more severe eczema in surveys.",
+       "note": "Surveys link fast food 3 or more times a week to more severe eczema.",
        "rating": "moderation"
       },
       {
        "name": "Boerewors, polony, viennas",
-       "note": "Salty and fatty, and fried meats were linked to allergy in a South African study. Enjoy occasionally.",
+       "note": "Salty and fatty, and a South African study linked fried meats to allergy. Enjoy them now and then.",
        "rating": "moderation"
       },
       {
        "name": "Biltong and droëwors",
-       "note": "No eczema evidence either way. Very salty, so keep it moderate.",
+       "note": "No link to eczema either way. Very salty, so don't overdo it.",
        "rating": "moderation"
       },
       {
        "name": "Citrus, tomato, strawberries (messy eaters)",
-       "note": "The juice can redden skin around the mouth. This is usually irritation, not allergy. Apply barrier ointment before meals.",
+       "note": "The juice can redden the skin around the mouth. That's usually irritation, not allergy. Put on a barrier ointment before meals.",
        "rating": "moderation"
       }
      ]
     },
     {
      "title": "Avoid only if a doctor confirms an allergy",
-     "intro": "Food allergy usually shows within 2 hours: hives, swelling, vomiting or wheeze. A positive skin or blood test alone does not prove allergy. Internet and IgG \"intolerance\" tests have no value.",
+     "intro": "A food allergy usually shows within 2 hours, with hives, swelling, vomiting or wheezing. A positive skin or blood test on its own doesn't prove an allergy. Internet and IgG \"intolerance\" tests are no use.",
      "items": [
       {
        "name": "Cow's milk (confirmed allergy)",
-       "note": "The most common infant allergen. Use special formula only on medical advice, and retest after 6–12 months.",
+       "note": "The most common allergen in babies. Only use special formula on medical advice, and retest after 6–12 months.",
        "rating": "avoid"
       },
       {
        "name": "Egg (confirmed allergy)",
-       "note": "Common in South African children with eczema. Many outgrow it, so recheck after 1–2 years.",
+       "note": "Common in South African kids with eczema. Many outgrow it, so recheck after 1–2 years.",
        "rating": "avoid"
       },
       {
        "name": "Peanut and tree nuts (confirmed allergy)",
-       "note": "Risk of severe reactions. Carry an emergency plan if allergic.",
+       "note": "Can cause severe reactions. If you're allergic, carry an emergency plan.",
        "rating": "avoid"
       },
       {
        "name": "Wheat, soya, fish, shellfish (confirmed allergy)",
-       "note": "Recognised allergens. Avoid them only after proper testing.",
+       "note": "Known allergens. Only avoid them after proper testing.",
        "rating": "avoid"
       }
      ]
@@ -1502,17 +1503,17 @@
      "items": [
       {
        "name": "Elimination diets \"just in case\"",
-       "note": "Little benefit, with a real risk of poor growth and new, sometimes severe allergies.",
+       "note": "Little benefit, and a real risk of poor growth and new, sometimes severe, allergies.",
        "rating": "avoid"
       },
       {
        "name": "Low-histamine, low-nickel, anti-candida, detox diets",
-       "note": "Not validated for eczema. Risk of poor nutrition.",
+       "note": "Not proven for eczema, and you risk poor nutrition.",
        "rating": "avoid"
       },
       {
        "name": "IgG food \"intolerance\" tests",
-       "note": "No evidence of value. They lead to unnecessary food bans.",
+       "note": "No evidence they're any use. They lead to cutting out foods for no reason.",
        "rating": "avoid"
       }
      ]
@@ -1520,7 +1521,7 @@
    ],
    "sources": [
     {
-     "title": "EuroGuiDerm — Dietary interventions in atopic eczema (2022)",
+     "title": "EuroGuiDerm: Dietary interventions in atopic eczema (2022)",
      "url": "https://www.guidelines.edf.one/uploads/attachments/cl4865qad00mgsjjnfln1l0pp-29-dietary-interventions-jun-2022.pdf"
     },
     {
@@ -1528,35 +1529,35 @@
      "url": "https://www.aafp.org/pubs/afp/issues/2024/1000/practice-guidelines-atopic-dermatitis.html"
     },
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s",
+     "title": "NICE CG57: Atopic eczema in under 12s",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/Recommendations"
     },
     {
-     "title": "Allergy Foundation SA — Is chronic eczema caused by food allergies?",
+     "title": "Allergy Foundation SA: Is chronic eczema caused by food allergies?",
      "url": "https://www.allergyfoundation.co.za/atopic-eczema/is-chronic-eczema-caused-by-food-allergies/"
     },
     {
-     "title": "Gray et al. — Food allergy in SA children with AD (2014)",
+     "title": "Gray et al.: Food allergy in SA children with AD (2014)",
      "url": "https://doi.org/10.1111/pai.12270"
     },
     {
-     "title": "Du Toit et al. — LEAP peanut trial (NEJM 2015)",
+     "title": "Du Toit et al.: LEAP peanut trial (NEJM 2015)",
      "url": "https://doi.org/10.1056/NEJMoa1414850"
     },
     {
-     "title": "Halken et al. — EAACI food allergy prevention guideline (2021)",
+     "title": "Halken et al.: EAACI food allergy prevention guideline (2021)",
      "url": "https://doi.org/10.1111/pai.13496"
     },
     {
-     "title": "Zhang et al. — Fish intake in infancy and allergy (2017)",
+     "title": "Zhang et al.: Fish intake in infancy and allergy (2017)",
      "url": "https://doi.org/10.1111/pai.12648"
     },
     {
-     "title": "Ellwood et al. — Fast food and eczema, ISAAC (2013)",
+     "title": "Ellwood et al.: Fast food and eczema, ISAAC (2013)",
      "url": "https://doi.org/10.1136/thoraxjnl-2012-202285"
     },
     {
-     "title": "National Eczema Association — Diet and nutrition",
+     "title": "National Eczema Association: Diet and nutrition",
      "url": "https://nationaleczema.org/diet-nutrition/"
     }
    ]
@@ -1565,17 +1566,17 @@
    "id": "water",
    "title": "Water & Bathing",
    "tileTitle": "Water",
-   "subtitle": "Bathing, showering, swimming and wet wraps",
+   "subtitle": "Baths, showers, swimming and wet wraps",
    "icon": "e591",
-   "intro": "How you bathe matters more than how often. A 2025 trial of 438 people found daily and weekly bathing worked equally well. Use lukewarm water, keep it short, skip the soap, and moisturise straight after.",
+   "intro": "How you bathe matters more than how often. A recent trial of 438 people found daily and weekly bathing worked equally well. Use lukewarm water, keep it short, skip the soap and moisturise straight after.",
    "sections": [
     {
-     "title": "Everyday bath or shower: soak and seal",
-     "intro": "1. Lukewarm water (test with your wrist), 5–10 minutes.\n2. Wash with an emollient or soap-free wash. Don't scrub.\n3. Pat dry with a soft towel, leaving skin slightly damp.\n4. Within about 3 minutes, put prescribed cream on the eczema patches and moisturiser everywhere else.\n5. Dress in loose cotton.",
+     "title": "Everyday bath or shower (soak and seal)",
+     "intro": "1. Lukewarm water (test it with your wrist), 5–10 minutes.\n2. Wash with an emollient (moisturiser) or a soap-free wash. Don't scrub.\n3. Pat dry with a soft towel and leave the skin a bit damp.\n4. Within about 3 minutes, put prescribed cream on the eczema patches and moisturiser everywhere else.\n5. Put on loose cotton clothes.",
      "items": [
       {
        "name": "Bath or shower, as often as suits you",
-       "note": "Daily or a few times a week both work. What matters is moisturising straight afterwards.",
+       "note": "Daily or a few times a week both work. What matters is moisturising straight after.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1583,12 +1584,12 @@
       },
       {
        "name": "Lukewarm water, 5–10 minutes",
-       "note": "Hot water and long soaks make itch worse.",
+       "note": "Hot water and long soaks make the itch worse.",
        "rating": "best"
       },
       {
        "name": "Moisturise within 3 minutes",
-       "note": "Seal in the water while the skin is still damp.",
+       "note": "Locks the water in while your skin is still damp.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1596,17 +1597,17 @@
       },
       {
        "name": "Emollient instead of soap",
-       "note": "Ordinary soap, bubble bath and shower gel strip the skin. Don't use aqueous cream: it irritates.",
+       "note": "Normal soap, bubble bath and shower gel strip the skin. Don't use aqueous cream either, because it irritates.",
        "rating": "best"
       },
       {
        "name": "Pat dry, don't rub",
-       "note": "Use a clean, soft towel. Don't share towels during an infected flare.",
+       "note": "Use a clean, soft towel. Don't share towels while a flare is infected.",
        "rating": "good"
       },
       {
        "name": "Hot showers and long baths",
-       "note": "Heat triggers itch and dries the skin.",
+       "note": "Heat sets off itch and dries out the skin.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -1614,7 +1615,7 @@
       },
       {
        "name": "Bubble bath, scented gels, soap",
-       "note": "Fragrance and detergents irritate eczema skin.",
+       "note": "The fragrance and detergents irritate eczema skin.",
        "rating": "avoid",
        "tags": [
         "AEH"
@@ -1628,7 +1629,7 @@
      "items": [
       {
        "name": "Dilute bleach bath (moderate–severe eczema)",
-       "note": "Probably reduces severity (10 trials). Only with your doctor's OK, usually 2–3 times a week. See the recipe below.",
+       "note": "A review of 10 trials found it probably makes eczema milder. Only with your doctor's OK, usually 2–3 times a week. See the recipe below.",
        "rating": "good"
       },
       {
@@ -1638,27 +1639,27 @@
       },
       {
        "name": "Dead Sea salt",
-       "note": "One small study showed better skin hydration. Can sting broken skin. Optional, not a treatment.",
+       "note": "One small study found better skin hydration. Can sting broken skin. Optional, not a treatment.",
        "rating": "ok"
       },
       {
        "name": "Epsom salt or baking soda",
-       "note": "No real eczema evidence. May sting. Optional.",
+       "note": "No real evidence for eczema, and it may sting. Optional.",
        "rating": "ok"
       },
       {
        "name": "Rooibos in the bath",
-       "note": "Promising in mouse studies only. Harmless to try, but stop if it irritates.",
+       "note": "Only looks promising in mouse studies. Harmless to try, but stop if it irritates.",
        "rating": "ok"
       },
       {
        "name": "Emollient bath oils",
-       "note": "No benefit on top of normal moisturising (BATHE trial), and they make the bath slippery. Spend the money on leave-on moisturiser instead.",
+       "note": "A big trial found no benefit on top of normal moisturising, and they make the bath slippery. Rather spend the money on a leave-on moisturiser.",
        "rating": "caution"
       },
       {
        "name": "Vinegar soaks",
-       "note": "No benefit, and most people got irritated skin in testing.",
+       "note": "No benefit, and most people in testing got irritated skin.",
        "rating": "avoid"
       },
       {
@@ -1669,8 +1670,8 @@
      ]
     },
     {
-     "title": "Bleach bath: South African recipe",
-     "intro": "Only if your doctor recommends it. Aim for about 0.005% bleach.\n\nJik is about 3.5% (check your bottle and use the plain, unscented one). That means 1.4 mL of bleach per litre of water:\n• Baby bath (~15 L): about 21 mL (1 tablespoon + 1 teaspoon)\n• Half bath (~80 L): about 115 mL (just under ½ cup)\n• Full bath (~150 L): about 215 mL\n\nUS recipes use stronger 6% bleach, so don't copy their cup measures. Mix the bleach into lukewarm water before getting in. Soak 5–10 minutes and keep the water away from the eyes. Pat dry and moisturise straight away. Never mix bleach with other cleaners.",
+     "title": "Bleach bath recipe (South Africa)",
+     "intro": "Only if your doctor recommends it. You're aiming for about 0.005% bleach.\n\nJik is about 3.5% (check your bottle and use the plain, unscented one). So you need 1.4 mL of bleach per litre of water:\n• Baby bath (~15 L): about 21 mL (1 tablespoon + 1 teaspoon)\n• Half bath (~80 L): about 115 mL (just under ½ cup)\n• Full bath (~150 L): about 215 mL\n\nUS recipes use stronger 6% bleach, so don't copy their cup measures. Mix the bleach into lukewarm water before you get in. Soak for 5–10 minutes and keep the water away from your eyes. Pat dry and moisturise straight away. Never mix bleach with other cleaners.",
      "items": []
     },
     {
@@ -1679,17 +1680,17 @@
      "items": [
       {
        "name": "Water softener",
-       "note": "Didn't help eczema even in very hard water (SWET trial). Johannesburg and Cape Town water is soft anyway.",
+       "note": "A big trial found it didn't help eczema, even in very hard water. Johannesburg and Cape Town water is soft anyway.",
        "rating": "caution"
       },
       {
        "name": "Shower filter",
-       "note": "No studies show it helps eczema. Not worth buying for eczema.",
+       "note": "No studies show it helps eczema, so it's not worth buying for that.",
        "rating": "caution"
       },
       {
        "name": "Borehole water",
-       "note": "It can be much harder than municipal water. A lab hardness test is cheap if you're curious, but softeners still haven't been shown to help.",
+       "note": "Can be much harder than municipal water. A lab hardness test is cheap if you're curious, but softeners still haven't been shown to help.",
        "rating": "info"
       }
      ]
@@ -1705,23 +1706,23 @@
       },
       {
        "name": "Sea swimming",
-       "note": "Fine if it's comfortable, but it may sting cracked skin. Rinse in fresh water and moisturise afterwards.",
+       "note": "Fine if it feels OK, but it may sting cracked skin. Rinse off in fresh water and moisturise afterwards.",
        "rating": "ok"
       },
       {
        "name": "Sunscreen outdoors",
-       "note": "Choose a fragrance-free mineral (zinc or titanium) sunscreen if others sting.",
+       "note": "If other sunscreens sting, use a fragrance-free mineral one (zinc or titanium).",
        "rating": "good"
       }
      ]
     },
     {
      "title": "Wet wraps (for flares)",
-     "intro": "Get a doctor or nurse to show you first. Never wrap infected eczema: weeping, crusting or yellow spots.\n1. Bath, pat dry, and apply prescribed cream and moisturiser.\n2. Dampen a cotton layer in warm water and wring it out until it is damp, not dripping.\n3. Put it on, with a dry layer and loose pyjamas over the top.\n4. Leave it on for 2 hours or overnight, then moisturise again.\n5. Use for about 7–14 days, then review with your doctor.",
+     "intro": "Ask a doctor or nurse to show you first. Never wrap infected eczema (weeping, crusting or yellow spots).\n1. Bath, pat dry, and put on prescribed cream and moisturiser.\n2. Wet a cotton layer in warm water and wring it out so it's damp, not dripping.\n3. Put it on, with a dry layer and loose pyjamas over the top.\n4. Leave it on for 2 hours or overnight, then moisturise again.\n5. Use it for about 7–14 days, then check back with your doctor.",
      "items": [
       {
        "name": "Wet wrap therapy",
-       "note": "Calms bad flares and helps sleep. Short-term only, because it increases steroid absorption.",
+       "note": "Calms bad flares and helps with sleep. Short-term only, because more steroid gets absorbed through the skin.",
        "rating": "good"
       }
      ]
@@ -1732,7 +1733,7 @@
      "items": [
       {
        "name": "Stay hydrated",
-       "note": "Good for overall health, but drinking extra water won't fix dry eczema skin. Moisturiser will.",
+       "note": "Good for your general health, but drinking extra water won't fix dry eczema skin. Moisturiser will.",
        "rating": "good"
       }
      ]
@@ -1740,43 +1741,43 @@
    ],
    "sources": [
     {
-     "title": "Bradshaw et al. — Eczema Bathing Study, weekly vs daily (BJD 2026)",
+     "title": "Bradshaw et al.: Eczema Bathing Study, weekly vs daily (BJD 2026)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/41208015/"
     },
     {
-     "title": "National Eczema Association — Bathing and eczema",
+     "title": "National Eczema Association: Bathing and eczema",
      "url": "https://nationaleczema.org/eczema/treatment/bathing/"
     },
     {
-     "title": "Bakaa et al. — Bleach baths meta-analysis (2022)",
+     "title": "Bakaa et al.: Bleach baths meta-analysis (2022)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/35367346/"
     },
     {
-     "title": "Santer et al. — BATHE trial, emollient bath additives (BMJ 2018)",
+     "title": "Santer et al.: BATHE trial, emollient bath additives (BMJ 2018)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/29724749/"
     },
     {
-     "title": "Thomas et al. — SWET water softener trial (2011)",
+     "title": "Thomas et al.: SWET water softener trial (2011)",
      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3039684"
     },
     {
-     "title": "Luu et al. — Apple cider vinegar soaks (2019)",
+     "title": "Luu et al.: Apple cider vinegar soaks (2019)",
      "url": "https://pubmed.ncbi.nlm.nih.gov/31328306/"
     },
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s",
+     "title": "NICE CG57: Atopic eczema in under 12s",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/Recommendations"
     },
     {
-     "title": "National Eczema Association — Wet wrap therapy",
+     "title": "National Eczema Association: Wet wrap therapy",
      "url": "https://nationaleczema.org/eczema/treatment/wet-wrap-therapy/"
     },
     {
-     "title": "Rand Water — Johannesburg water quality report (2025)",
+     "title": "Rand Water: Johannesburg water quality report (2025)",
      "url": "https://randwater.co.za/media/sans241/Johannesburg_Jan2025.pdf"
     },
     {
-     "title": "Clicks — Jik household bleach (3.5% sodium hypochlorite)",
+     "title": "Clicks: Jik household bleach (3.5% sodium hypochlorite)",
      "url": "https://clicks.co.za/jik_household-bleach-pot-pourri-1-5l/p/254441"
     }
    ]
@@ -1785,9 +1786,9 @@
    "id": "clothing",
    "title": "Clothing & Laundry",
    "tileTitle": "Clothing",
-   "subtitle": "Fabrics, fit and washing that keep skin calm",
+   "subtitle": "What to wear and how to wash it so skin stays calm",
    "icon": "f06ea",
-   "intro": "Aim for loose, soft and breathable clothing. No fabric treats eczema: even special silk clothing added no benefit in a 300-child trial. But the wrong fabrics, finishes and detergents can make itch worse.",
+   "intro": "Go for loose, soft clothes that let the skin breathe. No fabric treats eczema. Even special silk clothing made no difference in a trial with 300 children. The wrong fabrics, finishes and detergents can make the itch worse though.",
    "sections": [
     {
      "title": "Fabrics",
@@ -1795,7 +1796,7 @@
      "items": [
       {
        "name": "100% cotton",
-       "note": "Soft, cool and absorbs sweat. Check labels, because \"cotton-rich\" can be mostly polyester.",
+       "note": "Soft and cool, and it soaks up sweat. Check the label, because \"cotton-rich\" can be mostly polyester.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1803,37 +1804,37 @@
       },
       {
        "name": "Superfine merino (17.5 micron or finer)",
-       "note": "Did better than cotton in two small trials (both wool-industry funded). Try one base layer first.",
+       "note": "Did better than cotton in two small trials, both paid for by the wool industry. Try one base layer first.",
        "rating": "good"
       },
       {
        "name": "Bamboo viscose and TENCEL (lyocell)",
-       "note": "Soft, smooth and absorbent. Eczema-friendly, though there are no trials.",
+       "note": "Soft and smooth, and it soaks up sweat. Kind to eczema skin, but there are no trials on it.",
        "rating": "good"
       },
       {
        "name": "Silk, including \"eczema\" silk garments",
-       "note": "Comfortable if you like it, but not a treatment (CLOTHES trial). Spend money on moisturiser first.",
+       "note": "Fine if you like how it feels, but a big trial found it doesn't treat eczema. Spend the money on moisturiser first.",
        "rating": "ok"
       },
       {
        "name": "Wicking sportswear",
-       "note": "Well-fitting technical synthetics are OK for sport. Cotton, bamboo or merino may still feel gentler.",
+       "note": "Well-fitting sports synthetics are fine for exercise. Cotton, bamboo or merino might still feel gentler.",
        "rating": "ok"
       },
       {
        "name": "Polyester and synthetics (everyday)",
-       "note": "Trap heat and sweat for many people, which sets off itch.",
+       "note": "For lots of people they trap heat and sweat, which sets off the itch.",
        "rating": "caution"
       },
       {
        "name": "Lace, sequins, denim, fake fur",
-       "note": "Common irritants. They're fine over a soft layer, but not directly on eczema.",
+       "note": "These often irritate. Fine over a soft layer, just not right on the eczema.",
        "rating": "caution"
       },
       {
        "name": "Coarse wool next to the skin (jerseys, blankets)",
-       "note": "Thick fibres prick and itch. This is irritation, not allergy, so wear wool over a cotton layer.",
+       "note": "The thick fibres prick and itch. Wear wool over a cotton layer instead of right against the skin.",
        "rating": "avoid"
       }
      ]
@@ -1844,17 +1845,17 @@
      "items": [
       {
        "name": "Loose fit",
-       "note": "Tight clothes rub and trap heat. Size up for uniforms and workwear.",
+       "note": "Tight clothes rub and trap heat. Buy a size up for uniforms and workwear.",
        "rating": "best"
       },
       {
        "name": "Cut out labels",
-       "note": "Snip close to the seam, or buy tagless.",
+       "note": "Snip them off close to the seam, or buy tagless.",
        "rating": "good"
       },
       {
        "name": "Rough seams",
-       "note": "Wear the garment inside-out or tape over seams that irritate.",
+       "note": "Wear it inside-out, or tape over seams that bother the skin.",
        "rating": "caution"
       },
       {
@@ -1864,12 +1865,12 @@
       },
       {
        "name": "Dark or bleeding dyes",
-       "note": "Disperse dyes are leading textile allergens. A rash in the body folds is worth a patch test.",
+       "note": "Disperse dyes are some of the most common textile allergens. A rash in the body folds is worth a patch test.",
        "rating": "caution"
       },
       {
        "name": "Nickel jeans studs and belt buckles",
-       "note": "A rash under the navel stud suggests nickel allergy. Cover the stud with fabric tape and ask for a patch test.",
+       "note": "A rash under the stud at your belly button can point to a nickel allergy. Cover the stud with fabric tape and ask for a patch test.",
        "rating": "caution"
       }
      ]
@@ -1880,12 +1881,12 @@
      "items": [
       {
        "name": "Wash new clothes before wearing",
-       "note": "This removes excess dye and finishing chemicals. Include school uniforms and bedding.",
+       "note": "Gets rid of extra dye and finishing chemicals. Do the same with school uniforms and bedding.",
        "rating": "best"
       },
       {
        "name": "Fragrance-free detergent",
-       "note": "Choose \"fragrance-free\" rather than \"unscented\", which can contain masking perfume.",
+       "note": "Look for \"fragrance-free\". \"Unscented\" can still have perfume in it to mask smells.",
        "rating": "best",
        "tags": [
         "BO"
@@ -1893,27 +1894,27 @@
       },
       {
        "name": "Use less detergent and add an extra rinse",
-       "note": "Overdosing leaves residue on fabric. Try this before switching brands.",
+       "note": "Too much detergent leaves residue in the fabric. Try this before you switch brands.",
        "rating": "best"
       },
       {
        "name": "Bio or non-bio",
-       "note": "Either is fine. Enzymes caused no irritation or sensitisation in large studies.",
+       "note": "Either is fine. Big studies found the enzymes don't irritate skin or cause allergies.",
        "rating": "ok"
       },
       {
        "name": "Fabric softener",
-       "note": "Some people tolerate it and some don't. Use fragrance-free only, and test it separately.",
+       "note": "Some people are fine with it and some aren't. Only use fragrance-free, and test it on its own.",
        "rating": "caution"
       },
       {
        "name": "Change one product at a time",
-       "note": "Give each change a month. Detergent often gets blamed for flares it didn't cause.",
+       "note": "Give each change a month. Detergent often gets the blame for flares it didn't cause.",
        "rating": "good"
       },
       {
        "name": "Monthly hot empty wash",
-       "note": "A 90 °C empty cycle clears emollient build-up and bacteria in the machine.",
+       "note": "Run the machine empty at 90 °C once a month to clear emollient build-up and bacteria.",
        "rating": "good"
       }
      ]
@@ -1924,22 +1925,22 @@
      "items": [
       {
        "name": "Cotton gloves or mittens at night",
-       "note": "They reduce damage from scratching during sleep. All-in-one sleepsuits with mitts help children.",
+       "note": "Less damage from scratching in your sleep. For kids, all-in-one sleepsuits with mitts help.",
        "rating": "good"
       },
       {
        "name": "Breathable sleepwear and cotton sheets",
-       "note": "Use light layers you can peel off, and keep the room cool (16–18 °C).",
+       "note": "Use light layers you can take off, and keep the room cool (16–18 °C).",
        "rating": "good"
       },
       {
        "name": "Spiky roller balls",
-       "note": "No evidence they help, and they may damage broken skin. Try pressing, pinching or a cold pack instead.",
+       "note": "No proof they help, and they might damage broken skin. Try pressing, pinching or a cold pack instead.",
        "rating": "avoid"
       },
       {
        "name": "Fire safety",
-       "note": "Emollient-soaked clothes and bedding burn easily. No smoking in bed and no candles near the bed. Wash bedding often.",
+       "note": "Clothes and bedding soaked in emollient catch fire easily. No smoking in bed or candles near it, and wash bedding often.",
        "rating": "caution"
       }
      ]
@@ -1950,17 +1951,17 @@
      "items": [
       {
        "name": "Sun-protective clothing and a hat",
-       "note": "UPF clothing means less sunscreen is needed on sensitive skin.",
+       "note": "UPF clothing means you need less sunscreen on sensitive skin.",
        "rating": "best"
       },
       {
        "name": "Sport kit",
-       "note": "Wear breathable layers you can remove, wash kit after every session and shower soon after.",
+       "note": "Wear breathable layers you can take off. Wash kit after every session and shower soon after.",
        "rating": "good"
       },
       {
        "name": "School uniforms",
-       "note": "Buy loose, remove tags, wash before wearing and add a cotton layer underneath.",
+       "note": "Buy them loose, cut out the tags and wash before wearing. Add a cotton layer underneath.",
        "rating": "good"
       }
      ]
@@ -1968,35 +1969,35 @@
    ],
    "sources": [
     {
-     "title": "Thomas et al. — CLOTHES trial, silk garments (PLOS Med 2017)",
+     "title": "Thomas et al.: CLOTHES trial, silk garments (PLOS Med 2017)",
      "url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002280"
     },
     {
-     "title": "Eczema UK — Clothing and eczema factsheet",
+     "title": "Eczema UK: Clothing and eczema factsheet",
      "url": "https://www.eczema.org.uk/wp-content/uploads/Clothing-and-eczema-Apr-26-1.pdf"
     },
     {
-     "title": "Eczema UK — Washday wisdom (laundry)",
+     "title": "Eczema UK: Washday wisdom (laundry)",
      "url": "https://www.eczema.org.uk/wp-content/uploads/Article-Washday-Wisdom.pdf"
     },
     {
-     "title": "Su et al. — Superfine merino wool in infantile eczema (2017)",
+     "title": "Su et al.: Superfine merino wool in infantile eczema (2017)",
      "url": "https://europepmc.org/article/MED/28182252"
     },
     {
-     "title": "Zallmann et al. — Debunking the myth of wool allergy (2017)",
+     "title": "Zallmann et al.: Debunking the myth of wool allergy (2017)",
      "url": "https://europepmc.org/article/MED/28350041"
     },
     {
-     "title": "Jaros et al. — Fabric selection in AD, evidence review (2020)",
+     "title": "Jaros et al.: Fabric selection in AD, evidence review (2020)",
      "url": "https://europepmc.org/article/MED/32440827"
     },
     {
-     "title": "DermNet — Textile contact dermatitis",
+     "title": "DermNet: Textile contact dermatitis",
      "url": "https://dermnetnz.org/topics/textile-contact-dermatitis"
     },
     {
-     "title": "NHS — Emollients (fire safety)",
+     "title": "NHS: Emollients (fire safety)",
      "url": "https://www.nhs.uk/tests-and-treatments/emollients/"
     }
    ]
@@ -2004,13 +2005,13 @@
   {
    "id": "health",
    "title": "Health",
-   "subtitle": "Skin routine, sleep, exercise, infections and more",
+   "subtitle": "Skin care, sleep, exercise, infections and more",
    "icon": "e702",
-   "intro": "Eczema affects more than skin: sleep, mood, eyes and allergies too. These everyday habits and warning signs help keep the whole person well.",
+   "intro": "Eczema affects more than the skin. Sleep, mood, eyes and allergies can all be part of it. These everyday habits and warning signs help you stay well all round.",
    "sections": [
     {
      "title": "See a doctor today if…",
-     "intro": "• Eczema suddenly becomes painful with clustered blisters or small punched-out sores, often with fever. This could be eczema herpeticum, an emergency. Near the eyes, an eye doctor is needed too.\n• There is weeping, pus, yellow crusts, rapid worsening or fever: possible bacterial infection.\nEmergency numbers: 10177 (ambulance) · 112 (from a cellphone).",
+     "intro": "• Eczema suddenly gets painful, with clusters of blisters or small punched-out sores, often with a fever. This could be eczema herpeticum, which is an emergency. If it's near the eyes, you need an eye doctor too.\n• The skin is weeping, has pus or yellow crusts, gets worse fast, or there's a fever. This could be a bacterial infection.\nEmergency numbers: 10177 (ambulance) · 112 (from a cellphone).",
      "items": [],
      "style": "alert"
     },
@@ -2020,7 +2021,7 @@
      "items": [
       {
        "name": "Moisturise every day, even when clear",
-       "note": "At least twice a day, and 3–4 times is ideal. Adults with widespread eczema may use about 500 g a week.",
+       "note": "At least twice a day, ideally 3–4 times. Adults with eczema all over can go through about 500 g a week.",
        "rating": "best",
        "tags": [
         "BO"
@@ -2028,27 +2029,27 @@
       },
       {
        "name": "Soak and seal",
-       "note": "A short lukewarm wash, pat dry, medicine on red patches, then moisturiser everywhere else within 3 minutes.",
+       "note": "Short lukewarm wash, pat dry, medicine on the red patches, then moisturiser everywhere else within 3 minutes.",
        "rating": "best"
       },
       {
        "name": "Smooth on, don't rub",
-       "note": "Apply in the direction of hair growth. Rubbing heats the skin.",
+       "note": "Go in the direction the hair grows. Rubbing heats up the skin.",
        "rating": "good"
       },
       {
        "name": "Use a spoon or pump",
-       "note": "Keep fingers out of tubs, and replace opened tubs after an infection.",
+       "note": "Keep fingers out of the tub. Replace opened tubs after an infection.",
        "rating": "good"
       },
       {
        "name": "Short, smooth nails",
-       "note": "Check them weekly. Less damage when scratching happens anyway.",
+       "note": "Check them every week. If scratching happens anyway, it does less damage.",
        "rating": "best"
       },
       {
        "name": "Cool emollient from the fridge",
-       "note": "Soothing on itchy skin. Never warm emollients in the microwave.",
+       "note": "Feels soothing on itchy skin. Never warm emollients in the microwave.",
        "rating": "good"
       }
      ]
@@ -2059,27 +2060,27 @@
      "items": [
       {
        "name": "Cool bedroom (16–18 °C)",
-       "note": "Heat drives night itch. Use a fan in summer and light layers you can adjust.",
+       "note": "Heat makes night itch worse. Use a fan in summer and light layers you can adjust.",
        "rating": "best"
       },
       {
        "name": "Thick moisturiser before bed",
-       "note": "Apply it well before lights-out so you don't overheat.",
+       "note": "Put it on well before lights out so you don't overheat.",
        "rating": "good"
       },
       {
        "name": "Regular bedtime, screens off an hour before",
-       "note": "Good sleep habits help eczema sleepers too. Avoid late caffeine and alcohol.",
+       "note": "Normal good sleep habits help with eczema too. Avoid caffeine and alcohol late at night.",
        "rating": "good"
       },
       {
        "name": "Melatonin",
-       "note": "Helped children fall asleep faster, with only a small effect on the skin. Ask a doctor or pharmacist first.",
+       "note": "Helped kids fall asleep faster, but only helped the skin a little. Ask a doctor or pharmacist first.",
        "rating": "caution"
       },
       {
        "name": "Regularly losing sleep",
-       "note": "A sign the eczema is not controlled. Go back to the doctor, because treatment can be stepped up.",
+       "note": "A sign the eczema isn't under control. Go back to the doctor, because treatment can be stepped up.",
        "rating": "info"
       }
      ]
@@ -2090,32 +2091,32 @@
      "items": [
       {
        "name": "Regular exercise",
-       "note": "It reduces stress and improves sleep and mood. Don't avoid sport because of eczema.",
+       "note": "Lowers stress and helps sleep and mood. Don't skip sport because of eczema.",
        "rating": "best"
       },
       {
        "name": "Plan for sweat",
-       "note": "Wear layers, take breaks and drink cool water. Shower and moisturise soon after.",
+       "note": "Dress in layers, take breaks and drink cool water. Shower and moisturise soon after.",
        "rating": "best"
       },
       {
-       "name": "Sit out during infection or raw skin",
-       "note": "This protects broken skin.",
+       "name": "Sit out when skin is infected or raw",
+       "note": "Resting protects the broken skin.",
        "rating": "good"
       },
       {
-       "name": "Sun: protect, don't burn",
-       "note": "Some people improve in sunlight and others flare. Never aim to tan or burn. Stay in the shade from 11:00 to 15:00.",
+       "name": "Enjoy the sun, but don't burn",
+       "note": "Some people get better in the sun and others flare. Never try to tan or burn. Stay in the shade from 11:00 to 15:00.",
        "rating": "caution"
       },
       {
        "name": "Mineral sunscreen SPF30+",
-       "note": "Fragrance-free zinc oxide or titanium dioxide is often gentler. Patch-test a new one for 3–5 days.",
+       "note": "Fragrance-free zinc oxide or titanium dioxide is often gentler. Test a new one on a small patch for 3–5 days.",
        "rating": "best"
       },
       {
        "name": "Medical light therapy",
-       "note": "Narrowband UVB at a dermatologist is a real treatment. It is not the same as sunbathing.",
+       "note": "Narrowband UVB at a dermatologist is a real treatment. Sunbathing isn't the same thing.",
        "rating": "good"
       }
      ]
@@ -2126,22 +2127,22 @@
      "items": [
       {
        "name": "Highveld winter",
-       "note": "Very dry air and heaters. Use a thicker moisturiser more often, keep showers lukewarm and don't sit close to heaters.",
+       "note": "Very dry air and heaters. Moisturise more often with a thicker cream, keep showers lukewarm and don't sit close to the heater.",
        "rating": "caution"
       },
       {
        "name": "Coastal humidity and heat waves",
-       "note": "Sweat and heat drive itch. Use lighter creams by day, loose cotton and a cool shower.",
+       "note": "Sweat and heat set off the itch. Use lighter creams in the day, wear loose cotton and have a cool shower.",
        "rating": "caution"
       },
       {
        "name": "Smog and veld-fire days",
-       "note": "Pollution is linked to flares. Stay indoors where practical and rinse skin afterwards.",
+       "note": "Pollution is linked to flares. Stay inside when you can and rinse your skin afterwards.",
        "rating": "caution"
       },
       {
        "name": "Load-shedding",
-       "note": "Keep a battery fan, a cold pack in a cooler box and a pump bottle of moisturiser by the bed.",
+       "note": "Keep a battery fan, a cold pack in a cooler box and a pump bottle of moisturiser next to the bed.",
        "rating": "info"
       }
      ]
@@ -2152,17 +2153,17 @@
      "items": [
       {
        "name": "Routine vaccines",
-       "note": "Eczema is not a reason to skip or delay vaccines. Steroid creams aren't either.",
+       "note": "Eczema is no reason to skip or delay vaccines, and neither are steroid creams.",
        "rating": "best"
       },
       {
        "name": "Live vaccines on Dupixent or JAK tablets",
-       "note": "Avoid live vaccines (e.g. MMR, yellow fever) during treatment. Get up to date before starting, and plan travel vaccines with the specialist.",
+       "note": "Don't have live vaccines (e.g. MMR, yellow fever) during treatment. Catch up on vaccines before starting, and plan travel vaccines with the specialist.",
        "rating": "avoid"
       },
       {
        "name": "Old smallpox vaccine (ACAM2000)",
-       "note": "Not for people with eczema or their household contacts. The newer mpox vaccine (JYNNEOS) is fine.",
+       "note": "Not for people with eczema or anyone they live with. The newer mpox vaccine (JYNNEOS) is fine.",
        "rating": "avoid"
       }
      ]
@@ -2173,32 +2174,32 @@
      "items": [
       {
        "name": "Asthma, hay fever, itchy eyes",
-       "note": "Part of the same \"atopic\" family. They deserve their own treatment.",
+       "note": "Part of the same \"atopic\" family. Each one needs its own treatment.",
        "rating": "info"
       },
       {
        "name": "Food allergy (mainly children)",
-       "note": "Linked to early, severe eczema. Don't cut foods without a doctor (see Food).",
+       "note": "Linked to early, severe eczema. Don't cut out foods without a doctor (see Food).",
        "rating": "info"
       },
       {
        "name": "Low mood and anxiety",
-       "note": "Common and treatable, and not a weakness. See Motivation for support numbers.",
+       "note": "Common and treatable, and not a weakness. Support numbers are on the Motivation page.",
        "rating": "info"
       },
       {
-       "name": "Eyes: don't rub",
-       "note": "Eczema and eye rubbing each roughly triple the risk of keratoconus. See an optometrist if vision blurs.",
+       "name": "Don't rub your eyes",
+       "note": "Eczema and eye rubbing each roughly triple the risk of keratoconus (thinning of the cornea). See an optometrist if your vision goes blurry.",
        "rating": "caution"
       },
       {
        "name": "Sore or red eyes on Dupixent",
-       "note": "A common, usually mild side effect. Report it early, because eye drops usually help.",
+       "note": "A common side effect, usually mild. Tell your doctor early, because eye drops usually help.",
        "rating": "caution"
       },
       {
        "name": "Bone, heart and weight",
-       "note": "Small links in adults. Have the usual health checks with your GP.",
+       "note": "There are small links in adults. Keep up the usual health checks with your GP.",
        "rating": "info"
       }
      ]
@@ -2209,23 +2210,23 @@
      "items": [
       {
        "name": "Written eczema action plan",
-       "note": "Green is daily care, amber is flare steps, red is call the doctor. Ask your doctor to fill one in.",
+       "note": "Green is daily care, amber is what to do in a flare, red is call the doctor. Ask your doctor to fill one in.",
        "rating": "best"
       },
       {
        "name": "Weekly POEM score",
-       "note": "Seven questions about the last week, scored 0–28: 0–2 clear, 3–7 mild, 8–16 moderate, 17–24 severe, 25–28 very severe.",
+       "note": "Seven questions about the past week, scored 0–28 (0–2 clear, 3–7 mild, 8–16 moderate, 17–24 severe, 25–28 very severe).",
        "rating": "good",
        "url": "https://www.nottingham.ac.uk/research/groups/cebd/resources/poem.aspx"
       },
       {
        "name": "Weekly photos",
-       "note": "Same areas, same light. Note itch and sleep too, because redness is harder to see on darker skin.",
+       "note": "Same spots, same light. Write down itch and sleep too, because redness is harder to see on darker skin.",
        "rating": "good"
       },
       {
        "name": "Who to see",
-       "note": "Pharmacist for mild patches. GP if treatment isn't working or sleep is disturbed. Dermatologist for frequent flares or suspected contact allergy.",
+       "note": "Pharmacist for mild patches. GP if treatment isn't working or sleep is disturbed. Dermatologist for frequent flares or if a contact allergy is suspected.",
        "rating": "info"
       }
      ]
@@ -2233,51 +2234,51 @@
    ],
    "sources": [
     {
-     "title": "NICE CG57 — Atopic eczema in under 12s",
+     "title": "NICE CG57: Atopic eczema in under 12s",
      "url": "https://www.nice.org.uk/guidance/cg57/chapter/1-Recommendations"
     },
     {
-     "title": "NHS — Atopic eczema",
+     "title": "NHS: Atopic eczema",
      "url": "https://www.nhs.uk/conditions/atopic-eczema/"
     },
     {
-     "title": "Eczema UK — Sleep and eczema",
+     "title": "Eczema UK: Sleep and eczema",
      "url": "https://www.eczema.org.uk/support/sleep-and-eczema"
     },
     {
-     "title": "Eczema UK — Exercise and eczema",
+     "title": "Eczema UK: Exercise and eczema",
      "url": "https://www.eczema.org.uk/support/exercise-and-eczema"
     },
     {
-     "title": "Eczema UK — Sun and eczema",
+     "title": "Eczema UK: Sun and eczema",
      "url": "https://www.eczema.org.uk/information-and-advice/triggers-for-eczema/sun-and-eczema/"
     },
     {
-     "title": "DermNet — Eczema herpeticum",
+     "title": "DermNet: Eczema herpeticum",
      "url": "https://dermnetnz.org/topics/eczema-herpeticum"
     },
     {
-     "title": "Park et al. — Weather, pollution and AD meta-analysis (2025)",
+     "title": "Park et al.: Weather, pollution and AD meta-analysis (2025)",
      "url": "https://europepmc.org/article/MED/40560568"
     },
     {
-     "title": "AAD — Comorbidities of AD in adults (2022)",
+     "title": "AAD: Comorbidities of AD in adults (2022)",
      "url": "https://europepmc.org/article/MED/35085682"
     },
     {
-     "title": "UK Green Book — Vaccine contraindications",
+     "title": "UK Green Book: Vaccine contraindications",
      "url": "https://assets.publishing.service.gov.uk/media/5a82ce28e5274a2e8ab5970f/Greenbook_chapter_6.pdf"
     },
     {
-     "title": "Hashemi et al. — Keratoconus risk factors (2020)",
+     "title": "Hashemi et al.: Keratoconus risk factors (2020)",
      "url": "https://europepmc.org/article/MED/31498247"
     },
     {
-     "title": "University of Nottingham — POEM",
+     "title": "University of Nottingham: POEM",
      "url": "https://www.nottingham.ac.uk/research/groups/cebd/resources/poem.aspx"
     },
     {
-     "title": "Western Cape Government — Emergency numbers",
+     "title": "Western Cape Government: Emergency numbers",
      "url": "https://www.westerncape.gov.za/know-who-you-can-call-emergency"
     }
    ]
@@ -2286,35 +2287,35 @@
    "id": "motivation",
    "title": "Motivation & Affirmations",
    "tileTitle": "Motivation",
-   "subtitle": "For the person with eczema, and the people who love him",
+   "subtitle": "For the person living with eczema, and the people who love him",
    "icon": "e5d8",
-   "intro": "Eczema is tiring in ways others don't always see: broken sleep, constant itch, stares and endless routines. Feeling low is common and treatable. And treatments today are better than ever.",
+   "intro": "Eczema wears you down in ways other people don't always see. Bad nights, constant itch, people staring, and the creams every single day. Feeling low is common and it can be treated. Eczema treatments today are also better than ever.",
    "sections": [
     {
      "title": "Need to talk? (South Africa)",
-     "intro": "If anyone talks about not wanting to live, call together. Don't wait.",
+     "intro": "If anyone talks about not wanting to live, call one of these numbers together. Don't wait.",
      "items": [
       {
        "name": "SADAG Suicide Crisis Helpline",
-       "note": "Free, 24 hours.",
+       "note": "Free, open 24 hours.",
        "rating": "info",
        "url": "tel:0800567567"
       },
       {
        "name": "Cipla Mental Health Helpline",
-       "note": "24 hours. You can also SMS 31393 or WhatsApp 076 882 2775 (8am–5pm).",
+       "note": "Open 24 hours. You can also SMS 31393 or WhatsApp 076 882 2775 (8am–5pm).",
        "rating": "info",
        "url": "tel:0800456789"
       },
       {
        "name": "Adcock Ingram Depression & Anxiety Helpline",
-       "note": "8am–8pm.",
+       "note": "Open 8am–8pm.",
        "rating": "info",
        "url": "tel:0800708090"
       },
       {
        "name": "Dr Reddy's Mental Health Helpline",
-       "note": "8am–8pm.",
+       "note": "Open 8am–8pm.",
        "rating": "info",
        "url": "tel:0800212223"
       },
@@ -2329,7 +2330,7 @@
     },
     {
      "title": "Daily affirmations",
-     "intro": "Pick one for today. Say it, write it, or stick it on the mirror.",
+     "intro": "Pick one for today. Say it, write it down, or stick it on the mirror.",
      "items": [
       {
        "name": "My skin is one part of me, not the whole of me."
@@ -2338,19 +2339,19 @@
        "name": "I can have a hard skin day and still have a good day."
       },
       {
-       "name": "A flare is weather, not a verdict."
+       "name": "A flare is like bad weather. It doesn't last forever."
       },
       {
        "name": "Itchy moments pass. I have ways to get through them."
       },
       {
-       "name": "I have lived with this for years, and that makes me strong, not broken."
+       "name": "I've lived with this for years, and that makes me strong."
       },
       {
-       "name": "Taking care of my skin is self-respect, not a chore I failed at."
+       "name": "Looking after my skin is a way of looking after me."
       },
       {
-       "name": "Today I'll do what I can, and that is enough."
+       "name": "Today I'll do what I can, and that's enough."
       },
       {
        "name": "I am more than the itch."
@@ -2359,10 +2360,10 @@
        "name": "Bad nights don't cancel good days."
       },
       {
-       "name": "I deserve comfort: soft clothes, cool air and kind words."
+       "name": "I deserve to feel comfortable."
       },
       {
-       "name": "My worth isn't measured by how my skin looks."
+       "name": "How my skin looks doesn't decide what I'm worth."
       },
       {
        "name": "I don't owe anyone an explanation for my skin."
@@ -2377,7 +2378,7 @@
        "name": "I can be patient with my skin and with myself."
       },
       {
-       "name": "Every routine I keep is a small win worth noticing."
+       "name": "Every time I stick to my routine, that's a win."
       },
       {
        "name": "I'm learning what my body needs, one week at a time."
@@ -2389,10 +2390,10 @@
        "name": "I can feel frustrated and still be hopeful."
       },
       {
-       "name": "I choose gentleness over blame today."
+       "name": "Today I'll be gentle with myself."
       },
       {
-       "name": "There is no perfect routine, only the one I keep coming back to."
+       "name": "My routine doesn't have to be perfect. I just keep coming back to it."
       },
       {
        "name": "I can speak up to my doctor. My experience matters."
@@ -2410,10 +2411,10 @@
        "name": "I can take this one hour at a time."
       },
       {
-       "name": "I make room for joy, even on itchy days."
+       "name": "I can still enjoy things on itchy days."
       },
       {
-       "name": "Healing isn't a straight line, and that's okay."
+       "name": "Progress isn't a straight line, and that's okay."
       }
      ]
     },
@@ -2422,33 +2423,33 @@
      "intro": "",
      "items": [
       {
-       "name": "More effective treatments exist than ever",
-       "note": "Since 2023, guidelines have strongly recommended many new injections, tablets and creams. Ask a dermatologist what suits you.",
+       "name": "There are more good treatments than ever",
+       "note": "Since 2023, guidelines strongly recommend lots of new injections, tablets and creams. Ask a dermatologist what suits you.",
        "rating": "good"
       },
       {
        "name": "Treating the skin helps the mind",
-       "note": "Anxiety and depression scores improved when eczema treatment worked.",
+       "note": "When eczema treatment worked, people's anxiety and depression got better too.",
        "rating": "good"
       },
       {
        "name": "Mind tools are backed by trials",
-       "note": "Online CBT and mindfulness with self-compassion helped adults, including people who had had eczema for about 27 years.",
+       "note": "Online CBT and mindfulness with self-compassion helped adults, including people who'd had eczema for about 27 years.",
        "rating": "good"
       },
       {
        "name": "Small habits add up",
-       "note": "Habit reversal plus usual treatment improved skin more than treatment alone.",
+       "note": "Habit reversal on top of normal treatment helped the skin more than treatment alone.",
        "rating": "good"
       },
       {
-       "name": "\"Not controlled\" is a signal, not a sentence",
-       "note": "If treatment isn't working, that's a reason to step up treatment, not a personal failure.",
+       "name": "\"Not controlled\" means it's time to step up",
+       "note": "If treatment isn't working, the doctor can step it up. You haven't done anything wrong.",
        "rating": "good"
       },
       {
        "name": "You're not alone",
-       "note": "About 1 in 5 urban South African teens report eczema symptoms.",
+       "note": "About 1 in 5 teens in South African cities report eczema symptoms.",
        "rating": "info"
       }
      ]
@@ -2459,17 +2460,17 @@
      "items": [
       {
        "name": "Talking therapy",
-       "note": "Recommended by NICE when quality of life stays poor despite good skin treatment.",
+       "note": "UK guidelines recommend it when eczema still affects daily life a lot, even with good skin treatment.",
        "rating": "best"
       },
       {
        "name": "Mindfulness & self-compassion",
-       "note": "An 8-week online programme improved quality of life and eczema severity in adults.",
+       "note": "An 8-week online course improved both quality of life and eczema in adults.",
        "rating": "good"
       },
       {
        "name": "CBT (including online)",
-       "note": "Reduced itch, stress, sleep problems and depression, with benefits lasting a year.",
+       "note": "Helped with itch, stress, sleep problems and depression, and the benefits lasted a year.",
        "rating": "good"
       },
       {
@@ -2479,58 +2480,58 @@
       },
       {
        "name": "Relaxation and breathing",
-       "note": "Helps stress more than skin, but it's low-risk and worth trying.",
+       "note": "Helps stress more than skin, but it's low-risk and worth a try.",
        "rating": "ok"
       },
       {
        "name": "Managing ongoing stress and conflict",
-       "note": "Stress and itch feed each other. Support from family or a counsellor helps break the loop.",
+       "note": "Stress and itch feed each other. Support from family or a counsellor helps break the cycle.",
        "rating": "good"
       }
      ]
     },
     {
-     "title": "For family: how to support",
+     "title": "How family can help",
      "intro": "",
      "items": [
       {
        "name": "Say: \"That looks itchy. Want the cold pack?\"",
-       "note": "Offers help without blame.",
+       "note": "You're offering help without blaming him.",
        "rating": "good"
       },
       {
        "name": "Avoid: \"Stop scratching!\"",
-       "note": "Scratching is often automatic. Being told off adds stress, and stress adds itch.",
+       "note": "Scratching is often automatic. Being told off adds stress, and stress makes the itch worse.",
        "rating": "avoid"
       },
       {
        "name": "Avoid: \"Have you tried…?\"",
-       "note": "Unasked-for remedies are tiring. Ask instead: \"Can I fetch anything from the pharmacy?\"",
+       "note": "Remedies he didn't ask for get tiring. Rather ask, \"Can I fetch anything from the pharmacy?\"",
        "rating": "avoid"
       },
       {
        "name": "Avoid: \"It's just a rash\" or \"You'll grow out of it\"",
-       "note": "This minimises a lifelong condition. Try: \"I know this is hard to live with.\"",
+       "note": "This plays down a lifelong condition. Try saying, \"I know this is hard to live with.\"",
        "rating": "avoid"
       },
       {
        "name": "Take one job off his plate",
-       "note": "Reorder moisturiser, wash bedding, keep spare tubs in the car, or put cream on his back (ask first).",
+       "note": "Reorder moisturiser, wash his bedding, keep spare tubs in the car, or put cream on his back (ask first).",
        "rating": "best"
       },
       {
        "name": "Learn the emergency signs",
-       "note": "Know the signs of eczema herpeticum (see Health) so he isn't the only one watching.",
+       "note": "Know what eczema herpeticum looks like (see Health) so he isn't the only one watching.",
        "rating": "good"
       },
       {
        "name": "Spot a bad week",
-       "note": "Broken sleep, cancelled plans, long sleeves in the heat, skipped treatment or \"what's the point\". A gentle check-in helps.",
+       "note": "Bad sleep, cancelled plans, long sleeves in the heat, skipped treatment, or \"what's the point\". A gentle check-in helps.",
        "rating": "info"
       },
       {
        "name": "Notice the wins",
-       "note": "A calm night or a kept routine is worth naming.",
+       "note": "Say something when he has a calm night or sticks to his routine.",
        "rating": "good"
       }
      ]
@@ -2538,39 +2539,39 @@
    ],
    "sources": [
     {
-     "title": "SADAG — South African Depression and Anxiety Group (helplines)",
+     "title": "SADAG: South African Depression and Anxiety Group (helplines)",
      "url": "https://www.sadag.org"
     },
     {
-     "title": "Sandhu et al. — AD and suicidality, meta-analysis (2019)",
+     "title": "Sandhu et al.: AD and suicidality, meta-analysis (2019)",
      "url": "https://europepmc.org/article/MED/30540348"
     },
     {
-     "title": "Cochrane — Educational and psychological interventions for AD (2024)",
+     "title": "Cochrane: Educational and psychological interventions for AD (2024)",
      "url": "https://europepmc.org/article/MED/39132734"
     },
     {
-     "title": "Kishimoto et al. — Online mindfulness & self-compassion for AD (2023)",
+     "title": "Kishimoto et al.: Online mindfulness & self-compassion for AD (2023)",
      "url": "https://europepmc.org/article/MED/37163257"
     },
     {
-     "title": "Hedman-Lagerlöf et al. — Internet CBT for AD (2021)",
+     "title": "Hedman-Lagerlöf et al.: Internet CBT for AD (2021)",
      "url": "https://europepmc.org/article/MED/34009282"
     },
     {
-     "title": "Norén et al. — Habit reversal in children with AD (2018)",
+     "title": "Norén et al.: Habit reversal in children with AD (2018)",
      "url": "https://europepmc.org/article/MED/28940213"
     },
     {
-     "title": "Hartono et al. — Treating AD improves anxiety and depression (2024)",
+     "title": "Hartono et al.: Treating AD improves anxiety and depression (2024)",
      "url": "https://europepmc.org/article/MED/38632375"
     },
     {
-     "title": "Eczema UK — Itching and scratching",
+     "title": "Eczema UK: Itching and scratching",
      "url": "https://www.eczema.org.uk/support/itching-and-scratching"
     },
     {
-     "title": "Eczema Care Online — Managing stress for parents",
+     "title": "Eczema Care Online: Managing stress for parents",
      "url": "https://eczemacareonline.org.uk/en/library/my-child/managing-stress-parents"
     }
    ]
@@ -2580,77 +2581,77 @@
   {
    "term": "BO",
    "meaning": "Best option",
-   "detail": "A highly recommended everyday choice, either for skin care or for general health. It does not mean a food or product cures eczema."
+   "detail": "A top everyday pick, for your skin or your general health. It doesn't mean a food or product cures eczema."
   },
   {
    "term": "AEH",
-   "meaning": "Avoid: Eczema-worsening Habit",
-   "detail": "A habit or product that commonly makes eczema worse, such as hot showers, bubble bath or fragrance."
+   "meaning": "Avoid (eczema-worsening habit)",
+   "detail": "A habit or product that often makes eczema worse, like hot showers, bubble bath or fragrance."
   },
   {
    "term": "HHF",
    "meaning": "High-histamine food or drink",
-   "detail": "Used only where histamine plausibly matters, mainly wine and beer, which can trigger flushing and itch. \"Histamine intolerance\" diets are not proven to help eczema."
+   "detail": "Only used where histamine could really matter, mostly wine and beer, which can cause flushing and itch. \"Histamine intolerance\" diets haven't been shown to help eczema."
   },
   {
    "term": "HBUC",
    "meaning": "Highly biological underlying cause",
-   "detail": "A root cause inside the body (genes, skin barrier, immune system), not something anyone did wrong."
+   "detail": "A cause that comes from inside the body (genes, skin barrier, immune system). Nobody did anything wrong."
   },
   {
    "term": "Atopic dermatitis (AD)",
    "meaning": "The medical name for the most common type of eczema",
-   "detail": "Long-lasting, itchy skin inflammation that comes and goes in flares. It isn't contagious."
+   "detail": "Long-term itchy, inflamed skin that comes and goes in flares. You can't catch it."
   },
   {
    "term": "Flare",
-   "meaning": "A period when eczema gets worse",
-   "detail": "Redder, itchier, sometimes weepy skin. Remission is when it settles."
+   "meaning": "When eczema gets worse for a while",
+   "detail": "Redder, itchier, sometimes weepy skin. When it settles down again, that's called remission."
   },
   {
    "term": "Emollient",
    "meaning": "A medical moisturiser",
-   "detail": "Lotions, creams, gels and ointments that soften skin and repair the barrier. They are the foundation of all eczema care."
+   "detail": "Lotions, creams, gels and ointments that soften skin and repair the barrier. They're the base of all eczema care."
   },
   {
    "term": "Soap substitute",
-   "meaning": "An emollient used to wash instead of soap",
-   "detail": "Aqueous cream can be used to wash, but not as a leave-on moisturiser."
+   "meaning": "An emollient you wash with instead of soap",
+   "detail": "Aqueous cream is fine for washing, but don't use it as a leave-on moisturiser."
   },
   {
    "term": "Soak and seal",
    "meaning": "Moisturise within about 3 minutes of bathing",
-   "detail": "Pat dry, put medicine on the patches, then moisturiser everywhere else, to lock water into the skin."
+   "detail": "Pat dry, put medicine on the patches, then moisturiser everywhere else. This locks water into the skin."
   },
   {
    "term": "TCS",
    "meaning": "Topical corticosteroid (steroid cream)",
-   "detail": "The first-choice treatment for flares. Strengths range from mild (e.g. hydrocortisone 1%) to very potent. Safe when used as directed."
+   "detail": "The first choice for treating flares. Strengths go from mild (e.g. hydrocortisone 1%) to very potent. Safe when used as directed."
   },
   {
    "term": "FTU",
    "meaning": "Fingertip unit",
-   "detail": "A line of cream from the tip of an adult's index finger to the first crease (about 0.5 g). It covers two adult palms."
+   "detail": "A line of cream from the tip of an adult's index finger to the first crease (about 0.5 g). Enough to cover two adult palms."
   },
   {
    "term": "Proactive (weekend) therapy",
-   "meaning": "Twice-weekly preventive treatment",
-   "detail": "Steroid or tacrolimus cream applied twice a week to usual flare spots after the skin has settled, to prevent new flares."
+   "meaning": "Preventive treatment twice a week",
+   "detail": "Once the skin has settled, steroid or tacrolimus cream goes on the usual flare spots twice a week to prevent new flares."
   },
   {
    "term": "Steroid phobia",
    "meaning": "Fear of using steroid creams",
-   "detail": "Very common, and it leads to under-treated flares. Used correctly, the benefits outweigh the risks."
+   "detail": "Very common, and it means flares often get under-treated. Used correctly, the benefits outweigh the risks."
   },
   {
    "term": "TCI",
    "meaning": "Topical calcineurin inhibitor",
-   "detail": "Tacrolimus and pimecrolimus: steroid-free creams that are good for the face, eyelids and folds."
+   "detail": "Tacrolimus and pimecrolimus. Steroid-free creams that are good for the face, eyelids and folds."
   },
   {
    "term": "Biologic",
    "meaning": "An injected medicine that targets one part of the immune system",
-   "detail": "E.g. dupilumab (Dupixent), tralokinumab, lebrikizumab, nemolizumab. For moderate–severe eczema."
+   "detail": "For example dupilumab (Dupixent), tralokinumab, lebrikizumab and nemolizumab. Used for moderate–severe eczema."
   },
   {
    "term": "JAK inhibitor",
@@ -2659,78 +2660,79 @@
   },
   {
    "term": "Wet wrap",
-   "meaning": "A damp cotton layer under a dry layer",
-   "detail": "Used short-term for bad flares, with a doctor's guidance. Never on infected skin."
+   "meaning": "A damp cotton layer under a dry one",
+   "detail": "Used for a short time on bad flares, with a doctor's guidance. Never on infected skin."
   },
   {
    "term": "Bleach bath",
    "meaning": "A very dilute bleach bath (about 0.005%)",
-   "detail": "Can reduce severity in moderate–severe eczema, but only with a doctor's OK. See Water for the South African recipe."
+   "detail": "Can make moderate–severe eczema less severe, but only with a doctor's OK. The South African recipe is on the Water page."
   },
   {
    "term": "Filaggrin",
-   "meaning": "A skin-barrier building block",
-   "detail": "Some people inherit weaker filaggrin, so water escapes and irritants get in."
+   "meaning": "A building block of the skin barrier",
+   "detail": "Some people inherit weaker filaggrin, so water gets out and irritants get in."
   },
   {
    "term": "Atopic march",
    "meaning": "Eczema followed by other allergies",
-   "detail": "Children with eczema are more likely to develop food allergy, asthma or hay fever, but many never do."
+   "detail": "Kids with eczema are more likely to get food allergy, asthma or hay fever, but many never do."
   },
   {
    "term": "S. aureus (staph)",
    "meaning": "A common skin germ",
-   "detail": "It thrives on eczema skin and can cause infection: weeping, yellow crusts, pus spots."
+   "detail": "It grows easily on eczema skin and can cause infection. Look out for weeping, yellow crusts and pus spots."
   },
   {
    "term": "Eczema herpeticum",
    "meaning": "Eczema infected with the cold-sore virus",
-   "detail": "An emergency: painful clustered blisters, punched-out sores, fever. Get seen the same day."
+   "detail": "An emergency. Look out for painful clustered blisters, punched-out sores and fever. Get seen the same day."
   },
   {
    "term": "Irritant vs allergen",
-   "meaning": "Two different ways things worsen eczema",
+   "meaning": "Two different ways things make eczema worse",
    "detail": "Irritants (soap, wool, sweat) bother everyone's skin. Allergens (pollen, nickel, some foods) only affect people who are allergic to them."
   },
   {
    "term": "Sensitisation vs allergy",
-   "meaning": "A positive test is not the same as an allergy",
-   "detail": "Skin-prick or blood tests can be positive without real reactions. An oral food challenge is the gold standard."
+   "meaning": "A positive test doesn't always mean an allergy",
+   "detail": "Skin-prick or blood tests can be positive without any real reaction. An oral food challenge is the most reliable test."
   },
   {
    "term": "Elimination diet",
    "meaning": "Cutting foods out",
-   "detail": "Not recommended unless an allergy is confirmed. It can cause poor growth and new allergies."
+   "detail": "Not recommended unless an allergy is confirmed. It can lead to poor growth and new allergies."
   },
   {
    "term": "Patch test",
    "meaning": "A test for contact allergy",
-   "detail": "Small amounts of allergens are taped to the back for a few days. It is useful when creams, fabrics or metals seem to cause reactions."
+   "detail": "Small amounts of allergens are taped to your back for a few days. Useful when creams, fabrics or metals seem to cause reactions."
   },
   {
    "term": "POEM",
    "meaning": "Patient-Oriented Eczema Measure",
-   "detail": "Seven questions about the past week, scored 0–28, that families can fill in at home to track eczema."
+   "detail": "Seven questions about the past week, scored 0–28. Families can fill it in at home to track eczema."
   },
   {
    "term": "SCORAD / EASI",
-   "meaning": "Doctor's severity scores",
+   "meaning": "Severity scores doctors use",
    "detail": "Used in clinics and trials to measure how much skin is affected and how badly."
   },
   {
    "term": "Phototherapy (NB-UVB)",
    "meaning": "Medical light treatment",
-   "detail": "Given at a dermatologist. It is not the same as sunbathing or sunbeds."
+   "detail": "Done at a dermatologist. Sunbathing and sunbeds aren't the same thing."
   },
   {
    "term": "Habit reversal",
-   "meaning": "Swapping scratching for a harmless action",
+   "meaning": "Swapping scratching for something harmless",
    "detail": "Notice the urge, then press, pinch or clench your fists for 30 seconds instead of scratching."
   },
   {
    "term": "Hyper/hypopigmentation",
    "meaning": "Darker or lighter patches after eczema",
-   "detail": "Common on darker skin. They fade slowly once the eczema is controlled."
+   "detail": "Common on darker skin. They fade slowly once the eczema is under control."
   }
- ]
+ ],
+ "schemaVersion": 1
 }

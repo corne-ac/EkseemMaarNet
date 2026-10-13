@@ -1,0 +1,53 @@
+# PR check: validates content.json and builds the Android app (Release, unsigned).
+name: PR build · Android
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore: [ "**.md" ]
+  workflow_dispatch:
+
+concurrency:
+  group: pr-android-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_VERSION: 10.0.x
+  PROJECT: EkseemMaarNet.csproj
+
+jobs:
+  build:
+    name: Build Android
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # needed to compare content.json with the target branch
+
+      # The app downloads content.json from main, so it must be valid before it gets there.
+      - name: Validate content.json
+        run: |
+          BASE_ARGS=""
+          if git show "origin/${{ github.base_ref || 'main' }}:Resources/Raw/content.json" > "$RUNNER_TEMP/base-content.json" 2>/dev/null; then
+            BASE_ARGS="--base $RUNNER_TEMP/base-content.json"
+          fi
+          python3 scripts/validate_content.py Resources/Raw/content.json $BASE_ARGS
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: microsoft
+          java-version: "17"
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI Android workload
+        run: dotnet workload install maui-android
+
+      - name: Build
+        run: dotnet build ${{ env.PROJECT }} -f net10.0-android -c Release

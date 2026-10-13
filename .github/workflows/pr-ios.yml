@@ -1,0 +1,42 @@
+# PR check: builds the iOS app for the simulator (Release, no signing needed).
+name: PR build · iOS
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore: [ "**.md" ]
+  workflow_dispatch:
+
+concurrency:
+  group: pr-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_VERSION: 10.0.x
+  PROJECT: EkseemMaarNet.csproj
+
+jobs:
+  build:
+    name: Build iOS
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+
+      # The MAUI iOS workload needs a matching Xcode. Pin a version here (e.g. "26.0") if latest-stable drifts ahead.
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI iOS workload
+        run: dotnet workload install maui-ios
+
+      - name: Build (simulator)
+        run: dotnet build ${{ env.PROJECT }} -f net10.0-ios -c Release -p:RuntimeIdentifier=iossimulator-arm64
