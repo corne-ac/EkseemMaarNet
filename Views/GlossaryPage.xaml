@@ -9,8 +9,7 @@
              SafeAreaEdges="None">
 
     <Grid SafeAreaEdges="None">
-        <Image Source="wallpaper.jpg" Aspect="AspectFill" />
-        <BoxView Color="{StaticResource Scrim}" />
+        <controls:WallpaperBackdrop />
 
         <Grid RowDefinitions="Auto,Auto,*"
               SafeAreaEdges="Container">

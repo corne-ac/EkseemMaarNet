@@ -9,15 +9,7 @@ public partial class CategoryPage : ContentPage
     {
         InitializeComponent();
         BindingContext = vm;
-        SectionsList.SizeChanged += (_, _) =>
-        {
-            if (SectionsList.ItemsLayout is GridItemsLayout grid)
-            {
-                var span = Responsive.CardSpan(SectionsList.Width);
-                if (grid.Span != span)
-                    grid.Span = span;
-            }
-        };
+        SectionsList.BindSpan(Responsive.CardSpan);
     }
 
 #if DEBUG

@@ -9,15 +9,7 @@
     <!-- Brand -->
     <Color x:Key="ForestGreen">#155634</Color>
     <Color x:Key="EkseemGreen">#4F8541</Color>
-    <Color x:Key="LeafGreen">#3B8939</Color>
     <Color x:Key="DeepGreen">#0B2E1C</Color>
-    <Color x:Key="MintTint">#E8F3EA</Color>
-
-    <!-- Kept for controls that look these up by name -->
-    <Color x:Key="Primary">#155634</Color>
-    <Color x:Key="PrimaryDark">#8FC98A</Color>
-    <Color x:Key="Secondary">#E8F3EA</Color>
-    <Color x:Key="Tertiary">#4F8541</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
@@ -25,31 +17,17 @@
     <!-- Surfaces and text (light / dark) -->
     <Color x:Key="CardLight">#FFFFFF</Color>
     <Color x:Key="CardDark">#16231B</Color>
-    <Color x:Key="CardAltLight">#F2F7F3</Color>
-    <Color x:Key="CardAltDark">#1E2E24</Color>
     <Color x:Key="TextLight">#1C2B21</Color>
     <Color x:Key="TextDark">#E8F1EA</Color>
     <Color x:Key="SubtleTextLight">#56665B</Color>
     <Color x:Key="SubtleTextDark">#A8BAAD</Color>
-    <Color x:Key="DividerLight">#E3EBE5</Color>
-    <Color x:Key="DividerDark">#2B3D31</Color>
     <Color x:Key="AccentLight">#155634</Color>
     <Color x:Key="AccentDark">#8FC98A</Color>
 
     <!-- Glass tiles on the wallpaper -->
     <Color x:Key="GlassFill">#33FFFFFF</Color>
-    <Color x:Key="GlassFillStrong">#55FFFFFF</Color>
     <Color x:Key="GlassStroke">#55FFFFFF</Color>
-    <Color x:Key="Scrim">#99082014</Color>
     <Color x:Key="AlertRed">#B3261E</Color>
     <Color x:Key="AlertRedDark">#FF8A80</Color>
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
-    <Color x:Key="Gray200">#C8C8C8</Color>
-    <Color x:Key="Gray300">#ACACAC</Color>
-    <Color x:Key="Gray400">#919191</Color>
-    <Color x:Key="Gray500">#6E6E6E</Color>
-    <Color x:Key="Gray600">#404040</Color>
-    <Color x:Key="Gray900">#212121</Color>
-    <Color x:Key="Gray950">#141414</Color>
 </ResourceDictionary>

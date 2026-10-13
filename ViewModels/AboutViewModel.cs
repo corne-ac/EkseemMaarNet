@@ -1,10 +1,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using EkseemMaarNet.Services;
 
 namespace EkseemMaarNet.ViewModels;
 
-public partial class AboutViewModel(ContentService content) : ObservableObject
+public partial class AboutViewModel(ContentService content) : PageViewModel
 {
     [ObservableProperty]
     public partial string Disclaimer { get; set; } = "";
@@ -20,10 +19,4 @@ public partial class AboutViewModel(ContentService content) : ObservableObject
         Disclaimer = library.Disclaimer;
         LastReviewed = library.LastReviewed;
     }
-
-    [RelayCommand]
-    private static Task OpenLink(string url) => Links.OpenAsync(url);
-
-    [RelayCommand]
-    private static Task Back() => Shell.Current.GoToAsync("..");
 }

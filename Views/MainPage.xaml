@@ -11,17 +11,7 @@
              SafeAreaEdges="None">
 
     <Grid SafeAreaEdges="None">
-        <!-- Wallpaper (edge to edge) with a soft scrim for legibility -->
-        <Image Source="wallpaper.jpg" Aspect="AspectFill" />
-        <BoxView>
-            <BoxView.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#99062A16" Offset="0" />
-                    <GradientStop Color="#33062A16" Offset="0.45" />
-                    <GradientStop Color="#B3062A16" Offset="1" />
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
+        <controls:WallpaperBackdrop IsHome="True" />
 
         <Grid RowDefinitions="Auto,Auto,*"
               SafeAreaEdges="Container">

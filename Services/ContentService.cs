@@ -77,7 +77,7 @@ public sealed class ContentService
     }
 
     /// <summary>Checks GitHub for newer content. Safe to call often: throttled, and failures are ignored.</summary>
-    public async Task CheckForUpdatesAsync(bool force = false)
+    public async Task CheckForUpdatesAsync()
     {
         if (Interlocked.Exchange(ref _checking, 1) == 1)
             return;
@@ -85,7 +85,7 @@ public sealed class ContentService
         try
         {
             var lastCheck = new DateTime(Preferences.Default.Get(LastCheckKey, 0L), DateTimeKind.Utc);
-            if (!force && DateTime.UtcNow - lastCheck < CheckInterval)
+            if (DateTime.UtcNow - lastCheck < CheckInterval)
                 return;
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
                 return;
@@ -106,17 +106,17 @@ public sealed class ContentService
             if (remote is null)
                 return;
 
-            // Remember this version of the file so the next check is a cheap "not modified".
+            var current = await GetLibraryAsync();
+            if (remote.ContentVersion > current.ContentVersion)
+            {
+                await SaveCacheAsync(json);
+                _current = remote;
+                LibraryUpdated?.Invoke(this, EventArgs.Empty);
+            }
+
+            // Only now that we hold this file (or something newer) is "not modified" a safe answer next time.
             if (response.Headers.ETag is { } newTag)
                 Preferences.Default.Set(ETagKey, newTag.ToString());
-
-            var current = await GetLibraryAsync();
-            if (remote.ContentVersion <= current.ContentVersion)
-                return;
-
-            await SaveCacheAsync(json);
-            _current = remote;
-            LibraryUpdated?.Invoke(this, EventArgs.Empty);
         }
         catch (Exception)
         {
@@ -166,6 +166,9 @@ public sealed class ContentService
             // A damaged cache file just falls back to the bundled content.
         }
 
+        // Without a usable cache, forget the ETag so the next check downloads the file again.
+        Preferences.Default.Remove(ETagKey);
+
         return bundled;
     }
 
@@ -173,6 +176,8 @@ public sealed class ContentService
     private static ContentLibrary? Parse(string json)
     {
         var library = JsonSerializer.Deserialize(json, ContentJsonContext.Default.ContentLibrary);
+        if (library is not null)
+            Normalize(library);
         if (library is null
             || library.SchemaVersion > ContentLibrary.SupportedSchemaVersion
             || library.Categories.Count == 0
@@ -187,6 +192,32 @@ public sealed class ContentService
             category.Sources.RemoveAll(s => !IsAllowedLink(s.Url) || s.Url.StartsWith("tel:", StringComparison.OrdinalIgnoreCase));
 
         return library;
+    }
+
+    // An explicit JSON null overrides the "" / [] defaults, so fill those back in before anything reads them.
+    private static void Normalize(ContentLibrary library)
+    {
+        library.Categories ??= [];
+        library.Glossary ??= [];
+        library.Categories.RemoveAll(c => c is null);
+        library.Glossary.RemoveAll(g => g is null || string.IsNullOrWhiteSpace(g.Term));
+        foreach (var category in library.Categories)
+        {
+            category.Sections ??= [];
+            category.Sources ??= [];
+            category.Sections.RemoveAll(s => s is null);
+            category.Sources.RemoveAll(s => s?.Url is null);
+            foreach (var section in category.Sections)
+            {
+                section.Items ??= [];
+                section.Items.RemoveAll(i => i is null || string.IsNullOrWhiteSpace(i.Name));
+                foreach (var item in section.Items)
+                {
+                    item.Note ??= "";
+                    item.Tags ??= [];
+                }
+            }
+        }
     }
 
     private static bool IsAllowedLink(string url) =>

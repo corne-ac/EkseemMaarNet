@@ -11,15 +11,7 @@ public partial class GlossaryPage : ContentPage
     {
         InitializeComponent();
         BindingContext = _vm = vm;
-        EntriesList.SizeChanged += (_, _) =>
-        {
-            if (EntriesList.ItemsLayout is GridItemsLayout grid)
-            {
-                var span = Responsive.CardSpan(EntriesList.Width);
-                if (grid.Span != span)
-                    grid.Span = span;
-            }
-        };
+        EntriesList.BindSpan(Responsive.CardSpan);
     }
 
     protected override async void OnAppearing()

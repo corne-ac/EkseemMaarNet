@@ -6,17 +6,26 @@ namespace EkseemMaarNet.Views;
 public partial class MainPage : ContentPage
 {
     private readonly MainViewModel _vm;
+    private bool _resumeHooked;
 
     public MainPage(MainViewModel vm)
     {
         InitializeComponent();
         BindingContext = _vm = vm;
-        Tiles.SizeChanged += (_, _) => UpdateTileSpan();
+        Tiles.BindSpan(Responsive.TileSpan);
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+
+        // Coming back to the app on a new day should show a new affirmation.
+        if (!_resumeHooked && Window is { } window)
+        {
+            window.Resumed += async (_, _) => await _vm.RefreshAffirmationAsync();
+            _resumeHooked = true;
+        }
+
         await _vm.LoadAsync();
 #if DEBUG
         await DebugStartRouteAsync();
@@ -45,14 +54,4 @@ public partial class MainPage : ContentPage
             await Shell.Current.GoToAsync(route);
     }
 #endif
-
-    private void UpdateTileSpan()
-    {
-        if (Tiles.ItemsLayout is GridItemsLayout grid)
-        {
-            var span = Responsive.TileSpan(Tiles.Width);
-            if (grid.Span != span)
-                grid.Span = span;
-        }
-    }
 }

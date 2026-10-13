@@ -51,9 +51,11 @@ def validate(lib):
             fail(errors, f"{where}: duplicate id")
         seen.add(cid)
         try:
-            int(c.get("icon", ""), 16)
-        except ValueError:
-            fail(errors, f"{where}: icon must be a hex Fluent icon code point")
+            code_point = int(c.get("icon", ""), 16)
+            if not (0 < code_point <= 0x10FFFF) or 0xD800 <= code_point <= 0xDFFF:
+                raise ValueError
+        except (TypeError, ValueError):
+            fail(errors, f"{where}: icon must be a hex Fluent icon code point (not a surrogate, max 10FFFF)")
         for s in c.get("sections", []):
             swhere = f"{where} / section '{s.get('title', '?')}'"
             if not s.get("title"):
@@ -64,8 +66,15 @@ def validate(lib):
                 fail(errors, f"{swhere}: needs items or an intro")
             for i in s.get("items", []):
                 iwhere = f"{swhere} / item '{i.get('name', '?')}'"
-                if not i.get("name"):
+                if not isinstance(i.get("name"), str) or not i["name"].strip():
                     fail(errors, f"{iwhere}: name is required")
+                if not isinstance(i.get("note", ""), str):
+                    fail(errors, f"{iwhere}: note must be text")
+                tags = i.get("tags", [])
+                if not isinstance(tags, list) or not all(isinstance(t, str) for t in tags):
+                    fail(errors, f"{iwhere}: tags must be a list of text")
+                if i.get("url") is not None and not isinstance(i["url"], str):
+                    fail(errors, f"{iwhere}: url must be text")
                 if i.get("rating", "info") not in RATINGS:
                     fail(errors, f"{iwhere}: rating must be one of {sorted(RATINGS)}")
                 if i.get("url"):

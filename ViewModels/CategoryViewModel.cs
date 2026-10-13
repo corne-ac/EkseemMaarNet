@@ -24,9 +24,19 @@ public sealed record SectionView(string Title, string Intro, IReadOnlyList<Conte
     public bool HasItems => Items.Count > 0;
 }
 
-public partial class CategoryViewModel(ContentService content) : ObservableObject, IQueryAttributable
+public partial class CategoryViewModel : PageViewModel, IQueryAttributable
 {
+    private readonly ContentService _content;
     private Category? _category;
+    private RatingGroup _group = RatingGroup.All;
+
+    public CategoryViewModel(ContentService content)
+    {
+        _content = content;
+        // Rating colours are picked per theme, so redraw the cards if light/dark mode changes while the page is open.
+        if (Application.Current is { } app)
+            app.RequestedThemeChanged += OnThemeChanged;
+    }
 
     public ObservableCollection<SectionView> Sections { get; } = [];
     public ObservableCollection<FilterChip> Filters { get; } = [];
@@ -47,24 +57,27 @@ public partial class CategoryViewModel(ContentService content) : ObservableObjec
     public partial bool ShowFilters { get; set; }
 
     [ObservableProperty]
-    public partial bool IsEmpty { get; set; }
-
-    [ObservableProperty]
     public partial bool HasSources { get; set; }
 
     public ObservableCollection<SourceLink> Sources { get; } = [];
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
+        // Shell has already decoded the query value.
         if (query.TryGetValue("id", out var id) && id is string categoryId)
-            _ = LoadAsync(Uri.UnescapeDataString(categoryId));
+            _ = LoadAsync(categoryId);
     }
 
     private async Task LoadAsync(string id)
     {
-        _category = await content.GetCategoryAsync(id);
+        _category = await _content.GetCategoryAsync(id);
         if (_category is null)
+        {
+            // e.g. a content update removed this category while it was being opened.
+            Title = "Page not found";
+            Intro = "This page isn't available any more. Go back and pick another category.";
             return;
+        }
 
         Title = _category.Title;
         Subtitle = _category.Subtitle;
@@ -105,8 +118,12 @@ public partial class CategoryViewModel(ContentService content) : ObservableObjec
         ApplyFilter(chip.Group);
     }
 
+    private void OnThemeChanged(object? sender, AppThemeChangedEventArgs e) =>
+        MainThread.BeginInvokeOnMainThread(() => ApplyFilter(_group));
+
     private void ApplyFilter(RatingGroup group)
     {
+        _group = group;
         if (_category is null)
             return;
 
@@ -124,14 +141,7 @@ public partial class CategoryViewModel(ContentService content) : ObservableObjec
             var isAlert = string.Equals(section.Style, "alert", StringComparison.OrdinalIgnoreCase);
             Sections.Add(new SectionView(section.Title, section.Intro, items, isAlert));
         }
-        IsEmpty = Sections.Count == 0;
     }
-
-    [RelayCommand]
-    private static Task OpenLink(string url) => Links.OpenAsync(url);
-
-    [RelayCommand]
-    private static Task Back() => Shell.Current.GoToAsync("..");
 
     [RelayCommand]
     private static Task Home() => Shell.Current.GoToAsync("//MainPage");

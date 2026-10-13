@@ -19,9 +19,11 @@ public partial class MainViewModel : ObservableObject
         content.LibraryUpdated += (_, _) => MainThread.BeginInvokeOnMainThread(async () =>
         {
             await ApplyLibraryAsync();
-            if (IsSearching)
-                await SearchAsync(SearchText);
+            await RefreshSearchAsync();
         });
+        // Result cards use theme-specific rating colours, so rebuild them when light/dark mode changes.
+        if (Application.Current is { } app)
+            app.RequestedThemeChanged += (_, _) => MainThread.BeginInvokeOnMainThread(async () => await RefreshSearchAsync());
     }
 
     public ObservableCollection<Category> Categories { get; } = [];
@@ -34,6 +36,11 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ShowNoResults))]
     public partial bool HasResults { get; set; }
+
+    /// <summary>False while a search is pending, so "Nothing found" doesn't flash before results arrive.</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ShowNoResults))]
+    public partial bool SearchDone { get; set; }
 
     [ObservableProperty]
     public partial string LastReviewed { get; set; } = "";
@@ -54,7 +61,7 @@ public partial class MainViewModel : ObservableObject
     public partial bool ShowWelcome { get; set; }
 
     public bool IsSearching => !string.IsNullOrWhiteSpace(SearchText);
-    public bool ShowNoResults => IsSearching && !HasResults;
+    public bool ShowNoResults => IsSearching && SearchDone && !HasResults;
 
     public async Task LoadAsync()
     {
@@ -77,6 +84,12 @@ public partial class MainViewModel : ObservableObject
         Disclaimer = library.Disclaimer;
         Affirmation = PickDailyAffirmation(library);
     }
+
+    /// <summary>Called when the app comes back to the foreground, so a new day shows a new affirmation.</summary>
+    public async Task RefreshAffirmationAsync() =>
+        Affirmation = PickDailyAffirmation(await content.GetLibraryAsync());
+
+    private Task RefreshSearchAsync() => IsSearching ? SearchAsync(SearchText) : Task.CompletedTask;
 
     // Same affirmation all day, a new one tomorrow.
     private static string PickDailyAffirmation(ContentLibrary library)
@@ -101,7 +114,11 @@ public partial class MainViewModel : ObservableObject
         ShowWelcome = false;
     }
 
-    partial void OnSearchTextChanged(string value) => _ = SearchAsync(value);
+    partial void OnSearchTextChanged(string value)
+    {
+        SearchDone = false;
+        _ = SearchAsync(value);
+    }
 
     private async Task SearchAsync(string query)
     {
@@ -119,6 +136,7 @@ public partial class MainViewModel : ObservableObject
             foreach (var hit in hits)
                 Results.Add(hit);
             HasResults = Results.Count > 0;
+            SearchDone = true;
         }
         catch (TaskCanceledException)
         {

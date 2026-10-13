@@ -196,8 +196,11 @@ public static class Icons
     public static readonly string Call = FromHex("e271");
     public static readonly string Sparkle = FromHex("eb34");
 
+    // Content can come from a download, so ignore anything that isn't a real Unicode scalar value
+    // (ConvertFromUtf32 throws on surrogates and values above 10FFFF).
     public static string FromHex(string hex) =>
         int.TryParse(hex, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var cp)
+        && cp is > 0 and <= 0x10FFFF and not (>= 0xD800 and <= 0xDFFF)
             ? char.ConvertFromUtf32(cp)
             : "";
 }

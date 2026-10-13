@@ -37,10 +37,16 @@ public partial class FadeHost
 
         public TopFadeDrawable() => _paint.SetXfermode(new PorterDuffXfermode(PorterDuff.Mode.DstOut!));
 
+        // The gradient only depends on height and amount, so build it here rather than on every frame.
         public void Update(float height, float amount)
         {
+            if (height == _height && amount == _amount)
+                return;
+
             _height = height;
             _amount = amount;
+            var erase = AColor.Argb((int)(255 * amount), 0, 0, 0);
+            _paint.SetShader(height > 0 ? new LinearGradient(0, 0, 0, height, erase, AColor.Transparent, Shader.TileMode.Clamp!) : null);
             InvalidateSelf();
         }
 
@@ -49,8 +55,6 @@ public partial class FadeHost
             if (_amount <= 0.01f || _height <= 0)
                 return;
 
-            var erase = AColor.Argb((int)(255 * _amount), 0, 0, 0);
-            _paint.SetShader(new LinearGradient(0, 0, 0, _height, erase, AColor.Transparent, Shader.TileMode.Clamp!));
             canvas.DrawRect(0, 0, Bounds.Width(), _height, _paint);
         }
 

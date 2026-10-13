@@ -83,8 +83,10 @@ public partial class FadeHost : ContentView
             FadeAmount = AmountFor(_offsets.GetValueOrDefault(scroller));
     }
 
+    // Rounded so scrolling only touches the native layer when the fade visibly changes
+    // (once it reaches 1, further scrolling changes nothing).
     private double AmountFor(double offset) =>
-        FadeHeight <= 0 ? 0 : Math.Clamp(offset / FadeHeight, 0, 1);
+        FadeHeight <= 0 ? 0 : Math.Round(Math.Clamp(offset / FadeHeight, 0, 1), 2);
 
     partial void UpdateNative();
 }

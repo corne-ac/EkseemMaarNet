@@ -12,7 +12,6 @@
 
             <controls:IsNotEmptyConverter x:Key="IsNotEmpty" />
             <controls:InvertBoolConverter x:Key="InvertBool" />
-            <controls:TintConverter x:Key="Tint" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

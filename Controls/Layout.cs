@@ -17,4 +17,12 @@ public static class Responsive
 
     /// <summary>Content cards: one column on phones, two side by side on tablets / landscape.</summary>
     public static int CardSpan(double width) => width >= 720 ? 2 : 1;
+
+    /// <summary>Keeps a grid list's column count in step with its width (rotation, split view, tablets).</summary>
+    public static void BindSpan(this CollectionView list, Func<double, int> spanFor) =>
+        list.SizeChanged += (_, _) =>
+        {
+            if (list.ItemsLayout is GridItemsLayout grid && spanFor(list.Width) is var span && grid.Span != span)
+                grid.Span = span;
+        };
 }

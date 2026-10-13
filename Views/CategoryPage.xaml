@@ -9,16 +9,7 @@
              SafeAreaEdges="None">
 
     <Grid SafeAreaEdges="None">
-        <Image Source="wallpaper.jpg" Aspect="AspectFill" />
-        <BoxView>
-            <BoxView.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#B3062A16" Offset="0" />
-                    <GradientStop Color="#4D062A16" Offset="0.35" />
-                    <GradientStop Color="#B3062A16" Offset="1" />
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
+        <controls:WallpaperBackdrop />
 
         <Grid RowDefinitions="Auto,*"
               SafeAreaEdges="Container">

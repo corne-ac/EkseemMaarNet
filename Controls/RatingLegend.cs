@@ -18,6 +18,18 @@ public sealed class RatingLegend : VerticalStackLayout
     public RatingLegend()
     {
         Spacing = 10;
+        Build();
+        // Rating colours differ between light and dark mode, so rebuild if the theme changes.
+        if (Application.Current is { } app)
+            app.RequestedThemeChanged += OnThemeChanged;
+    }
+
+    private void OnThemeChanged(object? sender, AppThemeChangedEventArgs e) =>
+        MainThread.BeginInvokeOnMainThread(Build);
+
+    private void Build()
+    {
+        Clear();
         foreach (var (rating, meaning) in Rows)
         {
             var grid = new Grid
