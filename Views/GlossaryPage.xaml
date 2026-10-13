@@ -1,89 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EkseemMaarNet.GlossaryPage"
-             Title="GlossaryPage"
-             xmlns:viewmodel="clr-namespace:EkseemMaarNet.ViewModels"
-             x:DataType="viewmodel:GlossaryViewModel"
-             BackgroundImageSource="wallpaper.jpg">
+             xmlns:vm="clr-namespace:EkseemMaarNet.ViewModels"
+             xmlns:models="clr-namespace:EkseemMaarNet.Models"
+             xmlns:controls="clr-namespace:EkseemMaarNet.Controls"
+             x:Class="EkseemMaarNet.Views.GlossaryPage"
+             x:DataType="vm:GlossaryViewModel"
+             SafeAreaEdges="None">
 
-    <Grid RowDefinitions="auto, auto, auto, auto, auto, *, auto" ColumnDefinitions="*">
-        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center">
-            <HorizontalStackLayout Margin="10,40,0,0" HorizontalOptions="Center">
-                <Image Source="sprout_white.png" Margin="10" HeightRequest="50"/>
-                <Label Text="Glossary"
-                       FontSize="30"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
+    <Grid SafeAreaEdges="None">
+        <controls:WallpaperBackdrop />
 
-            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="FillAndExpand">
-                <Label Text="HHF - "
-                       FontSize="25"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       TextColor="White"
-                       Grid.Column="0"/>
-                <Label Text="High Histamine Foods"
-                       FontSize="20"
-                       VerticalOptions="Center"
-                       TextColor="White"
-                       Grid.Column="1"/>
-            </Grid>
+        <Grid RowDefinitions="Auto,Auto,*"
+              SafeAreaEdges="Container">
 
-            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand">
-                <Label Text="BO - "
-                       FontSize="25"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-                <Label Text="Best options, highly recommended"
-                        Grid.Column="1"
-                       FontSize="20"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-            </Grid>
+            <controls:PageHeader Title="Glossary" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
+                                 Subtitle="Abbreviations and medical words used in the app"
+                                 Glyph="{x:Static models:Icons.Book}"
+                                 BackCommand="{Binding BackCommand}" />
 
-            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
-                <Label Text="AEH - "
-                        FontSize="25"
-                        FontAttributes="Bold"
-                        VerticalOptions="Center"
-                        TextColor="White"/>
-                <Label Text="Anti Eczema Habits to Highly Avoid"
-                       LineBreakMode="WordWrap"
-                       FontSize="20"
-                       VerticalOptions="Center"
-                       TextColor="White"
-                       Grid.Column="1"/>
-            </Grid>
+            <Border Grid.Row="1" Style="{StaticResource SearchField}" Margin="16,0,16,12" Padding="14,2"
+                    MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                    <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource SearchIcon}" />
+                    <Entry Grid.Column="1" Text="{Binding Filter}" Placeholder="Find a term" ClearButtonVisibility="WhileEditing" />
+                </Grid>
+            </Border>
 
-            <Grid ColumnDefinitions="Auto, *" Margin="20,10,0,0" HorizontalOptions="StartAndExpand" >
-                <Label Text="HBUC - "
-                       FontSize="25"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-                <Label Text="Highly biological underlying cause"
-                       FontSize="20"
-                       VerticalOptions="Center"
-                       TextColor="White"
-                       Grid.Column="1"/>
-            </Grid>
-
-        </VerticalStackLayout>
-
-        <Frame Background="#155634" BorderColor="Transparent" Padding="10" Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="Fill" Grid.Row="6">
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Image Source="logo_white.svg" Margin="0,0,10,0" HeightRequest="30"/>
-                <Label Text="EKSEEM MAAR NET"
-                       FontSize="20"
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding homeCommand}"/>
-            </Frame.GestureRecognizers>
-        </Frame>
+            <controls:FadeHost Grid.Row="2">
+            <CollectionView x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView HeightRequest="4" Color="Transparent" />
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:GlossaryEntry">
+                            <Border Style="{StaticResource Card}">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Term}" Style="{StaticResource SectionTitle}" FontSize="22" />
+                                    <Label Text="{Binding Meaning}" Style="{StaticResource ItemName}" />
+                                    <Label Text="{Binding Detail}" Style="{StaticResource Subtle}" IsVisible="{Binding HasDetail}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="24" Color="Transparent" />
+                    </CollectionView.Footer>
+                </CollectionView>
+            </controls:FadeHost>
+        </Grid>
     </Grid>
 </ContentPage>

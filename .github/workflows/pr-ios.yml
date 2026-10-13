@@ -1,0 +1,37 @@
+# PR check: builds the iOS app for the simulator (Release, no signing needed).
+# Content-only changes skip this; pr-content.yml covers them.
+name: PR build · iOS
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
+    branches: [ main ]
+    paths-ignore: [ "**.md", "Resources/Raw/content.json" ]
+  workflow_dispatch:
+
+concurrency:
+  group: pr-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build iOS
+    # Skip draft PRs to save Actions minutes; they run once the PR is marked ready (or via "Run workflow").
+    if: github.event_name == 'workflow_dispatch' || !github.event.pull_request.draft
+    # Xcode 27 image (GitHub public preview); .NET for iOS 27 requires Xcode 27.
+    runs-on: xcode-27
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ./.github/actions/setup-maui
+        with:
+          platform: ios
+          xcode-version: "27.0"
+
+      # TargetFrameworks narrows restore to this platform (the other workload isn't installed here).
+      - name: Build (simulator)
+        run: dotnet build EkseemMaarNet.csproj -f net10.0-ios -p:TargetFrameworks=net10.0-ios -c Release -p:RuntimeIdentifier=iossimulator-arm64

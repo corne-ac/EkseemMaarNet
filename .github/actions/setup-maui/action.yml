@@ -1,0 +1,42 @@
+# Shared CI setup: .NET SDK, NuGet cache and the MAUI workload for one platform.
+name: Set up .NET MAUI
+description: Installs .NET, restores the NuGet cache and the MAUI workload for android or ios.
+
+inputs:
+  platform:
+    description: android or ios
+    required: true
+  dotnet-version:
+    description: .NET SDK version
+    default: 10.0.x
+  xcode-version:
+    description: Xcode to select (ios only). Must match what the MAUI iOS workload requires (.NET for iOS 27 needs Xcode 27).
+    default: "27.0"
+
+runs:
+  using: composite
+  steps:
+    - if: inputs.platform == 'android'
+      uses: actions/setup-java@v6
+      with:
+        distribution: microsoft
+        java-version: "17"
+
+    - if: inputs.platform == 'ios'
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ inputs.xcode-version }}
+
+    - uses: actions/setup-dotnet@v6
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+
+    - uses: actions/cache@v6
+      with:
+        path: ~/.nuget/packages
+        key: nuget-${{ runner.os }}-${{ inputs.platform }}-${{ hashFiles('**/*.csproj', 'global.json', 'nuget.config') }}
+        restore-keys: nuget-${{ runner.os }}-${{ inputs.platform }}-
+
+    - name: Install MAUI ${{ inputs.platform }} workload
+      shell: bash
+      run: dotnet workload install maui-${{ inputs.platform }}
