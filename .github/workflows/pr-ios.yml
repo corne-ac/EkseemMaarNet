@@ -4,6 +4,7 @@ name: PR build · iOS
 
 on:
   pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
     branches: [ main ]
     paths-ignore: [ "**.md", "Resources/Raw/content.json" ]
   workflow_dispatch:
@@ -18,7 +19,10 @@ permissions:
 jobs:
   build:
     name: Build iOS
-    runs-on: macos-latest
+    # Skip draft PRs to save Actions minutes; they run once the PR is marked ready (or via "Run workflow").
+    if: github.event_name == 'workflow_dispatch' || !github.event.pull_request.draft
+    # Xcode 27 image (GitHub public preview); .NET for iOS 27 requires Xcode 27.
+    runs-on: xcode-27
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
@@ -26,6 +30,7 @@ jobs:
       - uses: ./.github/actions/setup-maui
         with:
           platform: ios
+          xcode-version: "27.0"
 
       # TargetFrameworks narrows restore to this platform (the other workload isn't installed here).
       - name: Build (simulator)

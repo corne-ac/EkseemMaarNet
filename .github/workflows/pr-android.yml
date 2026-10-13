@@ -4,6 +4,7 @@ name: PR build · Android
 
 on:
   pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
     branches: [ main ]
     paths-ignore: [ "**.md", "Resources/Raw/content.json" ]
   workflow_dispatch:
@@ -18,6 +19,8 @@ permissions:
 jobs:
   build:
     name: Build Android
+    # Skip draft PRs to save Actions minutes; they run once the PR is marked ready (or via "Run workflow").
+    if: github.event_name == 'workflow_dispatch' || !github.event.pull_request.draft
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:

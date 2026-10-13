@@ -83,6 +83,8 @@ Some safety rules are built in:
 | `publish-android.yml` | Manual | Builds a signed `.aab` and can upload it to Google Play. **Not set up yet**, see the checklist at the top of the file |
 | `publish-ios.yml` | Manual | Builds a signed `.ipa` and can upload it to TestFlight. **Not set up yet**, see the checklist at the top of the file |
 
+The PR checks skip **draft** PRs to save Actions minutes. They run when the PR is marked ready for review, or you can start them from the Actions tab ("Run workflow"). iOS builds use GitHub's `xcode-27` runner image (a public preview), because .NET for iOS 27 requires Xcode 27.
+
 The shared setup (Java or Xcode, .NET, NuGet cache, MAUI workload) lives in `.github/actions/setup-maui`.
 
 ## Tech

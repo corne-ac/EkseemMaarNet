@@ -4,6 +4,7 @@ name: PR check · Content
 
 on:
   pull_request:
+    types: [ opened, synchronize, reopened, ready_for_review ]
     branches: [ main ]
     paths: [ "Resources/Raw/content.json", "scripts/validate_content.py" ]
   workflow_dispatch:
@@ -14,6 +15,8 @@ permissions:
 jobs:
   validate:
     name: Validate content.json
+    # Skip draft PRs to save Actions minutes; they run once the PR is marked ready (or via "Run workflow").
+    if: github.event_name == 'workflow_dispatch' || !github.event.pull_request.draft
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

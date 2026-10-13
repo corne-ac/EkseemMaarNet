@@ -17,7 +17,6 @@
 #         APPSTORE_KEY_ID            API key ID
 #         APPSTORE_PRIVATE_KEY       contents of the .p8 API key file
 #   [ ] Check Platforms/iOS/Info.plist: export compliance (ITSAppUsesNonExemptEncryption = false) and privacy manifest
-#   [ ] Pin the Xcode version that matches the MAUI iOS workload (see setup-xcode below)
 #   [ ] Version numbers: CFBundleVersion uses the workflow run number below (always increases)
 name: Publish · iOS (manual)
 
@@ -38,7 +37,8 @@ env:
 
 jobs:
   publish:
-    runs-on: macos-latest
+    # Xcode 27 image (GitHub public preview); .NET for iOS 27 requires Xcode 27.
+    runs-on: xcode-27
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v7
@@ -49,7 +49,7 @@ jobs:
       - uses: ./.github/actions/setup-maui
         with:
           platform: ios
-          xcode-version: latest-stable   # TODO: pin, e.g. "26.0"
+          xcode-version: "27.0"
 
       - name: Import signing certificate
         uses: apple-actions/import-codesign-certs@v7
