@@ -18,14 +18,6 @@
         <Setter Property="Shell.NavBarIsVisible" Value="False" />
     </Style>
 
-    <Style TargetType="Shell" ApplyToDerivedTypes="True">
-        <Setter Property="Shell.BackgroundColor" Value="{StaticResource ForestGreen}" />
-        <Setter Property="Shell.ForegroundColor" Value="White" />
-        <Setter Property="Shell.TitleColor" Value="White" />
-        <Setter Property="Shell.NavBarHasShadow" Value="False" />
-        <Setter Property="Shell.NavBarIsVisible" Value="False" />
-    </Style>
-
     <Style TargetType="Entry">
         <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="16" />
@@ -33,10 +25,6 @@
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource SubtleTextLight}, Dark={StaticResource SubtleTextDark}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="MinimumHeightRequest" Value="44" />
-    </Style>
-
-    <Style TargetType="ActivityIndicator">
-        <Setter Property="Color" Value="White" />
     </Style>
 
     <!-- ===== Typography ===== -->
@@ -89,6 +77,20 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
+    <!-- Rating icon + "BEST OPTION" caption on item rows (colour comes from controls:RatingTint) -->
+    <Style x:Key="RatingGlyph" TargetType="Label" BasedOn="{StaticResource Icon}">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="Margin" Value="0,2,0,0" />
+    </Style>
+
+    <Style x:Key="Overline" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="CharacterSpacing" Value="1" />
+        <Setter Property="TextTransform" Value="Uppercase" />
+    </Style>
+
     <!-- ===== Surfaces ===== -->
 
     <Style x:Key="Card" TargetType="Border">
@@ -108,10 +110,28 @@
         <Setter Property="BackgroundColor" Value="{StaticResource GlassFill}" />
     </Style>
 
-    <Style x:Key="Pill" TargetType="Border">
-        <Setter Property="StrokeThickness" Value="0" />
+    <Style x:Key="GlassPill" TargetType="Border" BasedOn="{StaticResource GlassPanel}">
         <Setter Property="StrokeShape" Value="RoundRectangle 999" />
-        <Setter Property="Padding" Value="10,4" />
+        <Setter Property="Padding" Value="16,10" />
+    </Style>
+
+    <Style x:Key="PillText" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <!-- Rounded white search box with its icon (Home and Glossary) -->
+    <Style x:Key="SearchField" TargetType="Border">
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}" />
+    </Style>
+
+    <Style x:Key="SearchIcon" TargetType="Label" BasedOn="{StaticResource Icon}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
     </Style>
 
     <Style x:Key="IconButton" TargetType="Border">

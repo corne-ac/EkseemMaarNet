@@ -50,18 +50,26 @@ public sealed class Category
 
     [JsonIgnore]
     public string DisplayTileTitle => string.IsNullOrEmpty(TileTitle) ? Title : TileTitle;
+
+    [JsonIgnore]
+    public bool HasSources => Sources.Count > 0;
 }
 
 public sealed class ContentSection
 {
     public string Title { get; set; } = "";
     public string Intro { get; set; } = "";
-    /// <summary>"alert" renders the section as an urgent card (red outline, warning icon).</summary>
+    /// <summary>
+    /// "alert" renders the section as an urgent card (red outline, warning icon).
+    /// "affirmations" marks the list Home picks its daily affirmation from.
+    /// Kept as text (not an enum) so an unknown value in downloaded content is simply ignored.
+    /// </summary>
     public string Style { get; set; } = "";
     public List<ContentItem> Items { get; set; } = [];
 
-    [JsonIgnore]
-    public bool HasIntro => !string.IsNullOrWhiteSpace(Intro);
+    [JsonIgnore] public bool HasIntro => !string.IsNullOrWhiteSpace(Intro);
+    [JsonIgnore] public bool IsAlert => string.Equals(Style, "alert", StringComparison.OrdinalIgnoreCase);
+    [JsonIgnore] public bool IsAffirmations => string.Equals(Style, "affirmations", StringComparison.OrdinalIgnoreCase);
 }
 
 public sealed class ContentItem
@@ -77,10 +85,9 @@ public sealed class ContentItem
     [JsonIgnore] public bool HasUrl => !string.IsNullOrWhiteSpace(Url);
     [JsonIgnore] public bool HasRating => Rating != Rating.Info;
     [JsonIgnore] public string RatingLabel => RatingStyle.Label(Rating);
-    [JsonIgnore] public Color RatingColor => RatingStyle.Colour(Rating);
     [JsonIgnore] public string RatingGlyph => RatingStyle.Glyph(Rating);
     [JsonIgnore] public string TagText => string.Join("  ·  ", Tags);
-    [JsonIgnore] public bool IsPhone => Url?.StartsWith("tel:", StringComparison.OrdinalIgnoreCase) == true;
+    [JsonIgnore] public bool IsPhone => LinkRules.IsPhone(Url);
     [JsonIgnore] public string LinkLabel => IsPhone ? "Call " + FormatPhone(Url![4..]) : "Learn more";
 
     // South African toll-free style: 0800 567 567. Short codes (10177) stay as they are.
@@ -126,32 +133,20 @@ public static class RatingStyle
         _ => ""
     };
 
-    // Darker tones on white cards; lighter tones on the dark-mode cards so labels keep their contrast.
-    public static Color Colour(Rating r) => IsDark ? DarkColour(r) : LightColour(r);
-
-    private static bool IsDark => Application.Current?.RequestedTheme == AppTheme.Dark;
-
-    private static Color LightColour(Rating r) => r switch
+    // Darker tones on white cards, lighter tones on dark-mode cards so labels keep their contrast.
+    // Applied with SetAppThemeColor (see Controls/RatingTint), so MAUI swaps them when the theme changes.
+    private static readonly Dictionary<Rating, (Color Light, Color Dark)> Palette = new()
     {
-        Rating.Best => Color.FromArgb("#155634"),
-        Rating.Good => Color.FromArgb("#3E7D33"),
-        Rating.Ok => Color.FromArgb("#5F7A68"),
-        Rating.Moderation => Color.FromArgb("#A86A00"),
-        Rating.Caution => Color.FromArgb("#C2410C"),
-        Rating.Avoid => Color.FromArgb("#B3261E"),
-        _ => Colors.Transparent
+        [Rating.Best] = (Color.FromArgb("#155634"), Color.FromArgb("#86D98F")),
+        [Rating.Good] = (Color.FromArgb("#3E7D33"), Color.FromArgb("#9BD08F")),
+        [Rating.Ok] = (Color.FromArgb("#5F7A68"), Color.FromArgb("#B5C7BA")),
+        [Rating.Moderation] = (Color.FromArgb("#A86A00"), Color.FromArgb("#F2B84B")),
+        [Rating.Caution] = (Color.FromArgb("#C2410C"), Color.FromArgb("#FFA163")),
+        [Rating.Avoid] = (Color.FromArgb("#B3261E"), Color.FromArgb("#FF8A80")),
     };
 
-    private static Color DarkColour(Rating r) => r switch
-    {
-        Rating.Best => Color.FromArgb("#86D98F"),
-        Rating.Good => Color.FromArgb("#9BD08F"),
-        Rating.Ok => Color.FromArgb("#B5C7BA"),
-        Rating.Moderation => Color.FromArgb("#F2B84B"),
-        Rating.Caution => Color.FromArgb("#FFA163"),
-        Rating.Avoid => Color.FromArgb("#FF8A80"),
-        _ => Colors.Transparent
-    };
+    public static (Color Light, Color Dark) Colours(Rating r) =>
+        Palette.TryGetValue(r, out var pair) ? pair : (Colors.Transparent, Colors.Transparent);
 
     public static string Glyph(Rating r) => r switch
     {
@@ -171,6 +166,18 @@ public static class RatingStyle
         Rating.Avoid => RatingGroup.Avoid,
         _ => RatingGroup.All
     };
+}
+
+/// <summary>Which links content may open: https pages and tel: phone numbers. Shared by the app and its content checks.</summary>
+public static class LinkRules
+{
+    public static bool IsWeb(string? url) =>
+        Uri.TryCreate(url, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+
+    public static bool IsPhone(string? url) =>
+        Uri.TryCreate(url, UriKind.Absolute, out var uri) && uri.Scheme == "tel";
+
+    public static bool IsAllowed(string? url) => IsWeb(url) || IsPhone(url);
 }
 
 /// <summary>Glyphs from the Fluent UI System Icons font (MIT, Microsoft).</summary>

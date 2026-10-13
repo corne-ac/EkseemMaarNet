@@ -66,8 +66,8 @@
                         <Border Style="{StaticResource GlassPanel}" Padding="16,14">
                             <VerticalStackLayout Spacing="4">
                                 <Label Text="{Binding Version}" FontSize="13" TextColor="White" />
-                                <Label Text="Icons: Fluent UI System Icons by Microsoft (MIT licence)." FontSize="12" TextColor="#CCFFFFFF" />
-                                <Label Text="Built with .NET MAUI." FontSize="12" TextColor="#CCFFFFFF" />
+                                <Label Text="Icons: Fluent UI System Icons by Microsoft (MIT licence)." FontSize="12" TextColor="{StaticResource OnWallpaperMuted}" />
+                                <Label Text="Built with .NET MAUI." FontSize="12" TextColor="{StaticResource OnWallpaperMuted}" />
                             </VerticalStackLayout>
                         </Border>
                     </VerticalStackLayout>

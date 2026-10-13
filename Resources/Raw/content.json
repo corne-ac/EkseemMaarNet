@@ -2331,6 +2331,7 @@
     {
      "title": "Daily affirmations",
      "intro": "Pick one for today. Say it, write it down, or stick it on the mirror.",
+     "style": "affirmations",
      "items": [
       {
        "name": "My skin is one part of me, not the whole of me."

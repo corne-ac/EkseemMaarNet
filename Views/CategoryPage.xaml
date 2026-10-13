@@ -14,9 +14,9 @@
         <Grid RowDefinitions="Auto,*"
               SafeAreaEdges="Container">
 
-            <controls:PageHeader Title="{Binding Title}" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
-                                 Subtitle="{Binding Subtitle}"
-                                 Glyph="{Binding Glyph}"
+            <controls:PageHeader Title="{Binding Category.Title}" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
+                                 Subtitle="{Binding Category.Subtitle}"
+                                 Glyph="{Binding Category.Glyph}"
                                  BackCommand="{Binding BackCommand}" />
 
             <controls:FadeHost Grid.Row="1">
@@ -32,10 +32,10 @@
                     <!-- Intro + filter chips -->
                     <CollectionView.Header>
                         <VerticalStackLayout Padding="0,8,0,12" Spacing="12">
-                            <Label Text="{Binding Intro}"
+                            <Label Text="{Binding Category.Intro}"
                                    Style="{StaticResource OnWallpaperText}"
                                    FontSize="15"
-                                   IsVisible="{Binding Intro, Converter={StaticResource IsNotEmpty}}" />
+                                   IsVisible="{Binding Category.Intro, Converter={StaticResource IsNotEmpty}}" />
 
                             <ScrollView Orientation="Horizontal"
                                         HorizontalScrollBarVisibility="Never"
@@ -43,10 +43,7 @@
                                 <HorizontalStackLayout Spacing="8" BindableLayout.ItemsSource="{Binding Filters}">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate x:DataType="vm:FilterChip">
-                                            <Border StrokeShape="RoundRectangle 999"
-                                                    Stroke="{StaticResource GlassStroke}"
-                                                    StrokeThickness="1"
-                                                    BackgroundColor="{StaticResource GlassFill}"
+                                            <Border Style="{StaticResource GlassPill}"
                                                     Padding="16,8"
                                                     MinimumHeightRequest="40"
                                                     SemanticProperties.Description="{Binding Label, StringFormat='Filter: {0}'}">
@@ -56,7 +53,7 @@
                                                         <Setter Property="Stroke" Value="White" />
                                                     </DataTrigger>
                                                 </Border.Triggers>
-                                                <Label Text="{Binding Label}" FontFamily="OpenSansSemibold" FontSize="14" TextColor="White" VerticalOptions="Center">
+                                                <Label Text="{Binding Label}" Style="{StaticResource PillText}" FontSize="14">
                                                     <Label.Triggers>
                                                         <DataTrigger TargetType="Label" Binding="{Binding IsSelected}" Value="True">
                                                             <Setter Property="TextColor" Value="{StaticResource ForestGreen}" />
@@ -81,7 +78,7 @@
                         <DataTemplate x:DataType="vm:SectionView">
                             <Border Style="{StaticResource Card}">
                                 <Border.Triggers>
-                                    <DataTrigger TargetType="Border" Binding="{Binding IsAlert}" Value="True">
+                                    <DataTrigger TargetType="Border" Binding="{Binding Section.IsAlert}" Value="True">
                                         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" />
                                         <Setter Property="StrokeThickness" Value="2" />
                                     </DataTrigger>
@@ -89,41 +86,35 @@
                                 <VerticalStackLayout Spacing="12">
                                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
                                         <Image Source="{AppThemeBinding Light=sprout_forestgreen.png, Dark=sprout_white.png}" HeightRequest="26" WidthRequest="26" VerticalOptions="Center"
-                                               IsVisible="{Binding IsNormal}" />
+                                               IsVisible="{Binding Section.IsAlert, Converter={StaticResource InvertBool}}" />
                                         <Label Text="{x:Static models:Icons.Warning}" Style="{StaticResource Icon}" FontSize="24"
-                                               TextColor="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" IsVisible="{Binding IsAlert}" />
-                                        <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource SectionTitle}"
+                                               TextColor="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" IsVisible="{Binding Section.IsAlert}" />
+                                        <Label Grid.Column="1" Text="{Binding Section.Title}" Style="{StaticResource SectionTitle}"
                                                VerticalOptions="Center" SemanticProperties.HeadingLevel="Level2">
                                             <Label.Triggers>
-                                                <DataTrigger TargetType="Label" Binding="{Binding IsAlert}" Value="True">
+                                                <DataTrigger TargetType="Label" Binding="{Binding Section.IsAlert}" Value="True">
                                                     <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AlertRed}, Dark={StaticResource AlertRedDark}}" />
                                                 </DataTrigger>
                                             </Label.Triggers>
                                         </Label>
                                     </Grid>
-                                    <Label Text="{Binding Intro}" Style="{StaticResource Body}" IsVisible="{Binding HasIntro}" />
+                                    <Label Text="{Binding Section.Intro}" Style="{StaticResource Body}" IsVisible="{Binding Section.HasIntro}" />
 
                                     <VerticalStackLayout Spacing="14" BindableLayout.ItemsSource="{Binding Items}" IsVisible="{Binding HasItems}">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate x:DataType="models:ContentItem">
                                                 <Grid ColumnDefinitions="26,*" ColumnSpacing="10">
                                                     <Label Text="{Binding RatingGlyph}"
-                                                           Style="{StaticResource Icon}"
-                                                           FontSize="22"
-                                                           VerticalOptions="Start"
-                                                           Margin="0,1,0,0"
-                                                           TextColor="{Binding RatingColor}"
+                                                           Style="{StaticResource RatingGlyph}"
+                                                           controls:RatingTint.Rating="{Binding Rating}"
                                                            IsVisible="{Binding HasRating}" />
                                                     <Image Source="{AppThemeBinding Light=leaf_forestgreen.png, Dark=leaf_white.png}" HeightRequest="16" WidthRequest="16"
                                                            VerticalOptions="Start" Margin="0,4,0,0"
                                                            IsVisible="{Binding HasRating, Converter={StaticResource InvertBool}}" />
                                                     <VerticalStackLayout Grid.Column="1" Spacing="2">
                                                         <Label Text="{Binding RatingLabel}"
-                                                               FontFamily="OpenSansSemibold"
-                                                               FontSize="11"
-                                                               CharacterSpacing="1"
-                                                               TextTransform="Uppercase"
-                                                               TextColor="{Binding RatingColor}"
+                                                               Style="{StaticResource Overline}"
+                                                               controls:RatingTint.Rating="{Binding Rating}"
                                                                IsVisible="{Binding HasRating}" />
                                                         <Label Text="{Binding Name}" Style="{StaticResource ItemName}" />
                                                         <Label Text="{Binding Note}" Style="{StaticResource Subtle}" IsVisible="{Binding HasNote}" />
@@ -165,14 +156,14 @@
                     <CollectionView.Footer>
                         <VerticalStackLayout Padding="0,16,0,28" Spacing="16">
                             <Border Style="{StaticResource GlassPanel}" Padding="16,14"
-                                    IsVisible="{Binding HasSources}">
+                                    IsVisible="{Binding Category.HasSources}">
                                 <VerticalStackLayout Spacing="8">
                                     <Label Text="Where this comes from" FontFamily="OswaldRegular" FontSize="17" TextColor="White" />
-                                    <VerticalStackLayout Spacing="6" BindableLayout.ItemsSource="{Binding Sources}">
+                                    <VerticalStackLayout Spacing="6" BindableLayout.ItemsSource="{Binding Category.Sources}">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate x:DataType="models:SourceLink">
                                                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8" MinimumHeightRequest="32">
-                                                    <Label Text="{x:Static models:Icons.Link}" Style="{StaticResource Icon}" FontSize="16" TextColor="#CCFFFFFF" VerticalOptions="Start" Margin="0,2,0,0" />
+                                                    <Label Text="{x:Static models:Icons.Link}" Style="{StaticResource Icon}" FontSize="16" TextColor="{StaticResource OnWallpaperMuted}" VerticalOptions="Start" Margin="0,2,0,0" />
                                                     <Label Grid.Column="1" Text="{Binding Title}" FontSize="13" TextColor="White" TextDecorations="Underline" />
                                                     <Grid.GestureRecognizers>
                                                         <TapGestureRecognizer
@@ -184,7 +175,7 @@
                                         </BindableLayout.ItemTemplate>
                                     </VerticalStackLayout>
                                     <Label Text="General info from a family passion project, not medical advice. Check with your doctor or pharmacist before changing any treatment."
-                                           FontSize="12" TextColor="#B3FFFFFF" Margin="0,4,0,0" />
+                                           FontSize="12" TextColor="{StaticResource OnWallpaperMuted}" Margin="0,4,0,0" />
                                 </VerticalStackLayout>
                             </Border>
 

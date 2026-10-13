@@ -42,7 +42,8 @@ public sealed class ContentService
     private static string SourceUrl => RemoteUrl;
 #endif
 
-    public async Task<ContentLibrary> GetLibraryAsync() => _current ??= await (_loading ??= LoadLocalAsync());
+    // Loaded off the UI thread: reading and parsing ~100 KB of JSON shouldn't hold up the first frame.
+    public async Task<ContentLibrary> GetLibraryAsync() => _current ??= await (_loading ??= Task.Run(LoadLocalAsync));
 
     public async Task<Category?> GetCategoryAsync(string id)
     {
@@ -95,21 +96,21 @@ public sealed class ContentService
             if (!string.IsNullOrEmpty(etag))
                 request.Headers.TryAddWithoutValidation("If-None-Match", etag);
 
-            using var response = await Http.SendAsync(request);
+            using var response = await Http.SendAsync(request).ConfigureAwait(false);
             Preferences.Default.Set(LastCheckKey, DateTime.UtcNow.Ticks);
 
             if (response.StatusCode == HttpStatusCode.NotModified || !response.IsSuccessStatusCode)
                 return;
 
-            var json = await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             var remote = Parse(json);
             if (remote is null)
                 return;
 
-            var current = await GetLibraryAsync();
+            var current = await GetLibraryAsync().ConfigureAwait(false);
             if (remote.ContentVersion > current.ContentVersion)
             {
-                await SaveCacheAsync(json);
+                await SaveCacheAsync(json).ConfigureAwait(false);
                 _current = remote;
                 LibraryUpdated?.Invoke(this, EventArgs.Empty);
             }
@@ -175,26 +176,19 @@ public sealed class ContentService
     /// <summary>Returns null if the JSON is unreadable, from a newer schema, or missing the basics.</summary>
     private static ContentLibrary? Parse(string json)
     {
-        var library = JsonSerializer.Deserialize(json, ContentJsonContext.Default.ContentLibrary);
-        if (library is not null)
-            Normalize(library);
-        if (library is null
-            || library.SchemaVersion > ContentLibrary.SupportedSchemaVersion
-            || library.Categories.Count == 0
-            || library.Categories.Any(c => string.IsNullOrWhiteSpace(c.Id) || string.IsNullOrWhiteSpace(c.Title)))
+        if (JsonSerializer.Deserialize(json, ContentJsonContext.Default.ContentLibrary) is not { } library)
             return null;
 
-        // Only web and phone links may open from downloaded content.
-        foreach (var item in library.Categories.SelectMany(c => c.Sections).SelectMany(s => s.Items))
-            if (item.Url is { } url && !IsAllowedLink(url))
-                item.Url = null;
-        foreach (var category in library.Categories)
-            category.Sources.RemoveAll(s => !IsAllowedLink(s.Url) || s.Url.StartsWith("tel:", StringComparison.OrdinalIgnoreCase));
-
-        return library;
+        Normalize(library);
+        return library.SchemaVersion <= ContentLibrary.SupportedSchemaVersion
+               && library.Categories.Count > 0
+               && library.Categories.All(c => !string.IsNullOrWhiteSpace(c.Id) && !string.IsNullOrWhiteSpace(c.Title))
+            ? library
+            : null;
     }
 
     // An explicit JSON null overrides the "" / [] defaults, so fill those back in before anything reads them.
+    // Also drops links content isn't allowed to open: items may link to https pages or tel: numbers, sources to https only.
     private static void Normalize(ContentLibrary library)
     {
         library.Categories ??= [];
@@ -206,7 +200,7 @@ public sealed class ContentService
             category.Sections ??= [];
             category.Sources ??= [];
             category.Sections.RemoveAll(s => s is null);
-            category.Sources.RemoveAll(s => s?.Url is null);
+            category.Sources.RemoveAll(s => !LinkRules.IsWeb(s?.Url));
             foreach (var section in category.Sections)
             {
                 section.Items ??= [];
@@ -215,18 +209,17 @@ public sealed class ContentService
                 {
                     item.Note ??= "";
                     item.Tags ??= [];
+                    if (!LinkRules.IsAllowed(item.Url))
+                        item.Url = null;
                 }
             }
         }
     }
 
-    private static bool IsAllowedLink(string url) =>
-        url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) || url.StartsWith("tel:", StringComparison.OrdinalIgnoreCase);
-
     private static async Task SaveCacheAsync(string json)
     {
         var temp = CachePath + ".tmp";
-        await File.WriteAllTextAsync(temp, json);
+        await File.WriteAllTextAsync(temp, json).ConfigureAwait(false);
         File.Move(temp, CachePath, overwrite: true);
     }
 }

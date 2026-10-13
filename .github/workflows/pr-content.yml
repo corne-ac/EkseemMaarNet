@@ -1,0 +1,29 @@
+# PR check: validates content.json (seconds, no .NET needed).
+# The app downloads content.json from main, so it has to be valid before it gets there.
+name: PR check · Content
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths: [ "Resources/Raw/content.json", "scripts/validate_content.py" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate content.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Validate (and check contentVersion was bumped)
+        run: |
+          BASE_REF="${{ github.base_ref || 'main' }}"
+          BASE_ARGS=""
+          if git fetch --depth=1 origin "$BASE_REF" && git show "FETCH_HEAD:Resources/Raw/content.json" > "$RUNNER_TEMP/base-content.json" 2>/dev/null; then
+            BASE_ARGS="--base $RUNNER_TEMP/base-content.json"
+          fi
+          python3 scripts/validate_content.py Resources/Raw/content.json $BASE_ARGS

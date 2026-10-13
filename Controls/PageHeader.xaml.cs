@@ -1,12 +1,9 @@
 using System.Windows.Input;
-using EkseemMaarNet.Models;
 
 namespace EkseemMaarNet.Controls;
 
 public partial class PageHeader : ContentView
 {
-    public static readonly string BackGlyph = Icons.Back;
-
     public static readonly BindableProperty TitleProperty =
         BindableProperty.Create(nameof(Title), typeof(string), typeof(PageHeader), "");
 

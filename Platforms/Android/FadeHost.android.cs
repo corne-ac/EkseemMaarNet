@@ -10,7 +10,7 @@ public partial class FadeHost
 {
     private TopFadeDrawable? _fade;
 
-    // The host renders into its own hardware layer; a foreground drawable then "erases" (DST_OUT)
+    // While fading, the host renders into its own hardware layer and a foreground drawable "erases" (DST_OUT)
     // a gradient band along the top, leaving the content truly transparent there.
     partial void UpdateNative()
     {
@@ -20,9 +20,13 @@ public partial class FadeHost
         if (_fade is null)
         {
             _fade = new TopFadeDrawable();
-            view.SetLayerType(Android.Views.LayerType.Hardware, null);
             view.Foreground = _fade;
         }
+
+        // The offscreen layer is only needed while something is being erased; at rest it's wasted memory.
+        var layer = FadeAmount > 0.01 ? Android.Views.LayerType.Hardware : Android.Views.LayerType.None;
+        if (view.LayerType != layer)
+            view.SetLayerType(layer, null);
 
         var density = view.Resources?.DisplayMetrics?.Density ?? 1f;
         _fade.Update((float)(FadeHeight * density), (float)FadeAmount);

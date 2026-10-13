@@ -35,7 +35,6 @@ permissions:
   contents: read
 
 env:
-  DOTNET_VERSION: 10.0.x
   PROJECT: EkseemMaarNet.csproj
   PACKAGE_NAME: com.corne.ekseemmaarnet
 
@@ -49,17 +48,9 @@ jobs:
       - name: Validate content.json
         run: python3 scripts/validate_content.py Resources/Raw/content.json
 
-      - uses: actions/setup-java@v6
+      - uses: ./.github/actions/setup-maui
         with:
-          distribution: microsoft
-          java-version: "17"
-
-      - uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Install MAUI Android workload
-        run: dotnet workload install maui-android
+          platform: android
 
       - name: Decode upload keystore
         run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > "$RUNNER_TEMP/upload.keystore"

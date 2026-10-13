@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EkseemMaarNet.Models;
@@ -11,6 +10,7 @@ public partial class MainViewModel : ObservableObject
 {
     private readonly ContentService content;
     private CancellationTokenSource? _searchCts;
+    private string _affirmationsCategoryId = "";
 
     public MainViewModel(ContentService content)
     {
@@ -19,27 +19,24 @@ public partial class MainViewModel : ObservableObject
         content.LibraryUpdated += (_, _) => MainThread.BeginInvokeOnMainThread(async () =>
         {
             await ApplyLibraryAsync();
-            await RefreshSearchAsync();
+            if (IsSearching)
+                await SearchAsync(SearchText);
         });
-        // Result cards use theme-specific rating colours, so rebuild them when light/dark mode changes.
-        if (Application.Current is { } app)
-            app.RequestedThemeChanged += (_, _) => MainThread.BeginInvokeOnMainThread(async () => await RefreshSearchAsync());
     }
 
-    public ObservableCollection<Category> Categories { get; } = [];
-    public ObservableCollection<SearchResult> Results { get; } = [];
+    [ObservableProperty]
+    public partial IReadOnlyList<Category> Categories { get; set; } = [];
+
+    /// <summary>Replaced as a whole per search, so the list redraws once instead of once per result.</summary>
+    [ObservableProperty]
+    public partial IReadOnlyList<SearchResult> Results { get; set; } = [];
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsSearching), nameof(ShowNoResults))]
+    [NotifyPropertyChangedFor(nameof(IsSearching))]
     public partial string SearchText { get; set; } = "";
-
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ShowNoResults))]
-    public partial bool HasResults { get; set; }
 
     /// <summary>False while a search is pending, so "Nothing found" doesn't flash before results arrive.</summary>
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ShowNoResults))]
     public partial bool SearchDone { get; set; }
 
     [ObservableProperty]
@@ -49,10 +46,7 @@ public partial class MainViewModel : ObservableObject
     public partial string Disclaimer { get; set; } = "";
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(HasAffirmation))]
     public partial string Affirmation { get; set; } = "";
-
-    public bool HasAffirmation => !string.IsNullOrWhiteSpace(Affirmation);
 
     private const string WelcomeSeenKey = "welcome_v2_seen";
 
@@ -61,7 +55,6 @@ public partial class MainViewModel : ObservableObject
     public partial bool ShowWelcome { get; set; }
 
     public bool IsSearching => !string.IsNullOrWhiteSpace(SearchText);
-    public bool ShowNoResults => IsSearching && SearchDone && !HasResults;
 
     public async Task LoadAsync()
     {
@@ -75,37 +68,28 @@ public partial class MainViewModel : ObservableObject
     private async Task ApplyLibraryAsync()
     {
         var library = await content.GetLibraryAsync();
-
-        Categories.Clear();
-        foreach (var category in library.Categories)
-            Categories.Add(category);
-
+        Categories = library.Categories;
         LastReviewed = library.LastReviewed;
         Disclaimer = library.Disclaimer;
-        Affirmation = PickDailyAffirmation(library);
+        await RefreshAffirmationAsync();
     }
 
-    /// <summary>Called when the app comes back to the foreground, so a new day shows a new affirmation.</summary>
-    public async Task RefreshAffirmationAsync() =>
-        Affirmation = PickDailyAffirmation(await content.GetLibraryAsync());
-
-    private Task RefreshSearchAsync() => IsSearching ? SearchAsync(SearchText) : Task.CompletedTask;
-
-    // Same affirmation all day, a new one tomorrow.
-    private static string PickDailyAffirmation(ContentLibrary library)
+    /// <summary>Same affirmation all day, a new one tomorrow. App calls this on resume too.</summary>
+    public async Task RefreshAffirmationAsync()
     {
-        var affirmations = library.Categories
-            .FirstOrDefault(c => c.Id == "motivation")?
-            .Sections.FirstOrDefault(s => s.Title.Contains("affirmation", StringComparison.OrdinalIgnoreCase))?
-            .Items;
-        return affirmations is { Count: > 0 }
-            ? affirmations[DateTime.Today.DayOfYear % affirmations.Count].Name
-            : "";
+        // The content marks its affirmations list with "style": "affirmations".
+        var library = await content.GetLibraryAsync();
+        var (category, section) = library.Categories
+            .SelectMany(c => c.Sections, (c, s) => (Category: c, Section: s))
+            .FirstOrDefault(x => x.Section.IsAffirmations && x.Section.Items.Count > 0);
+
+        _affirmationsCategoryId = category?.Id ?? "";
+        Affirmation = section is null ? "" : section.Items[DateTime.Today.DayOfYear % section.Items.Count].Name;
     }
 
     [RelayCommand]
-    private Task OpenMotivation() =>
-        Shell.Current.GoToAsync($"{nameof(CategoryPage)}?id=motivation");
+    private Task OpenAffirmations() =>
+        Shell.Current.GoToAsync($"{nameof(CategoryPage)}?id={Uri.EscapeDataString(_affirmationsCategoryId)}");
 
     [RelayCommand]
     private void DismissWelcome()
@@ -132,10 +116,7 @@ public partial class MainViewModel : ObservableObject
             if (cts.IsCancellationRequested)
                 return;
 
-            Results.Clear();
-            foreach (var hit in hits)
-                Results.Add(hit);
-            HasResults = Results.Count > 0;
+            Results = hits;
             SearchDone = true;
         }
         catch (TaskCanceledException)

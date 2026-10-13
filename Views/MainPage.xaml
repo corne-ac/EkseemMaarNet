@@ -7,7 +7,6 @@
              xmlns:controls="clr-namespace:EkseemMaarNet.Controls"
              x:Class="EkseemMaarNet.Views.MainPage"
              x:DataType="vm:MainViewModel"
-             x:Name="Page"
              SafeAreaEdges="None">
 
     <Grid SafeAreaEdges="None">
@@ -44,17 +43,10 @@
                 <Label Text="Your family's quick guide to living with eczema"
                        Style="{StaticResource OnWallpaperText}"
                        HorizontalTextAlignment="Center" />
-                <Border StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}"
-                        Padding="14,2,6,2">
+                <Border Style="{StaticResource SearchField}" Padding="14,2,6,2">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
-                        <Label Text="{x:Static models:Icons.Search}"
-                               Style="{StaticResource Icon}"
-                               FontSize="20"
-                               TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
+                        <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource SearchIcon}" />
                         <Entry Grid.Column="1"
-                               x:Name="SearchEntry"
                                Text="{Binding SearchText}"
                                Placeholder="Search e.g. coffee, wool, vitamin D"
                                ReturnType="Search"
@@ -77,14 +69,12 @@
                 </Border>
             </VerticalStackLayout>
 
-            <controls:FadeHost Grid.Row="2">
-                <Grid>
-                    <!-- Category tiles -->
+            <!-- Category tiles -->
+            <controls:FadeHost Grid.Row="2" IsVisible="{Binding IsSearching, Converter={StaticResource InvertBool}}">
                     <CollectionView MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                     x:Name="Tiles"
                                     Margin="16,0"
                                     ItemsSource="{Binding Categories}"
-                                    IsVisible="{Binding IsSearching, Converter={StaticResource InvertBool}}"
                                     SelectionMode="None">
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
@@ -93,17 +83,17 @@
                             <VerticalStackLayout Padding="0,8,0,10">
                                 <!-- Today's affirmation (rotates daily from the Motivation page) -->
                                 <Border Style="{StaticResource GlassPanel}" Padding="16,12"
-                                        IsVisible="{Binding HasAffirmation}"
+                                        IsVisible="{Binding Affirmation, Converter={StaticResource IsNotEmpty}}"
                                         SemanticProperties.Description="{Binding Affirmation, StringFormat='Today\'s affirmation: {0}'}">
                                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
                                         <Label Text="{x:Static models:Icons.Sparkle}" Style="{StaticResource Icon}" FontSize="22" TextColor="White" VerticalOptions="Center" />
                                         <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                            <Label Text="TODAY'S AFFIRMATION" FontFamily="OpenSansSemibold" FontSize="11" CharacterSpacing="1" TextColor="#CCFFFFFF" />
+                                            <Label Text="Today's affirmation" Style="{StaticResource Overline}" TextColor="{StaticResource OnWallpaperMuted}" />
                                             <Label Text="{Binding Affirmation}" FontFamily="OpenSansSemibold" FontSize="{OnIdiom Phone=16, Tablet=19, Default=16}" TextColor="White" FontAttributes="Italic" />
                                         </VerticalStackLayout>
                                     </Grid>
                                     <Border.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding OpenMotivationCommand}" />
+                                        <TapGestureRecognizer Command="{Binding OpenAffirmationsCommand}" />
                                     </Border.GestureRecognizers>
                                 </Border>
                             </VerticalStackLayout>
@@ -141,21 +131,19 @@
                             <VerticalStackLayout Padding="0,18,0,24" Spacing="14">
                                 <!-- Glossary + About (the original "Glossary" link at the bottom) -->
                                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
-                                    <Border Style="{StaticResource GlassPanel}" StrokeShape="RoundRectangle 999" Padding="16,10"
-                                            SemanticProperties.Description="Glossary">
+                                    <Border Style="{StaticResource GlassPill}" SemanticProperties.Description="Glossary">
                                         <HorizontalStackLayout Spacing="8">
                                             <Image Source="sprout_white.png" HeightRequest="24" WidthRequest="24" />
-                                            <Label Text="Glossary" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" VerticalOptions="Center" />
+                                            <Label Text="Glossary" Style="{StaticResource PillText}" />
                                         </HorizontalStackLayout>
                                         <Border.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding GlossaryCommand}" />
                                         </Border.GestureRecognizers>
                                     </Border>
-                                    <Border Style="{StaticResource GlassPanel}" StrokeShape="RoundRectangle 999" Padding="16,10"
-                                            SemanticProperties.Description="About and disclaimer">
+                                    <Border Style="{StaticResource GlassPill}" SemanticProperties.Description="About and disclaimer">
                                         <HorizontalStackLayout Spacing="8">
                                             <Label Text="{x:Static models:Icons.Info}" Style="{StaticResource Icon}" FontSize="22" TextColor="White" />
-                                            <Label Text="About" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" VerticalOptions="Center" />
+                                            <Label Text="About" Style="{StaticResource PillText}" />
                                         </HorizontalStackLayout>
                                         <Border.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding AboutCommand}" />
@@ -165,10 +153,10 @@
                                 <Label Text="{Binding Disclaimer}"
                                        Style="{StaticResource OnWallpaperText}"
                                        FontSize="12"
-                                       TextColor="#CCFFFFFF"
+                                       TextColor="{StaticResource OnWallpaperMuted}"
                                        HorizontalTextAlignment="Center"
                                        Margin="8,0" />
-                                <Label HorizontalTextAlignment="Center" FontSize="12" TextColor="#99FFFFFF">
+                                <Label HorizontalTextAlignment="Center" FontSize="12" TextColor="{StaticResource OnWallpaperFaint}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Information last reviewed " />
@@ -179,11 +167,12 @@
                             </VerticalStackLayout>
                         </CollectionView.Footer>
                     </CollectionView>
+            </controls:FadeHost>
 
-                    <!-- Search results -->
+            <!-- Search results -->
+            <controls:FadeHost Grid.Row="2" IsVisible="{Binding IsSearching}">
                     <CollectionView MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                     ItemsSource="{Binding Results}"
-                                    IsVisible="{Binding IsSearching}"
                                     SelectionMode="None">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
@@ -192,7 +181,7 @@
                             <BoxView HeightRequest="6" Color="Transparent" />
                         </CollectionView.Header>
                         <CollectionView.EmptyView>
-                            <VerticalStackLayout Padding="24,40" Spacing="8" IsVisible="{Binding ShowNoResults}">
+                            <VerticalStackLayout Padding="24,40" Spacing="8" IsVisible="{Binding SearchDone}">
                                 <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource Icon}" FontSize="40" TextColor="White" />
                                 <Label Text="Nothing found" FontFamily="OswaldRegular" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" />
                                 <Label Text="Try a shorter word, like 'milk' instead of 'full cream milk', or have a look through the categories."
@@ -204,18 +193,12 @@
                                 <Border Style="{StaticResource Card}" Margin="16,0" Padding="16,12">
                                     <Grid ColumnDefinitions="28,*,Auto" ColumnSpacing="10">
                                         <Label Text="{Binding Item.RatingGlyph}"
-                                               Style="{StaticResource Icon}"
-                                               FontSize="22"
-                                               VerticalOptions="Start"
-                                               Margin="0,2,0,0"
-                                               TextColor="{Binding Item.RatingColor}" />
+                                               Style="{StaticResource RatingGlyph}"
+                                               controls:RatingTint.Rating="{Binding Item.Rating}" />
                                         <VerticalStackLayout Grid.Column="1" Spacing="2">
                                             <Label Text="{Binding Item.RatingLabel}"
-                                                   FontFamily="OpenSansSemibold"
-                                                   FontSize="11"
-                                                   CharacterSpacing="1"
-                                                   TextTransform="Uppercase"
-                                                   TextColor="{Binding Item.RatingColor}"
+                                                   Style="{StaticResource Overline}"
+                                                   controls:RatingTint.Rating="{Binding Item.Rating}"
                                                    IsVisible="{Binding Item.HasRating}" />
                                             <Label Text="{Binding Item.Name}" Style="{StaticResource ItemName}" />
                                             <Label Text="{Binding Item.Note}" Style="{StaticResource Subtle}" IsVisible="{Binding Item.HasNote}" MaxLines="4" LineBreakMode="TailTruncation" />
@@ -248,7 +231,6 @@
                             <BoxView HeightRequest="24" Color="Transparent" />
                         </CollectionView.Footer>
                     </CollectionView>
-                </Grid>
             </controls:FadeHost>
         </Grid>
 

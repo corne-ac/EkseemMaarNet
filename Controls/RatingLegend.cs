@@ -18,18 +18,6 @@ public sealed class RatingLegend : VerticalStackLayout
     public RatingLegend()
     {
         Spacing = 10;
-        Build();
-        // Rating colours differ between light and dark mode, so rebuild if the theme changes.
-        if (Application.Current is { } app)
-            app.RequestedThemeChanged += OnThemeChanged;
-    }
-
-    private void OnThemeChanged(object? sender, AppThemeChangedEventArgs e) =>
-        MainThread.BeginInvokeOnMainThread(Build);
-
-    private void Build()
-    {
-        Clear();
         foreach (var (rating, meaning) in Rows)
         {
             var grid = new Grid
@@ -37,24 +25,21 @@ public sealed class RatingLegend : VerticalStackLayout
                 ColumnDefinitions = [new ColumnDefinition(26), new ColumnDefinition(GridLength.Star)],
                 ColumnSpacing = 10
             };
-            grid.Add(new Label
+            var glyph = new Label
             {
                 Text = RatingStyle.Glyph(rating),
                 FontFamily = Icons.FontFamily,
                 FontSize = 22,
-                TextColor = RatingStyle.Colour(rating),
                 VerticalOptions = LayoutOptions.Start
-            });
+            };
+            RatingTint.SetRating(glyph, rating);
+            grid.Add(glyph);
+
+            var label = new Span { Text = RatingStyle.Label(rating), FontFamily = "OpenSansSemibold" };
+            RatingTint.SetRating(label, rating);
             var text = new Label
             {
-                FormattedText = new FormattedString
-                {
-                    Spans =
-                    {
-                        new Span { Text = RatingStyle.Label(rating), FontFamily = "OpenSansSemibold", TextColor = RatingStyle.Colour(rating) },
-                        new Span { Text = ": " + meaning }
-                    }
-                }
+                FormattedText = new FormattedString { Spans = { label, new Span { Text = ": " + meaning } } }
             };
             grid.Add(text, 1);
             Add(grid);

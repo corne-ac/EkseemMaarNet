@@ -1,7 +1,7 @@
 namespace EkseemMaarNet.Controls;
 
 /// <summary>
-/// Wraps a scrolling list and makes its content fade to transparent along the top edge,
+/// Wraps one scrolling list and makes its content fade to transparent along the top edge,
 /// so items dissolve into the wallpaper as they slide under the page header.
 /// The fade is off at rest and strengthens as the user scrolls.
 /// Native masking lives in Platforms/iOS and Platforms/Android (FadeHost.*.cs).
@@ -16,16 +16,10 @@ public partial class FadeHost : ContentView
         BindableProperty.Create(nameof(FadeAmount), typeof(double), typeof(FadeHost), 0d,
             propertyChanged: (b, _, _) => ((FadeHost)b).UpdateNative());
 
-    private readonly Dictionary<VisualElement, double> _offsets = [];
-
     public FadeHost()
     {
         SizeChanged += (_, _) => UpdateNative();
-        HandlerChanged += (_, _) =>
-        {
-            TrackScrollers();
-            UpdateNative();
-        };
+        HandlerChanged += (_, _) => UpdateNative();
     }
 
     /// <summary>Height of the fade band in device-independent units.</summary>
@@ -42,45 +36,22 @@ public partial class FadeHost : ContentView
         set => SetValue(FadeAmountProperty, value);
     }
 
-    // Track every vertical list/scroll view inside (Home has two lists: tiles and search results).
-    private void TrackScrollers()
+    // The host wraps exactly one scrolling view; follow its offset.
+    protected override void OnPropertyChanged(string? propertyName = null)
     {
-        if (Content is null)
+        base.OnPropertyChanged(propertyName);
+        if (propertyName != nameof(Content))
             return;
 
-        foreach (var element in Content.GetVisualTreeDescendants().Prepend(Content).OfType<VisualElement>())
+        switch (Content)
         {
-            if (_offsets.ContainsKey(element))
-                continue;
-
-            switch (element)
-            {
-                case ItemsView list:
-                    _offsets[list] = 0;
-                    list.Scrolled += (_, e) => OnScrolled(list, e.VerticalOffset);
-                    list.PropertyChanged += OnScrollerPropertyChanged;
-                    break;
-                case ScrollView scroll when scroll.Orientation != ScrollOrientation.Horizontal:
-                    _offsets[scroll] = 0;
-                    scroll.Scrolled += (_, e) => OnScrolled(scroll, e.ScrollY);
-                    scroll.PropertyChanged += OnScrollerPropertyChanged;
-                    break;
-            }
+            case ItemsView list:
+                list.Scrolled += (_, e) => FadeAmount = AmountFor(e.VerticalOffset);
+                break;
+            case ScrollView scroll:
+                scroll.Scrolled += (_, e) => FadeAmount = AmountFor(e.ScrollY);
+                break;
         }
-    }
-
-    private void OnScrolled(VisualElement scroller, double offset)
-    {
-        _offsets[scroller] = offset;
-        if (scroller.IsVisible)
-            FadeAmount = AmountFor(offset);
-    }
-
-    // When Home swaps tiles for search results, take the fade from whichever list is now showing.
-    private void OnScrollerPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
-    {
-        if (e.PropertyName == nameof(IsVisible) && sender is VisualElement { IsVisible: true } scroller)
-            FadeAmount = AmountFor(_offsets.GetValueOrDefault(scroller));
     }
 
     // Rounded so scrolling only touches the native layer when the fade visibly changes

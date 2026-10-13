@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using EkseemMaarNet.Models;
 using EkseemMaarNet.Services;
@@ -9,7 +8,9 @@ public partial class GlossaryViewModel(ContentService content) : PageViewModel
 {
     private List<GlossaryEntry> _all = [];
 
-    public ObservableCollection<GlossaryEntry> Entries { get; } = [];
+    /// <summary>Replaced as a whole on each keystroke, so the list redraws once.</summary>
+    [ObservableProperty]
+    public partial IReadOnlyList<GlossaryEntry> Entries { get; set; } = [];
 
     [ObservableProperty]
     public partial string Filter { get; set; } = "";
@@ -19,19 +20,15 @@ public partial class GlossaryViewModel(ContentService content) : PageViewModel
         if (_all.Count > 0)
             return;
 
-        var library = await content.GetLibraryAsync();
-        _all = library.Glossary;
+        _all = (await content.GetLibraryAsync()).Glossary;
         Apply();
     }
 
     partial void OnFilterChanged(string value) => Apply();
 
-    private void Apply()
-    {
-        Entries.Clear();
-        foreach (var entry in _all.Where(e => string.IsNullOrWhiteSpace(Filter)
-                     || e.Term.Contains(Filter, StringComparison.OrdinalIgnoreCase)
-                     || e.Meaning.Contains(Filter, StringComparison.OrdinalIgnoreCase)))
-            Entries.Add(entry);
-    }
+    private void Apply() =>
+        Entries = string.IsNullOrWhiteSpace(Filter)
+            ? _all
+            : _all.Where(e => e.Term.Contains(Filter, StringComparison.OrdinalIgnoreCase)
+                              || e.Meaning.Contains(Filter, StringComparison.OrdinalIgnoreCase)).ToList();
 }

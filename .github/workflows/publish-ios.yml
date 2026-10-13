@@ -33,7 +33,6 @@ permissions:
   contents: read
 
 env:
-  DOTNET_VERSION: 10.0.x
   PROJECT: EkseemMaarNet.csproj
   BUNDLE_ID: com.corne.ekseemmaarnet
 
@@ -47,16 +46,10 @@ jobs:
       - name: Validate content.json
         run: python3 scripts/validate_content.py Resources/Raw/content.json
 
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: ./.github/actions/setup-maui
         with:
+          platform: ios
           xcode-version: latest-stable   # TODO: pin, e.g. "26.0"
-
-      - uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Install MAUI iOS workload
-        run: dotnet workload install maui-ios
 
       - name: Import signing certificate
         uses: apple-actions/import-codesign-certs@v7

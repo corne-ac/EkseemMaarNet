@@ -11,9 +11,6 @@
     <Color x:Key="EkseemGreen">#4F8541</Color>
     <Color x:Key="DeepGreen">#0B2E1C</Color>
 
-    <Color x:Key="White">White</Color>
-    <Color x:Key="Black">Black</Color>
-
     <!-- Surfaces and text (light / dark) -->
     <Color x:Key="CardLight">#FFFFFF</Color>
     <Color x:Key="CardDark">#16231B</Color>
@@ -27,6 +24,8 @@
     <!-- Glass tiles on the wallpaper -->
     <Color x:Key="GlassFill">#33FFFFFF</Color>
     <Color x:Key="GlassStroke">#55FFFFFF</Color>
+    <Color x:Key="OnWallpaperMuted">#CCFFFFFF</Color>
+    <Color x:Key="OnWallpaperFaint">#99FFFFFF</Color>
     <Color x:Key="AlertRed">#B3261E</Color>
     <Color x:Key="AlertRedDark">#FF8A80</Color>
 

@@ -71,16 +71,19 @@ Some safety rules are built in:
 ```
 - `rating`: `best`, `good`, `ok`, `moderation`, `caution`, `avoid` or `info`
 - `icon`: a [Fluent System Icons](https://github.com/microsoft/fluentui-system-icons) code point in hex
-- `style`: leave empty, or `alert` for urgent sections (red outline)
+- `style`: leave empty, `alert` for urgent sections (red outline), or `affirmations` for the list Home picks its daily affirmation from (exactly one section should have it)
 - `url`: optional. Shows a "Learn more" button, or a "Call" button for `tel:` links
 
 ## GitHub Actions
 | Workflow | When | What it does |
 | --- | --- | --- |
-| `pr-android.yml` | Every PR to `main` | Validates `content.json`, builds the Android app |
-| `pr-ios.yml` | Every PR to `main` | Builds the iOS app for the simulator |
+| `pr-content.yml` | PRs that change `content.json` | Validates the content and checks `contentVersion` was bumped (takes seconds) |
+| `pr-android.yml` | PRs to `main` (not content-only) | Builds the Android app |
+| `pr-ios.yml` | PRs to `main` (not content-only) | Builds the iOS app for the simulator |
 | `publish-android.yml` | Manual | Builds a signed `.aab` and can upload it to Google Play. **Not set up yet**, see the checklist at the top of the file |
 | `publish-ios.yml` | Manual | Builds a signed `.ipa` and can upload it to TestFlight. **Not set up yet**, see the checklist at the top of the file |
+
+The shared setup (Java or Xcode, .NET, NuGet cache, MAUI workload) lives in `.github/actions/setup-maui`.
 
 ## Tech
 - .NET 10 / .NET MAUI 10 for Android and iOS, MVVM with CommunityToolkit.Mvvm
@@ -95,8 +98,9 @@ Services/ContentService.cs  loads content (bundled, cached or downloaded), check
 Services/Links.cs           opens web links and phone numbers
 ViewModels/                 Main (tiles, search, affirmation), Category (filters), Glossary, About
 Views/                      MainPage, CategoryPage, GlossaryPage, AboutPage
-Controls/                   PageHeader, FadeHost (scroll fade), RatingLegend, converters, breakpoints
+Controls/                   PageHeader, FadeHost (scroll fade), WallpaperBackdrop, RatingTint, RatingLegend, breakpoints
 Platforms/*/FadeHost.*.cs   native code for the transparent scroll fade
+Debugging/DebugLaunch.cs    debug-only launch options for screenshots (below)
 scripts/validate_content.py checks content.json before it reaches anyone
 ```
 
@@ -112,6 +116,7 @@ Debug-only helpers for checking the UI (they're not in Release builds):
 - `EMN_START_SEARCH` fills in the home search
 - `EMN_SCROLL` scrolls a category page to a section, e.g. `3`, or `3c` to centre it
 - `EMN_SKIP_WELCOME=1` hides the welcome card
+- `EMN_CONTENT_URL` checks a different content.json for updates, e.g. a branch's raw file, to test content before merging
 
 iOS: `SIMCTL_CHILD_EMN_START_ROUTE="CategoryPage?id=food" xcrun simctl launch booted com.corne.ekseemmaarnet`
 Android: `adb shell setprop debug.mono.env "'EMN_START_ROUTE=CategoryPage?id=food'"`, then open the app.
