@@ -27,5 +27,6 @@ jobs:
         with:
           platform: ios
 
+      # TargetFrameworks narrows restore to this platform (the other workload isn't installed here).
       - name: Build (simulator)
-        run: dotnet build EkseemMaarNet.csproj -f net10.0-ios -c Release -p:RuntimeIdentifier=iossimulator-arm64
+        run: dotnet build EkseemMaarNet.csproj -f net10.0-ios -p:TargetFrameworks=net10.0-ios -c Release -p:RuntimeIdentifier=iossimulator-arm64

@@ -71,7 +71,7 @@ jobs:
 
       - name: Build signed .ipa
         run: >
-          dotnet publish ${{ env.PROJECT }} -f net10.0-ios -c Release
+          dotnet publish ${{ env.PROJECT }} -f net10.0-ios -p:TargetFrameworks=net10.0-ios -c Release
           -p:RuntimeIdentifier=ios-arm64
           -p:ArchiveOnBuild=true
           -p:ApplicationVersion=${{ github.run_number }}
