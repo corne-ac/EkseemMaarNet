@@ -7,40 +7,42 @@
              x:DataType="controls:PageHeader"
              x:Name="Root">
 
-    <!-- Back · title/subtitle · category icon -->
-    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14" Padding="16,8,16,12">
+    <!-- Back · category icon, then the title on its own line, left-aligned with the content below -->
+    <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto" Padding="16,4,16,16">
 
         <Border Style="{StaticResource IconButton}"
-                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Margin="-10,0,0,0"
                 SemanticProperties.Description="Back"
                 SemanticProperties.Hint="Returns to the previous page">
             <Label Text="{x:Static models:Icons.Back}"
                    Style="{StaticResource Icon}"
                    TextColor="White"
-                   FontSize="22" />
+                   FontSize="24" />
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding BackCommand, Source={x:Reference Root}}" />
             </Border.GestureRecognizers>
         </Border>
 
-        <VerticalStackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center">
-            <Label Text="{Binding Title, Source={x:Reference Root}}"
-                   Style="{StaticResource PageTitle}"
-                   SemanticProperties.HeadingLevel="Level1" />
-            <Label Text="{Binding Subtitle, Source={x:Reference Root}}"
-                   Style="{StaticResource OnWallpaperText}"
-                   IsVisible="{Binding Subtitle, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}" />
-        </VerticalStackLayout>
+        <Label Grid.Column="1"
+               Text="{Binding Glyph, Source={x:Reference Root}}"
+               Style="{StaticResource Icon}"
+               TextColor="{StaticResource OnWallpaperMuted}"
+               FontSize="28"
+               VerticalOptions="Center"
+               IsVisible="{Binding Glyph, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}" />
 
-        <Border Grid.Column="2"
-                Style="{StaticResource IconButton}"
-                WidthRequest="52" HeightRequest="52"
-                VerticalOptions="Start"
-                IsVisible="{Binding Glyph, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}">
-            <Label Text="{Binding Glyph, Source={x:Reference Root}}"
-                   Style="{StaticResource Icon}"
-                   TextColor="White"
-                   FontSize="28" />
-        </Border>
+        <Label Grid.Row="1" Grid.ColumnSpan="2"
+               Margin="0,6,0,0"
+               Text="{Binding Title, Source={x:Reference Root}}"
+               Style="{StaticResource PageTitle}"
+               SemanticProperties.HeadingLevel="Level1" />
+
+        <Label Grid.Row="2" Grid.ColumnSpan="2"
+               Margin="0,2,0,0"
+               Text="{Binding Subtitle, Source={x:Reference Root}}"
+               Style="{StaticResource OnWallpaperText}"
+               TextColor="{StaticResource OnWallpaperMuted}"
+               IsVisible="{Binding Subtitle, Source={x:Reference Root}, Converter={StaticResource IsNotEmpty}}" />
     </Grid>
 </ContentView>

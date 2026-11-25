@@ -1,8 +1,8 @@
 namespace EkseemMaarNet.Controls;
 
 /// <summary>
-/// The monstera wallpaper, edge to edge, with a dark green gradient on top so white text stays readable.
-/// Home uses a lighter middle so the tiles show more of the leaves.
+/// The monstera wallpaper, edge to edge, with a dark green scrim on top. Text sits straight on it,
+/// so the scrim is strong enough for white text; Home keeps a slightly lighter middle to show the leaves.
 /// </summary>
 public sealed class WallpaperBackdrop : Grid
 {
@@ -31,8 +31,8 @@ public sealed class WallpaperBackdrop : Grid
     private void UpdateShade()
     {
         var (top, middle, bottom, middleAt) = IsHome
-            ? ("#99062A16", "#33062A16", "#B3062A16", 0.45f)
-            : ("#B3062A16", "#4D062A16", "#B3062A16", 0.35f);
+            ? ("#B3062A16", "#7A062A16", "#CC062A16", 0.45f)
+            : ("#CC062A16", "#8C062A16", "#D1062A16", 0.4f);
 
         _shade.Background = new LinearGradientBrush(
             [
