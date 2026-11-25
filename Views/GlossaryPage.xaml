@@ -19,7 +19,7 @@
                                  Glyph="{x:Static models:Icons.Book}"
                                  BackCommand="{Binding BackCommand}" />
 
-            <Border Grid.Row="1" Style="{StaticResource SearchField}" Margin="16,0,16,12" Padding="14,2"
+            <Border Grid.Row="1" Style="{StaticResource SearchField}" Margin="16,0,16,8" Padding="14,2"
                     MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
                     <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource SearchIcon}" />
@@ -30,7 +30,7 @@
             <controls:FadeHost Grid.Row="2">
                 <CollectionView x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
+                        <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="32" VerticalItemSpacing="0" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
                         <BoxView HeightRequest="4" Color="Transparent" />
@@ -38,18 +38,18 @@
                     <CollectionView.EmptyView>
                         <Label Text="No matching terms."
                                Style="{StaticResource OnWallpaperText}"
-                               HorizontalTextAlignment="Center"
-                               Padding="24,40" />
+                               Padding="0,32" />
                     </CollectionView.EmptyView>
+                    <!-- A plain definition list on the leaves: term, meaning, detail, then a thin rule -->
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:GlossaryEntry">
-                            <Border Style="{StaticResource Card}">
-                                <VerticalStackLayout Spacing="4">
-                                    <Label Text="{Binding Term}" Style="{StaticResource SectionTitle}" FontSize="22" />
-                                    <Label Text="{Binding Meaning}" Style="{StaticResource ItemName}" />
-                                    <Label Text="{Binding Detail}" Style="{StaticResource Subtle}" IsVisible="{Binding HasDetail}" />
-                                </VerticalStackLayout>
-                            </Border>
+                            <VerticalStackLayout Spacing="4" Padding="0,14,0,0">
+                                <Label Text="{Binding Term}" FontFamily="OswaldSemiBold" FontSize="{OnIdiom Phone=22, Tablet=26, Default=22}" TextColor="White" />
+                                <Label Text="{Binding Meaning}" Style="{StaticResource ItemName}" TextColor="White" />
+                                <Label Text="{Binding Detail}" Style="{StaticResource OnWallpaperText}" TextColor="{StaticResource OnWallpaperMuted}"
+                                       FontSize="{OnIdiom Phone=14, Tablet=16, Default=14}" IsVisible="{Binding HasDetail}" />
+                                <BoxView Style="{StaticResource WallpaperRule}" Margin="0,14,0,0" />
+                            </VerticalStackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.Footer>

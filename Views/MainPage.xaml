@@ -15,34 +15,29 @@
         <Grid RowDefinitions="Auto,Auto,*"
               SafeAreaEdges="Container">
 
-            <!-- Brand bar (the original white bar, now a floating card) -->
-            <Border Grid.Row="0" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
-                    Margin="16,10,16,0"
-                    Padding="18,8"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 18"
-                    BackgroundColor="White"
-                    HorizontalOptions="Fill">
-                <Border.Shadow>
-                    <Shadow Brush="Black" Opacity="0.25" Radius="14" Offset="0,4" />
-                </Border.Shadow>
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
-                    <Image Source="logo_green.png" HeightRequest="40" WidthRequest="40" />
-                    <Label Text="EKSEEM MAAR NET"
-                           Style="{StaticResource BrandTitle}"
-                           FontSize="{OnIdiom Phone=26, Tablet=32, Default=26}"
-                           TextColor="{StaticResource EkseemGreen}"
-                           VerticalOptions="Center"
-                           SemanticProperties.HeadingLevel="Level1" />
-                </HorizontalStackLayout>
-            </Border>
+            <!-- Masthead: the original logo and Oswald wordmark, straight on the leaves -->
+            <HorizontalStackLayout Grid.Row="0"
+                                   MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
+                                   Padding="16,14,16,0"
+                                   Spacing="10">
+                <Image Source="logo_white.png"
+                       HeightRequest="{OnIdiom Phone=34, Tablet=42, Default=34}"
+                       WidthRequest="{OnIdiom Phone=34, Tablet=42, Default=34}"
+                       VerticalOptions="Center" />
+                <Label Text="EKSEEM MAAR NET"
+                       Style="{StaticResource BrandTitle}"
+                       FontSize="{OnIdiom Phone=28, Tablet=36, Default=28}"
+                       VerticalOptions="Center"
+                       SemanticProperties.HeadingLevel="Level1" />
+            </HorizontalStackLayout>
 
             <!-- Search: "is this OK for eczema?" -->
-            <VerticalStackLayout Grid.Row="1" Padding="16,14,16,6" Spacing="8" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
+            <VerticalStackLayout Grid.Row="1" Padding="16,4,16,10" Spacing="14"
+                                 MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}">
                 <Label Text="Your family's quick guide to living with eczema"
                        Style="{StaticResource OnWallpaperText}"
-                       HorizontalTextAlignment="Center" />
-                <Border Style="{StaticResource SearchField}" Padding="14,2,6,2">
+                       TextColor="{StaticResource OnWallpaperMuted}" />
+                <Border Style="{StaticResource SearchField}" Padding="14,2,4,2">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                         <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource SearchIcon}" />
                         <Entry Grid.Column="1"
@@ -53,7 +48,6 @@
                                SemanticProperties.Description="Search all eczema information" />
                         <Border Grid.Column="2"
                                 Style="{StaticResource IconButton}"
-                                BackgroundColor="Transparent"
                                 IsVisible="{Binding IsSearching}"
                                 SemanticProperties.Description="Clear search">
                             <Label Text="{x:Static models:Icons.Dismiss}"
@@ -76,48 +70,47 @@
                                 ItemsSource="{Binding Categories}"
                                 SelectionMode="None">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="8" VerticalItemSpacing="8" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
-                        <VerticalStackLayout Padding="0,8,0,10">
-                            <!-- Today's affirmation (rotates daily from the Motivation page) -->
-                            <Border Style="{StaticResource GlassPanel}" Padding="16,12"
-                                    IsVisible="{Binding Affirmation, Converter={StaticResource IsNotEmpty}}"
-                                    SemanticProperties.Description="{Binding Affirmation, StringFormat='Today\'s affirmation: {0}'}">
-                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                    <Label Text="{x:Static models:Icons.Sparkle}" Style="{StaticResource Icon}" FontSize="22" TextColor="White" VerticalOptions="Center" />
-                                    <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                        <Label Text="Today's affirmation" Style="{StaticResource Overline}" TextColor="{StaticResource OnWallpaperMuted}" />
-                                        <Label Text="{Binding Affirmation}" FontFamily="OpenSansSemibold" FontSize="{OnIdiom Phone=16, Tablet=19, Default=16}" TextColor="White" FontAttributes="Italic" />
-                                    </VerticalStackLayout>
-                                </Grid>
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding OpenAffirmationsCommand}" />
-                                </Border.GestureRecognizers>
-                            </Border>
+                        <!-- Today's affirmation (rotates daily from the Motivation page) -->
+                        <VerticalStackLayout Padding="0,8,0,18" Spacing="4"
+                                             IsVisible="{Binding Affirmation, Converter={StaticResource IsNotEmpty}}"
+                                             SemanticProperties.Description="{Binding Affirmation, StringFormat='Today\'s affirmation: {0}'}">
+                            <Label Text="Today's affirmation"
+                                   Style="{StaticResource RatingText}"
+                                   TextColor="{StaticResource OnWallpaperMuted}" />
+                            <Label Text="{Binding Affirmation}"
+                                   FontFamily="OswaldRegular"
+                                   FontSize="{OnIdiom Phone=22, Tablet=28, Default=22}"
+                                   TextColor="White" />
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenAffirmationsCommand}" />
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
                     </CollectionView.Header>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Category">
-                            <Border Style="{StaticResource GlassPanel}"
-                                    Margin="0"
-                                    Padding="8,14"
-                                    MinimumHeightRequest="{OnIdiom Phone=118, Tablet=170, Default=118}"
+                            <!-- Solid tile: icon top-left, name bottom-left -->
+                            <Border Style="{StaticResource Tile}"
+                                    MinimumHeightRequest="{OnIdiom Phone=104, Tablet=150, Default=104}"
                                     SemanticProperties.Description="{Binding Title}"
                                     SemanticProperties.Hint="{Binding Subtitle}">
-                                <VerticalStackLayout Spacing="8" VerticalOptions="Center">
+                                <Grid RowDefinitions="*,Auto" RowSpacing="10">
                                     <Label Text="{Binding Glyph}"
                                            Style="{StaticResource Icon}"
-                                           FontSize="{OnIdiom Phone=36, Tablet=52, Default=36}"
-                                           TextColor="White" />
-                                    <Label Text="{Binding DisplayTileTitle}"
+                                           FontSize="{OnIdiom Phone=30, Tablet=42, Default=30}"
+                                           TextColor="White"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Start" />
+                                    <Label Grid.Row="1"
+                                           Text="{Binding DisplayTileTitle}"
                                            FontFamily="OpenSansSemibold"
                                            FontSize="{OnIdiom Phone=15, Tablet=19, Default=15}"
                                            TextColor="White"
-                                           HorizontalTextAlignment="Center"
                                            LineBreakMode="WordWrap"
                                            MaxLines="2" />
-                                </VerticalStackLayout>
+                                </Grid>
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding OpenCategoryCommand, Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}}"
@@ -127,35 +120,30 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.Footer>
-                        <VerticalStackLayout Padding="0,18,0,24" Spacing="14">
+                        <VerticalStackLayout Padding="0,14,0,28" Spacing="14">
+                            <BoxView Style="{StaticResource WallpaperRule}" />
                             <!-- Glossary + About (the original "Glossary" link at the bottom) -->
-                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
-                                <Border Style="{StaticResource GlassPill}" SemanticProperties.Description="Glossary">
-                                    <HorizontalStackLayout Spacing="8">
-                                        <Image Source="sprout_white.png" HeightRequest="24" WidthRequest="24" />
-                                        <Label Text="Glossary" Style="{StaticResource PillText}" />
-                                    </HorizontalStackLayout>
-                                    <Border.GestureRecognizers>
+                            <HorizontalStackLayout Spacing="28">
+                                <HorizontalStackLayout Spacing="8" MinimumHeightRequest="44" SemanticProperties.Description="Glossary">
+                                    <Image Source="sprout_white.png" HeightRequest="22" WidthRequest="22" VerticalOptions="Center" />
+                                    <Label Text="Glossary" Style="{StaticResource TextLink}" />
+                                    <HorizontalStackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding GlossaryCommand}" />
-                                    </Border.GestureRecognizers>
-                                </Border>
-                                <Border Style="{StaticResource GlassPill}" SemanticProperties.Description="About and disclaimer">
-                                    <HorizontalStackLayout Spacing="8">
-                                        <Label Text="{x:Static models:Icons.Info}" Style="{StaticResource Icon}" FontSize="22" TextColor="White" />
-                                        <Label Text="About" Style="{StaticResource PillText}" />
-                                    </HorizontalStackLayout>
-                                    <Border.GestureRecognizers>
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="8" MinimumHeightRequest="44" SemanticProperties.Description="About and disclaimer">
+                                    <Label Text="{x:Static models:Icons.Info}" Style="{StaticResource Icon}" FontSize="20" TextColor="White" />
+                                    <Label Text="About" Style="{StaticResource TextLink}" />
+                                    <HorizontalStackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding AboutCommand}" />
-                                    </Border.GestureRecognizers>
-                                </Border>
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                </HorizontalStackLayout>
                             </HorizontalStackLayout>
                             <Label Text="{Binding Disclaimer}"
-                                   Style="{StaticResource OnWallpaperText}"
-                                   FontSize="12"
-                                   TextColor="{StaticResource OnWallpaperMuted}"
-                                   HorizontalTextAlignment="Center"
-                                   Margin="8,0" />
-                            <Label HorizontalTextAlignment="Center" FontSize="12" TextColor="{StaticResource OnWallpaperFaint}">
+                                   FontSize="13"
+                                   LineHeight="1.3"
+                                   TextColor="{StaticResource OnWallpaperMuted}" />
+                            <Label FontSize="13" TextColor="{StaticResource OnWallpaperFaint}">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="Information last reviewed " />
@@ -174,38 +162,39 @@
                                 ItemsSource="{Binding Results}"
                                 SelectionMode="None">
                     <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
-                        <BoxView HeightRequest="6" Color="Transparent" />
+                        <BoxView HeightRequest="4" Color="Transparent" />
                     </CollectionView.Header>
                     <CollectionView.EmptyView>
-                        <VerticalStackLayout Padding="24,40" Spacing="8" IsVisible="{Binding SearchDone}">
-                            <Label Text="{x:Static models:Icons.Search}" Style="{StaticResource Icon}" FontSize="40" TextColor="White" />
-                            <Label Text="Nothing found" FontFamily="OswaldRegular" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" />
+                        <VerticalStackLayout Padding="16,32" Spacing="8" IsVisible="{Binding SearchDone}">
+                            <Label Text="Nothing found" Style="{StaticResource OnWallpaperHeading}" FontSize="24" />
                             <Label Text="Try a shorter word, like 'milk' instead of 'full cream milk', or have a look through the categories."
-                                   Style="{StaticResource OnWallpaperText}" HorizontalTextAlignment="Center" />
+                                   Style="{StaticResource OnWallpaperText}" />
                         </VerticalStackLayout>
                     </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="services:SearchResult">
-                            <Border Style="{StaticResource Card}" Margin="16,0" Padding="16,12">
-                                <Grid ColumnDefinitions="28,*,Auto" ColumnSpacing="10">
+                            <Border Style="{StaticResource Card}" Margin="16,0" Padding="16,14">
+                                <Grid ColumnDefinitions="26,*,Auto" ColumnSpacing="10">
                                     <Label Text="{Binding Item.RatingGlyph}"
                                            Style="{StaticResource RatingGlyph}"
                                            controls:RatingTint.Rating="{Binding Item.Rating}" />
-                                    <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <VerticalStackLayout Grid.Column="1" Spacing="3">
+                                        <Label Text="{Binding Item.Name}" Style="{StaticResource ItemName}" />
                                         <Label Text="{Binding Item.RatingLabel}"
-                                               Style="{StaticResource Overline}"
+                                               Style="{StaticResource RatingText}"
                                                controls:RatingTint.Rating="{Binding Item.Rating}"
                                                IsVisible="{Binding Item.HasRating}" />
-                                        <Label Text="{Binding Item.Name}" Style="{StaticResource ItemName}" />
-                                        <Label Text="{Binding Item.Note}" Style="{StaticResource Subtle}" IsVisible="{Binding Item.HasNote}" MaxLines="4" LineBreakMode="TailTruncation" />
-                                        <Label FontSize="12" Margin="0,4,0,0"
-                                               TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}">
+                                        <Label Text="{Binding Item.Note}" Style="{StaticResource Subtle}" IsVisible="{Binding Item.HasNote}"
+                                               Margin="0,2,0,0" MaxLines="4" LineBreakMode="TailTruncation" />
+                                        <Label FontSize="13" Margin="0,6,0,0"
+                                               TextColor="{AppThemeBinding Light={StaticResource SubtleTextLight}, Dark={StaticResource SubtleTextDark}}">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="{Binding Category.Title}" FontFamily="OpenSansSemibold" />
+                                                    <Span Text="{Binding Category.Title}" FontFamily="OpenSansSemibold"
+                                                          TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
                                                     <Span Text="  ·  " />
                                                     <Span Text="{Binding SectionTitle}" />
                                                 </FormattedString>
@@ -234,28 +223,27 @@
         </Grid>
 
         <!-- First-launch welcome: what this app is (and isn't) -->
-        <Grid IsVisible="{Binding ShowWelcome}" BackgroundColor="#B3061A0F" SafeAreaEdges="None">
+        <Grid IsVisible="{Binding ShowWelcome}" BackgroundColor="#CC061A0F" SafeAreaEdges="None">
             <Border Style="{StaticResource Card}"
-                    Margin="24"
-                    Padding="24,22"
+                    Margin="20"
+                    Padding="24,24,24,20"
                     MaximumWidthRequest="480"
                     VerticalOptions="Center">
                 <VerticalStackLayout Spacing="14">
-                    <Image Source="logo_green.png" HeightRequest="56" WidthRequest="56" HorizontalOptions="Center" />
+                    <Image Source="logo_green.png" HeightRequest="44" WidthRequest="44" HorizontalOptions="Start" />
                     <Label Text="Welcome to Ekseem Maar Net"
                            Style="{StaticResource SectionTitle}"
-                           FontSize="{OnIdiom Phone=22, Tablet=26, Default=22}"
-                           HorizontalTextAlignment="Center"
+                           FontSize="{OnIdiom Phone=26, Tablet=30, Default=26}"
                            SemanticProperties.HeadingLevel="Level1" />
-                    <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
+                    <Label Style="{StaticResource Body}"
                            Text="We made this app for our brother, who has had eczema his whole life. It's a family passion project, so the whole family can quickly check what helps and what doesn't." />
-                    <Label Style="{StaticResource Body}" HorizontalTextAlignment="Center"
+                    <Label Style="{StaticResource Body}"
                            Text="It's not a medical app. Everything in here is general info we gathered from public guidelines and research. It isn't medical advice." />
-                    <Label Style="{StaticResource Subtle}" HorizontalTextAlignment="Center"
+                    <Label Style="{StaticResource Subtle}"
                            Text="For anything about treatment, always check with a doctor, dermatologist or pharmacist." />
-                    <Border Style="{StaticResource BrandButton}" Margin="0,6,0,0" Padding="28,12"
+                    <Border Style="{StaticResource BrandButton}" Margin="0,8,0,0"
                             SemanticProperties.Description="Got it, continue">
-                        <Label Text="Got it" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" />
+                        <Label Text="Got it" FontFamily="OpenSansSemibold" FontSize="16" TextColor="White" HorizontalOptions="Center" />
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding DismissWelcomeCommand}" />
                         </Border.GestureRecognizers>

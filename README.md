@@ -93,6 +93,16 @@ The shared setup (Java or Xcode, .NET, NuGet cache, MAUI workload) lives in `.gi
 - One `CategoryPage` template shows every category: one column on phones, two on tablets
 - Icons: [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons) by Microsoft (MIT)
 
+### Design
+The look comes from the original app: the monstera wallpaper, the greens, and the Oswald "EKSEEM MAAR NET" wordmark. A few rules keep it from drifting into a generic template look:
+- Short text (titles, the affirmation, the glossary) sits straight on the wallpaper. Long reading text sits on one solid card per section.
+- Home tiles are solid deep green, with the icon top-left and the name bottom-left, not frosted glass with everything centred.
+- No glass or frosted panels, no drop shadows, and no gradients apart from the wallpaper's dark scrim.
+- Corner radius by role: 12 for cards, 10 for the search box and buttons. Only the filter chips are pill-shaped.
+- Hierarchy comes from Oswald (titles) against Open Sans (reading), and from size and weight. No uppercase, letter-spaced labels.
+- Colour has a job: green is the brand and links, the rating colours mean something, and red is only for urgent sections. Colours are named by role in `Resources/Styles/Colors.xaml`.
+- "Call" (helplines) is a solid button. "Learn more" is a quiet text link.
+
 ### Project layout
 ```
 Models/ContentModels.cs     content format (Category, Section, Item, Rating) and JSON source generation
