@@ -20,7 +20,7 @@
                                  BackCommand="{Binding BackCommand}" />
 
             <controls:FadeHost Grid.Row="1">
-            <CollectionView MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
+                <CollectionView MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                 x:Name="SectionsList"
                                 Margin="16,0"
                                 ItemsSource="{Binding Sections}"

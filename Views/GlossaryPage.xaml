@@ -28,13 +28,19 @@
             </Border>
 
             <controls:FadeHost Grid.Row="2">
-            <CollectionView x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
+                <CollectionView x:Name="EntriesList" MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}" Margin="16,0" ItemsSource="{Binding Entries}" SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="1" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
                         <BoxView HeightRequest="4" Color="Transparent" />
                     </CollectionView.Header>
+                    <CollectionView.EmptyView>
+                        <Label Text="No matching terms."
+                               Style="{StaticResource OnWallpaperText}"
+                               HorizontalTextAlignment="Center"
+                               Padding="24,40" />
+                    </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:GlossaryEntry">
                             <Border Style="{StaticResource Card}">

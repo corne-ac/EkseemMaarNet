@@ -113,6 +113,10 @@ dotnet build -t:Run -f net10.0-android    # Android emulator or device
 ```
 The repo has its own `nuget.config` (nuget.org only), so it restores without any private feeds.
 
+Each .NET for iOS release needs one specific Xcode version. If the iOS build says it "requires Xcode 27.x", run `sudo dotnet workload update` (or install the Xcode it asks for). CI picks the Xcode version in `.github/actions/setup-maui`.
+
+iOS 27 only launches apps that use the UIScene lifecycle, so `Platforms/iOS/Info.plist` declares a scene manifest and `Platforms/iOS/SceneDelegate.cs` hands scenes to MAUI. Don't remove them.
+
 Debug-only helpers for checking the UI (they're not in Release builds):
 - `EMN_START_ROUTE` opens a page on launch, e.g. `CategoryPage?id=food`
 - `EMN_START_SEARCH` fills in the home search

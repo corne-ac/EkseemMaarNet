@@ -10,8 +10,8 @@ inputs:
     description: .NET SDK version
     default: 10.0.x
   xcode-version:
-    description: Xcode to select (ios only). Must match what the MAUI iOS workload requires (.NET for iOS 27 needs Xcode 27).
-    default: "27.0"
+    description: Xcode to select (ios only). Must match what the MAUI iOS workload requires (the current .NET for iOS pack needs Xcode 27.2).
+    default: "27.2"
 
 runs:
   using: composite

@@ -89,11 +89,11 @@ public sealed class ContentItem
     [JsonIgnore] public string TagText => string.Join("  ·  ", Tags);
     [JsonIgnore] public bool IsPhone => LinkRules.IsPhone(Url);
     [JsonIgnore] public string LinkLabel => IsPhone ? "Call " + FormatPhone(Url![4..]) : "Learn more";
+    [JsonIgnore] public string LinkGlyph => IsPhone ? Icons.Call : Icons.Open;
 
     // South African toll-free style: 0800 567 567. Short codes (10177) stay as they are.
     private static string FormatPhone(string digits) =>
         digits.Length == 10 ? $"{digits[..4]} {digits[4..7]} {digits[7..]}" : digits;
-    [JsonIgnore] public string LinkGlyph => IsPhone ? Icons.Call : Icons.Open;
 }
 
 public sealed class SourceLink

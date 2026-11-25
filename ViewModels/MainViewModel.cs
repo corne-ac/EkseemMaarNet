@@ -8,13 +8,13 @@ namespace EkseemMaarNet.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-    private readonly ContentService content;
+    private readonly ContentService _content;
     private CancellationTokenSource? _searchCts;
     private string _affirmationsCategoryId = "";
 
     public MainViewModel(ContentService content)
     {
-        this.content = content;
+        _content = content;
         // Newer content downloaded in the background: refresh tiles, footer and any open search.
         content.LibraryUpdated += (_, _) => MainThread.BeginInvokeOnMainThread(async () =>
         {
@@ -67,7 +67,7 @@ public partial class MainViewModel : ObservableObject
 
     private async Task ApplyLibraryAsync()
     {
-        var library = await content.GetLibraryAsync();
+        var library = await _content.GetLibraryAsync();
         Categories = library.Categories;
         LastReviewed = library.LastReviewed;
         Disclaimer = library.Disclaimer;
@@ -78,7 +78,7 @@ public partial class MainViewModel : ObservableObject
     public async Task RefreshAffirmationAsync()
     {
         // The content marks its affirmations list with "style": "affirmations".
-        var library = await content.GetLibraryAsync();
+        var library = await _content.GetLibraryAsync();
         var (category, section) = library.Categories
             .SelectMany(c => c.Sections, (c, s) => (Category: c, Section: s))
             .FirstOrDefault(x => x.Section.IsAffirmations && x.Section.Items.Count > 0);
@@ -112,7 +112,7 @@ public partial class MainViewModel : ObservableObject
         try
         {
             await Task.Delay(180, cts.Token); // debounce while typing
-            var hits = await content.SearchAsync(query);
+            var hits = await _content.SearchAsync(query);
             if (cts.IsCancellationRequested)
                 return;
 

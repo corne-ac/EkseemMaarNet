@@ -42,8 +42,14 @@ public sealed class ContentService
     private static string SourceUrl => RemoteUrl;
 #endif
 
-    // Loaded off the UI thread: reading and parsing ~100 KB of JSON shouldn't hold up the first frame.
-    public async Task<ContentLibrary> GetLibraryAsync() => _current ??= await (_loading ??= Task.Run(LoadLocalAsync));
+    /// <summary>The newest content this app has. The first call loads it off the UI thread.</summary>
+    public Task<ContentLibrary> GetLibraryAsync() =>
+        _current is { } current ? Task.FromResult(current) : _loading ??= LoadAsync();
+
+    // Reading and parsing ~100 KB of JSON shouldn't hold up the first frame.
+    // "??=" so a download that finished first is never replaced by the older local copy.
+    private async Task<ContentLibrary> LoadAsync() =>
+        _current ??= await Task.Run(LoadLocalAsync).ConfigureAwait(false);
 
     public async Task<Category?> GetCategoryAsync(string id)
     {
@@ -155,6 +161,7 @@ public sealed class ContentService
         ContentLibrary bundled;
         await using (var stream = await FileSystem.OpenAppPackageFileAsync(FileName))
             bundled = await JsonSerializer.DeserializeAsync(stream, ContentJsonContext.Default.ContentLibrary) ?? new ContentLibrary();
+        Normalize(bundled);
 
         try
         {
