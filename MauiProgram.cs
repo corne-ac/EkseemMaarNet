@@ -1,53 +1,60 @@
-﻿using EkseemMaarNet.ViewModels;
+using EkseemMaarNet.Services;
+using EkseemMaarNet.ViewModels;
+using EkseemMaarNet.Views;
 using Microsoft.Extensions.Logging;
 
-namespace EkseemMaarNet
+namespace EkseemMaarNet;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("Oswald-Regular.ttf", "OswaldRegular");
-                    fonts.AddFont("Oswald-SemiBold.ttf", "OswaldSemiBold");
-                });
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("Oswald-Regular.ttf", "OswaldRegular");
+                fonts.AddFont("Oswald-SemiBold.ttf", "OswaldSemiBold");
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("FluentSystemIcons-Regular.ttf", "FluentIcons");
+            });
 
-            builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<MainViewModel>();
+        RemoveEntryChrome();
 
-            builder.Services.AddTransient<MainFactorsPage>();
-            builder.Services.AddTransient<MainFactorsViewModel>();
+        builder.Services.AddSingleton<ContentService>();
 
-            builder.Services.AddTransient<GlossaryPage>();
-            builder.Services.AddTransient<GlossaryViewModel>();
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<MainViewModel>();
 
-            builder.Services.AddTransient<WonderCuresPage>();
-            builder.Services.AddTransient<WonderCuresViewModel>();
+        builder.Services.AddTransient<CategoryPage>();
+        builder.Services.AddTransient<CategoryViewModel>();
 
-            builder.Services.AddTransient<TreatmentPage>();
-            builder.Services.AddTransient<TreatmentViewModel>();
+        builder.Services.AddTransient<GlossaryPage>();
+        builder.Services.AddTransient<GlossaryViewModel>();
 
-            builder.Services.AddTransient<RemediesPage>();
-            builder.Services.AddTransient<RemediesViewModel>();
-
-            builder.Services.AddTransient<SupplementsPage>();
-            builder.Services.AddTransient<SupplementsViewModel>();
-
-            builder.Services.AddTransient<CausesPage>();
-            builder.Services.AddTransient<CausesViewModel>();
-
-            builder.Services.AddTransient<BeveragesPage>();
-            builder.Services.AddTransient<BeveragesViewModel>();
+        builder.Services.AddTransient<AboutPage>();
+        builder.Services.AddTransient<AboutViewModel>();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
-        }
+        return builder.Build();
+    }
+
+    // Entries sit inside our own rounded cards, so strip the native border/underline.
+    private static void RemoveEntryChrome()
+    {
+        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoChrome", (handler, _) =>
+        {
+#if IOS
+            handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
+#elif ANDROID
+            handler.PlatformView.BackgroundTintList =
+                Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+#endif
+        });
     }
 }
