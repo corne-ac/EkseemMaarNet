@@ -29,6 +29,9 @@
     <Color x:Key="OnWallpaperFaint">#A6FFFFFF</Color>
     <Color x:Key="OnWallpaperLine">#40FFFFFF</Color>
 
+    <!-- Home tiles: a solid deep green (not frosted glass), so the leaves only show at the edges -->
+    <Color x:Key="TileFill">#E00E3B24</Color>
+
     <!-- Urgent sections -->
     <Color x:Key="AlertRed">#B3261E</Color>
     <Color x:Key="AlertRedDark">#FF8A80</Color>

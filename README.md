@@ -95,7 +95,8 @@ The shared setup (Java or Xcode, .NET, NuGet cache, MAUI workload) lives in `.gi
 
 ### Design
 The look comes from the original app: the monstera wallpaper, the greens, and the Oswald "EKSEEM MAAR NET" wordmark. A few rules keep it from drifting into a generic template look:
-- Short text (titles, tiles, the affirmation, the glossary) sits straight on the wallpaper. Long reading text sits on one solid card per section.
+- Short text (titles, the affirmation, the glossary) sits straight on the wallpaper. Long reading text sits on one solid card per section.
+- Home tiles are solid deep green, with the icon top-left and the name bottom-left, not frosted glass with everything centred.
 - No glass or frosted panels, no drop shadows, and no gradients apart from the wallpaper's dark scrim.
 - Corner radius by role: 12 for cards, 10 for the search box and buttons. Only the filter chips are pill-shaped.
 - Hierarchy comes from Oswald (titles) against Open Sans (reading), and from size and weight. No uppercase, letter-spaced labels.

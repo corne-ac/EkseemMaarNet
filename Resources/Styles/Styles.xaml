@@ -3,6 +3,7 @@
 <!--
     Design rules (kept deliberately small, see README "Design"):
     - Text sits straight on the wallpaper where it's short; long reading text sits on one solid surface.
+    - Home tiles are solid deep green (not glass), left-aligned like index cards.
     - No glass, no drop shadows, no gradients beyond the wallpaper scrim.
     - Radii by role: 12 for reading surfaces, 10 for inputs and buttons, full pill only for filter chips.
     - Hierarchy from Oswald (titles) against Open Sans (reading), and from weight and size, not capitals.
@@ -111,6 +112,14 @@
         <Setter Property="StrokeShape" Value="RoundRectangle 12" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource CardLight}, Dark={StaticResource CardDark}}" />
         <Setter Property="Padding" Value="18,18" />
+    </Style>
+
+    <!-- Home category tile: solid, flat, left-aligned like an index card -->
+    <Style x:Key="Tile" TargetType="Border">
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+        <Setter Property="BackgroundColor" Value="{StaticResource TileFill}" />
+        <Setter Property="Padding" Value="12,12,10,12" />
     </Style>
 
     <!-- Thin rule between groups inside a card -->

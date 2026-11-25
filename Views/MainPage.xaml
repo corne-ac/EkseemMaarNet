@@ -62,7 +62,7 @@
                 </Border>
             </VerticalStackLayout>
 
-            <!-- Category tiles: white icon and name on the leaves, as in the original app -->
+            <!-- Category tiles -->
             <controls:FadeHost Grid.Row="2" IsVisible="{Binding IsSearching, Converter={StaticResource InvertBool}}">
                 <CollectionView MaximumWidthRequest="{x:Static controls:Responsive.MaxContentWidth}"
                                 x:Name="Tiles"
@@ -70,7 +70,7 @@
                                 ItemsSource="{Binding Categories}"
                                 SelectionMode="None">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="8" VerticalItemSpacing="4" />
+                        <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="8" VerticalItemSpacing="8" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.Header>
                         <!-- Today's affirmation (rotates daily from the Motivation page) -->
@@ -91,29 +91,32 @@
                     </CollectionView.Header>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Category">
-                            <VerticalStackLayout Spacing="8"
-                                                 Padding="4,14"
-                                                 BackgroundColor="Transparent"
-                                                 MinimumHeightRequest="{OnIdiom Phone=104, Tablet=150, Default=104}"
-                                                 SemanticProperties.Description="{Binding Title}"
-                                                 SemanticProperties.Hint="{Binding Subtitle}">
-                                <Label Text="{Binding Glyph}"
-                                       Style="{StaticResource Icon}"
-                                       FontSize="{OnIdiom Phone=38, Tablet=54, Default=38}"
-                                       TextColor="White" />
-                                <Label Text="{Binding DisplayTileTitle}"
-                                       FontFamily="OpenSansSemibold"
-                                       FontSize="{OnIdiom Phone=15, Tablet=19, Default=15}"
-                                       TextColor="White"
-                                       HorizontalTextAlignment="Center"
-                                       LineBreakMode="WordWrap"
-                                       MaxLines="2" />
-                                <VerticalStackLayout.GestureRecognizers>
+                            <!-- Solid tile: icon top-left, name bottom-left -->
+                            <Border Style="{StaticResource Tile}"
+                                    MinimumHeightRequest="{OnIdiom Phone=104, Tablet=150, Default=104}"
+                                    SemanticProperties.Description="{Binding Title}"
+                                    SemanticProperties.Hint="{Binding Subtitle}">
+                                <Grid RowDefinitions="*,Auto" RowSpacing="10">
+                                    <Label Text="{Binding Glyph}"
+                                           Style="{StaticResource Icon}"
+                                           FontSize="{OnIdiom Phone=30, Tablet=42, Default=30}"
+                                           TextColor="White"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Start" />
+                                    <Label Grid.Row="1"
+                                           Text="{Binding DisplayTileTitle}"
+                                           FontFamily="OpenSansSemibold"
+                                           FontSize="{OnIdiom Phone=15, Tablet=19, Default=15}"
+                                           TextColor="White"
+                                           LineBreakMode="WordWrap"
+                                           MaxLines="2" />
+                                </Grid>
+                                <Border.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding OpenCategoryCommand, Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}}"
                                         CommandParameter="{Binding .}" />
-                                </VerticalStackLayout.GestureRecognizers>
-                            </VerticalStackLayout>
+                                </Border.GestureRecognizers>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.Footer>
